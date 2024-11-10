@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://ckjq718ha6l0y"]
+
+[ext_resource type="PackedScene" uid="uid://bsguup0m8xqxp" path="res://FirstPersonDemo/Player/Player.tscn" id="1_4k8ws"]
+[ext_resource type="Script" path="res://FirstPersonDemo/world.gd" id="1_qa26g"]
+[ext_resource type="Script" path="res://FirstPersonDemo/Player/player.gd" id="2_6bhd4"]
+[ext_resource type="Script" path="res://addons/Mirror/Mirror/Mirror.gd" id="3_awgqt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8k3s8"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eycc1"]
+size = Vector3(10, 1, 10)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uw0bk"]
+
+[sub_resource type="Sky" id="Sky_pfmpx"]
+sky_material = SubResource("ProceduralSkyMaterial_uw0bk")
+
+[sub_resource type="Environment" id="Environment_t8b36"]
+background_mode = 2
+sky = SubResource("Sky_pfmpx")
+
+[node name="DemoWorld" type="Node3D"]
+script = ExtResource("1_qa26g")
+
+[node name="Player" parent="." instance=ExtResource("1_4k8ws")]
+script = ExtResource("2_6bhd4")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6365, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_8k3s8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_eycc1")
+
+[node name="Mirror" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.215, -3.271)
+script = ExtResource("3_awgqt")
+ResolutionPerUnit = 300
+MirrorColor = Color(0.830077, 1, 0.967505, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_t8b36")
