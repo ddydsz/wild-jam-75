@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://b4qqfca73ep8s"]
+
+[ext_resource type="Script" path="res://EcholocationDemo/world.gd" id="1_b53oc"]
+[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://EcholocationDemo/echo_material.tres" id="2_hfjjq"]
+[ext_resource type="Script" path="res://EcholocationDemo/MainCamera.gd" id="3_y4y47"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_i02xw"]
+material = ExtResource("2_hfjjq")
+
+[sub_resource type="BoxMesh" id="BoxMesh_w3rho"]
+material = ExtResource("2_hfjjq")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xtqgi"]
+material = ExtResource("2_hfjjq")
+
+[sub_resource type="Environment" id="Environment_hrfn1"]
+background_mode = 1
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jt4rw"]
+radius = 0.33
+height = 1.66
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_b53oc")
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.871103, 0, 0.576619)
+mesh = SubResource("SphereMesh_i02xw")
+
+[node name="Box" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.700862, 0, -1.13796)
+mesh = SubResource("BoxMesh_w3rho")
+
+[node name="Box2" type="MeshInstance3D" parent="."]
+transform = Transform3D(6.91691, 0, 0, 0, 1, 0, 0, 0, 12.071, -1.80385, -0.968348, -1.13796)
+mesh = SubResource("BoxMesh_w3rho")
+
+[node name="Cylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.50867, 0, 0, 0, 1, 0, 0, 0, 1.71478, -2.26729, -0.0059576, -2.79218)
+mesh = SubResource("CylinderMesh_xtqgi")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hrfn1")
+
+[node name="Player" type="Node3D" parent="."]
+transform = Transform3D(0.532714, 0, 0.846295, 0, 1, 0, -0.846295, 0, 0.532714, 1.78527, 0.611678, -0.498643)
+script = ExtResource("3_y4y47")
+
+[node name="CameraRod" type="Node3D" parent="Player"]
+
+[node name="MainCamera" type="Camera3D" parent="Player/CameraRod"]
+near = 0.3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/CameraRod"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+mesh = SubResource("CapsuleMesh_jt4rw")
+skeleton = NodePath("../../..")

@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cekxlpdi3spup"]
+
+[ext_resource type="Shader" path="res://echo.gdshader" id="1_i5vu8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_i5vu8")
+shader_parameter/min_distance = 1.5
+shader_parameter/max_distance = 1.6
