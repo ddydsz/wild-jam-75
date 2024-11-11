@@ -3,7 +3,7 @@ extends Camera3D
 @onready var Player = get_parent()
 
 ## Increase this value to give a slower turn speed
-const CAMERA_TURN_SPEED = 200
+@export var LOOK_SENSITIVITY = 200
 
 func _ready():
 	## Tell Godot that we want to handle input
@@ -44,12 +44,12 @@ func _input(event):
 	## We'll use the parent node "Player" to set our left-right rotation
 	## This prevents us from adding the x-rotation to the y-rotation
 	## which would result in a kind of flight-simulator camera
-	Player.set_rotation(look_leftright_rotation(event.relative.x / -CAMERA_TURN_SPEED))
+	Player.set_rotation(look_leftright_rotation(event.relative.x / -LOOK_SENSITIVITY))
 
 	##
 	## Now we can simply set our y-rotation for the camera, and let godot
 	## handle the transformation of both together
-	self.set_rotation(look_updown_rotation(event.relative.y / -CAMERA_TURN_SPEED))
+	self.set_rotation(look_updown_rotation(event.relative.y / -LOOK_SENSITIVITY))
 
 func _enter_tree():
 	"""

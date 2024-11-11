@@ -8,7 +8,7 @@ const PLAYER_MOVE_SPEED := 4
 
 @onready var Camera = $Camera3D
 @onready var GRAVITY = ProjectSettings.get("physics/3d/default_gravity") / 100
-@onready var animations = $character/AnimationPlayer
+@onready var animations = $James/AnimationPlayer
 
 
 func _ready() -> void:
@@ -54,23 +54,22 @@ func blend_animations() -> void:
 		return
 
 	if direction.z < -0.1:
-		play_anim("run-forward")
+		play_anim("Run")
 	elif direction.z > +0.1:
 		play_anim("run-back")
 
 	elif direction.x > +0.1:
-		play_anim("run-right")
+		play_anim("Strafe Walk Right")
 	elif direction.x < -0.1:
-		play_anim("run-left")
+		play_anim("Strafe Walk Left")
 
 	else:
-		play_anim("idle")
+		play_anim("Idle")
 
 
 func _process(_delta: float) -> void:
 	"""
 	Allow the player to move the camera with WASD
-	See Project settings -> Input map for keyboard bindings
 	"""
 	if Input.is_action_just_pressed("action_jump"):
 		self.do_jump()
