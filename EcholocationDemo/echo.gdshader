@@ -4,8 +4,15 @@ render_mode unshaded;
 
 uniform sampler2D depth_texture : hint_depth_texture;
 
-uniform float min_distance;
-uniform float max_distance;
+uniform float pulse_distance;
+uniform vec3 pulse_color : source_color;
+uniform float pulse_length = 0.025;
+uniform float pulse_fade_length = 0.5;
+
+// inverse lerp
+float ilerp(float from, float to, float value){
+  return (value - from) / (to - from);
+}
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -23,10 +30,17 @@ void fragment() {
 	view.xyz /= view.w;
 	float linear_depth = -view.z;
 	
-	float a = step(min_distance, linear_depth) * (1.0 - step(max_distance, linear_depth));
+
+	float d = ilerp(pulse_length, pulse_fade_length, abs(pulse_distance - linear_depth));
+	float i = clamp( smoothstep(1.0, 0.0, d), 0.0, 1.0);
 	
-	ALBEDO = vec3(a);
+	// non-smoothed pulse
+	//float a = step(min_distance, linear_depth) * (1.0 - step(max_distance, linear_depth));
+	
+	ALBEDO = i * pulse_color;
 }
+
+
 
 //void light() {
 	// Called for every pixel for every light affecting the material.
