@@ -55,14 +55,13 @@ func blend_animations() -> void:
 
 	if direction.z < -0.1:
 		play_anim("Run")
-	elif direction.z > +0.1:
-		play_anim("run-back")
+	#elif direction.z > +0.1:
+		#play_anim("run-back")
 
 	elif direction.x > +0.1:
 		play_anim("Strafe Walk Right")
 	elif direction.x < -0.1:
 		play_anim("Strafe Walk Left")
-
 	else:
 		play_anim("Idle")
 
