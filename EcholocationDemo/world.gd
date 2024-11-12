@@ -7,7 +7,8 @@ var echo_material: ShaderMaterial
 var pulse_sources: Array[Vector4];
 var pulse_sources_tex: Texture2DRD = Texture2DRD.new();
 var pulse_elapsed = 0;
-var pulse_last = 0;
+var char_pulse_last = 3;
+var chirp_pulse_last = 0;
 var ambient = 0.0;
 
 # Called when the node enters the scene tree for the first time.
@@ -24,14 +25,32 @@ func _process(delta):
 	# and trigger the code after "pulse update logic"
 	pulse_elapsed += delta;
 	echo_material.set_shader_parameter("pulse_elapsed", pulse_elapsed);
-	if pulse_elapsed > pulse_last + 5:
-		pulse_last = pulse_elapsed;
+
+	var dirty = false;
+	var i = 0;
+	while i < len(pulse_sources):
+		if pulse_sources[i].w - pulse_elapsed > 10:
+			dirty = true;
+			pulse_sources.remove_at(i);
+		else:
+			i += 1;
+
+	if pulse_elapsed > char_pulse_last + 5:
+		char_pulse_last = pulse_elapsed;
 		var cam_pos = $Player/CameraRod/MainCamera.global_position;
-		pulse_sources = [
-			Vector4(cam_pos.x, cam_pos.y, cam_pos.z, pulse_elapsed),
-			Vector4(cam_pos.x, cam_pos.y, cam_pos.z, pulse_elapsed + 0.5),
-		];
+		pulse_sources.push_back(Vector4(cam_pos.x, cam_pos.y, cam_pos.z, pulse_elapsed));
+		pulse_sources.push_back(Vector4(cam_pos.x, cam_pos.y, cam_pos.z, pulse_elapsed + 0.5));
+		dirty = true;
 		
+	if pulse_elapsed > chirp_pulse_last + 8:
+		chirp_pulse_last = pulse_elapsed;
+		pulse_sources.push_back(Vector4(-4.0, 0.0, -4.0, pulse_elapsed));
+		pulse_sources.push_back(Vector4(-4.0, 0.0, -4.0, pulse_elapsed + 0.2));
+		pulse_sources.push_back(Vector4(-4.0, 0.0, -4.0, pulse_elapsed + 0.4));
+		pulse_sources.push_back(Vector4(-4.0, 0.0, -4.0, pulse_elapsed + 0.6));
+		dirty = true;
+
+	if dirty:
 		# pulse update logic
 		echo_material.set_shader_parameter("pulse_sources", make_pulse_sources(pulse_sources));
 
