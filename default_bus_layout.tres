@@ -1,0 +1,10 @@
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://djqkusk3opnlu"]
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_q46nf"]
+resource_name = "Delay"
+tap1_level_db = -14.13
+tap2_level_db = -17.5
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectDelay_q46nf")
+bus/0/effect/0/enabled = true

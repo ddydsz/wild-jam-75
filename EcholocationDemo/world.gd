@@ -1,8 +1,8 @@
 extends Node3D
 
-@onready var sphere : MeshInstance3D = $Sphere
-
 var echo_material: ShaderMaterial
+
+@onready var bat_audio_player : AudioStreamPlayer = $Player/AudioStreamPlayer
 
 var pulse_min_distance = 0.0;
 
@@ -20,5 +20,6 @@ func _process(delta):
 	pulse_min_distance += delta * pulse_speed;
 	if pulse_min_distance > pulse_max_range:
 		pulse_min_distance = 0
+		bat_audio_player.play()
 		
 	echo_material.set_shader_parameter("pulse_distance", pulse_min_distance)
