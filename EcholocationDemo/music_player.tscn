@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bus4porwtn5uk"]
+
+[ext_resource type="AudioStream" uid="uid://j0v6rmygpu2c" path="res://EcholocationDemo/wario-land.mp3" id="1_ejvbc"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_ejvbc")
+autoplay = true

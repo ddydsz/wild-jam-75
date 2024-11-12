@@ -15,6 +15,7 @@ material = ExtResource("2_hfjjq")
 
 [sub_resource type="Environment" id="Environment_hrfn1"]
 background_mode = 1
+background_color = Color(0.921569, 0, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jt4rw"]
 radius = 0.33
