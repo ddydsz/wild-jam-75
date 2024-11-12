@@ -58,6 +58,7 @@ script = ExtResource("3_y4y47")
 [node name="CameraRod" type="Node3D" parent="Player"]
 
 [node name="MainCamera" type="Camera3D" parent="Player/CameraRod"]
+current = true
 near = 0.3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player/CameraRod"]

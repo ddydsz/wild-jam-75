@@ -4,14 +4,21 @@ render_mode unshaded;
 
 uniform sampler2D depth_texture : hint_depth_texture;
 
-uniform float pulse_distance;
+uniform float pulse_distance = 1.0;
 uniform vec3 pulse_color : source_color;
 uniform float pulse_length = 0.025;
 uniform float pulse_fade_length = 0.5;
+uniform float fresnel_amount = 1.0;
 
 // inverse lerp
 float ilerp(float from, float to, float value){
   return (value - from) / (to - from);
+}
+
+// https://godotshaders.com/snippet/fresnel/
+float fresnel(float amount, vec3 normal, vec3 view)
+{
+	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0 )), amount);
 }
 
 void vertex() {
@@ -30,14 +37,19 @@ void fragment() {
 	view.xyz /= view.w;
 	float linear_depth = -view.z;
 
-
+    // smoothed pulse
 	float d = ilerp(pulse_length, pulse_fade_length, abs(pulse_distance - linear_depth));
-	float i = clamp( smoothstep(1.0, 0.0, d), 0.0, 1.0);
-
+	float i = clamp(smoothstep(1.0, 0.0, d), 0.0, 1.0);
+	
 	// non-smoothed pulse
 	//float a = step(min_distance, linear_depth) * (1.0 - step(max_distance, linear_depth));
-
-	ALBEDO = i * pulse_color;
+	
+	// Fragments whose normals are perpendicular to player (close to or at edge of object, for example)
+	// have lower pulse intensity. This is maybe how sound would actually reflect off surfaces but it 
+	// mostly just looks cool
+	float f = fresnel(fresnel_amount, NORMAL, VIEW);
+	
+	ALBEDO = (i - f) * pulse_color;
 }
 
 

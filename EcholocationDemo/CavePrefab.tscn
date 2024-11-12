@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcxmeymvogof6"]
+
+[ext_resource type="PackedScene" uid="uid://dkh4sop1hhrtg" path="res://Import/caves.01.glb" id="1_os5rv"]
+[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://EcholocationDemo/echo_material.tres" id="2_lu6yh"]
+
+[node name="caves_01" instance=ExtResource("1_os5rv")]
+
+[node name="Sphere" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_lu6yh")

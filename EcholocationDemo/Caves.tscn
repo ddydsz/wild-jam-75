@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlgyuiju8rxrt"]
+
+[ext_resource type="Script" path="res://EcholocationDemo/world.gd" id="1_p6gat"]
+[ext_resource type="Script" path="res://EcholocationDemo/MainCamera.gd" id="2_l2h7p"]
+[ext_resource type="PackedScene" uid="uid://bcxmeymvogof6" path="res://EcholocationDemo/CavePrefab.tscn" id="3_bne24"]
+[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://EcholocationDemo/echo_material.tres" id="4_7vdn8"]
+
+[sub_resource type="Environment" id="Environment_hrfn1"]
+background_mode = 1
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jt4rw"]
+radius = 0.33
+height = 1.66
+
+[sub_resource type="BoxMesh" id="BoxMesh_qfrjk"]
+material = ExtResource("4_7vdn8")
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_p6gat")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hrfn1")
+
+[node name="Player" type="Node3D" parent="."]
+transform = Transform3D(0.532714, 0, 0.846295, 0, 1, 0, -0.846295, 0, 0.532714, 1.78527, 0.611678, -0.498643)
+script = ExtResource("2_l2h7p")
+
+[node name="CameraRod" type="Node3D" parent="Player"]
+
+[node name="MainCamera" type="Camera3D" parent="Player/CameraRod"]
+current = true
+near = 0.3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/CameraRod"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
+mesh = SubResource("CapsuleMesh_jt4rw")
+skeleton = NodePath("../../..")
+
+[node name="caves_02" parent="." instance=ExtResource("3_bne24")]
+transform = Transform3D(0.618363, 0, -5.63533, 0, 5.66916, 0, 5.63533, 0, 0.618363, 0, 0, 0)
+
+[node name="Water1" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.538, 0, 0, 0, 0.95, 0, 0, 0, 8.715, 0, -5.471, 0)
+mesh = SubResource("BoxMesh_qfrjk")
