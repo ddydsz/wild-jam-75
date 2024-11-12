@@ -5,6 +5,8 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_6gmuu")
-shader_parameter/min_distance = 1.5
-shader_parameter/max_distance = 1.6
+shader_parameter/pulse_source = Vector4(0, 0, 0, 0)
+shader_parameter/pulse_distance = null
 shader_parameter/pulse_color = Color(0.466555, 0.480872, 0.595987, 1)
+shader_parameter/pulse_length = 0.025
+shader_parameter/pulse_fade_length = 0.5

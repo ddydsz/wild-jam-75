@@ -1,6 +1,6 @@
 extends Node3D
 
-class_name TpsCamera
+class_name MainCamera
 
 # Nodes
 @onready var camera_pivot : Node3D = self
@@ -24,7 +24,7 @@ func set_camera_zoom(value): camera_zoom = clamp(value, camera_min_zoom_distance
 func set_is_cursor_visible(value): Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if value else Input.MOUSE_MODE_CAPTURED)
 func get_is_cursor_visible(): return Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE
 
-var speed = 0.005
+var speed = 1.0
 
 
 #####################
@@ -34,24 +34,26 @@ var speed = 0.005
 func _ready() -> void:
 	self.is_cursor_visible = false
 
-
 func _process(delta: float) -> void:
 	process_basic_input()
 	
 	if Input.is_action_pressed("ui_up"):
-		self.global_transform.origin += - $CameraRod/MainCamera.global_transform.basis.z * speed
+		self.global_transform.origin += - camera.global_transform.basis.z * delta * speed
 	if Input.is_action_pressed("ui_down"):
-		self.global_transform.origin += $CameraRod/MainCamera.global_transform.basis.z * speed
+		self.global_transform.origin += camera.global_transform.basis.z * delta * speed
 	if Input.is_action_pressed("ui_right"):
-		self.global_transform.origin += $CameraRod/MainCamera.global_transform.basis.x * speed
+		self.global_transform.origin += camera.global_transform.basis.x * delta * speed
 	if Input.is_action_pressed("ui_left"):
-		self.global_transform.origin += - $CameraRod/MainCamera.global_transform.basis.x * speed
+		self.global_transform.origin += - camera.global_transform.basis.x * delta * speed
+	if Input.is_key_pressed(KEY_TAB):
+		get_parent().update_ambient(1.0);
+	else:
+		get_parent().update_ambient(0.0);
 	#self.transform.origin = lerp(self.transform.origin, player.transform.origin, 0.1)
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	process_mouse_input(event)
-
 
 
 ####################
