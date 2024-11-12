@@ -48,3 +48,6 @@ transform = Transform3D(0.618363, 0, -5.63533, 0, 5.66916, 0, 5.63533, 0, 0.6183
 [node name="Water1" type="MeshInstance3D" parent="."]
 transform = Transform3D(8.538, 0, 0, 0, 0.95, 0, 0, 0, 8.715, 0, -5.471, 0)
 mesh = SubResource("BoxMesh_qfrjk")
+
+[node name="DebugDirectionalLight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.841067, 0.00932724, 0.54085, -0.54093, 0.0145025, 0.840942, 0, -0.999851, 0.017243, 0, 0, 0)

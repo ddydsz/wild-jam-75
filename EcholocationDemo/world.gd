@@ -1,6 +1,7 @@
 extends Node3D
 
 var echo_material: ShaderMaterial
+var debug_material: StandardMaterial3D
 
 @onready var bat_audio_player : AudioStreamPlayer = $Player/AudioStreamPlayer
 
@@ -10,10 +11,12 @@ const pulse_width = 0.15;
 const pulse_max_range = 15.0;
 const pulse_speed = 15.0;
 
+var debug_enabled = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	echo_material = load("res://EcholocationDemo/echo_material.tres")
-	#echo_material = sphere.mesh.material;
+	debug_material = load("res://EcholocationDemo/debug_material.tres")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,3 +26,11 @@ func _process(delta):
 		bat_audio_player.play()
 		
 	echo_material.set_shader_parameter("pulse_distance", pulse_min_distance)
+	
+	if Input.is_action_just_pressed("debug_mode_toggle"):
+		debug_enabled = !debug_enabled	
+		var cave_mesh_instance = $caves_02/Sphere as MeshInstance3D
+		if debug_enabled:	
+			cave_mesh_instance.mesh.surface_set_material(0, debug_material)
+		else:
+			cave_mesh_instance.mesh.surface_set_material(0, echo_material)
