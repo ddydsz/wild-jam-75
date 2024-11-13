@@ -29,7 +29,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("debug_mode_toggle"):
 		debug_enabled = !debug_enabled	
-		var cave_mesh_instance = $caves_02/Sphere as MeshInstance3D
+		var cave_mesh_instance = $caves_02/cave as MeshInstance3D
 		if debug_enabled:	
 			cave_mesh_instance.mesh.surface_set_material(0, debug_material)
 		else:

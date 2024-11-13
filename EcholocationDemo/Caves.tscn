@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=9 format=3 uid="uid://dufn1q0a41awl"]
 
 [ext_resource type="Script" path="res://EcholocationDemo/world.gd" id="1_p6gat"]
 [ext_resource type="Script" path="res://EcholocationDemo/MainCamera.gd" id="2_l2h7p"]
 [ext_resource type="AudioStream" uid="uid://dya0xeim1e2v1" path="res://EcholocationDemo/Assets/chirp_01.wav" id="3_auu5p"]
-[ext_resource type="PackedScene" uid="uid://bcxmeymvogof6" path="res://EcholocationDemo/CavePrefab.tscn" id="3_bne24"]
+[ext_resource type="PackedScene" uid="uid://pxoujlw6m553" path="res://EcholocationDemo/CavePrefab.tscn" id="3_bne24"]
 [ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://EcholocationDemo/echo_material.tres" id="4_7vdn8"]
 
 [sub_resource type="Environment" id="Environment_hrfn1"]
