@@ -29,8 +29,11 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("debug_mode_toggle"):
 		debug_enabled = !debug_enabled	
-		var cave_mesh_instance = $caves_02/cave as MeshInstance3D
+		var cave_mi = $caves_02/cave as MeshInstance3D
+		var ground_mi = $caves_02/ground as MeshInstance3D
 		if debug_enabled:	
-			cave_mesh_instance.mesh.surface_set_material(0, debug_material)
+			cave_mi.set_surface_override_material(0, debug_material)
+			ground_mi.set_surface_override_material(0, debug_material)
 		else:
-			cave_mesh_instance.mesh.surface_set_material(0, echo_material)
+			cave_mi.set_surface_override_material(0, echo_material)
+			ground_mi.set_surface_override_material(0, echo_material)
