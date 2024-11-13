@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dlgyuiju8rxrt"]
 
-[ext_resource type="Script" path="res://Bat/world.gd" id="1_43sdk"]
+[ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
 [ext_resource type="AudioStream" uid="uid://dya0xeim1e2v1" path="res://Bat/Assets/chirp_01.wav" id="3_h0ab8"]
 [ext_resource type="PackedScene" uid="uid://dysuexydysmyd" path="res://Bat/Entities/CavePrefab.tscn" id="4_otgmk"]
