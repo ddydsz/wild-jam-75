@@ -10,9 +10,8 @@
 [sub_resource type="Environment" id="Environment_hrfn1"]
 background_mode = 1
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_jt4rw"]
-radius = 0.33
-height = 1.66
+[sub_resource type="SphereShape3D" id="SphereShape3D_n3yu1"]
+radius = 0.683
 
 [sub_resource type="BoxMesh" id="BoxMesh_qfrjk"]
 material = ExtResource("5_70f0e")
@@ -26,23 +25,19 @@ script = ExtResource("1_43sdk")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hrfn1")
 
-[node name="Player" type="Node3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.00872656, 0, 0.999962, 0, 1, 0, -0.999962, 0, 0.00872656, 1.78527, 0.611678, -0.498643)
 script = ExtResource("2_ws7kp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00291681, 0.0225421, -0.334235)
+shape = SubResource("SphereShape3D_n3yu1")
 
 [node name="CameraRod" type="Node3D" parent="Player"]
 
 [node name="MainCamera" type="Camera3D" parent="Player/CameraRod"]
 current = true
 near = 0.3
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/CameraRod"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
-mesh = SubResource("CapsuleMesh_jt4rw")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/CameraRod"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("3_h0ab8")
