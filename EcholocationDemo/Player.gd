@@ -1,6 +1,6 @@
 extends Node3D
 
-class_name TpsCamera
+class_name PlayerCamera
 
 # Nodes
 @onready var camera_pivot : Node3D = self

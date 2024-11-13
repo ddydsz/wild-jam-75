@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://EcholocationDemo/Player.gd" id="2_l2h7p"]
 [ext_resource type="AudioStream" uid="uid://dya0xeim1e2v1" path="res://EcholocationDemo/Assets/chirp_01.wav" id="3_auu5p"]
 [ext_resource type="PackedScene" uid="uid://dysuexydysmyd" path="res://EcholocationDemo/CavePrefab.tscn" id="3_bne24"]
-[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://EcholocationDemo/echo_material.tres" id="4_7vdn8"]
-[ext_resource type="PackedScene" uid="uid://58kimrwoi6ok" path="res://EcholocationDemo/spider.tscn" id="6_tk63j"]
+[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://EcholocationDemo/Materials/echo_material.tres" id="4_7vdn8"]
+[ext_resource type="PackedScene" uid="uid://58kimrwoi6ok" path="res://EcholocationDemo/Spider.tscn" id="6_tk63j"]
 
 [sub_resource type="Environment" id="Environment_hrfn1"]
 background_mode = 1

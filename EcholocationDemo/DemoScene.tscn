@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4qqfca73ep8s"]
 
 [ext_resource type="Script" path="res://EcholocationDemo/world.gd" id="1_b53oc"]
-[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://EcholocationDemo/echo_material.tres" id="2_hfjjq"]
+[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://EcholocationDemo/Materials/echo_material.tres" id="2_hfjjq"]
 [ext_resource type="Script" path="res://EcholocationDemo/Player.gd" id="3_y4y47"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_i02xw"]
