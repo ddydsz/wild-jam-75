@@ -61,7 +61,7 @@ func pulse_process(delta):
 	var dirty = false;
 	var i = 0;
 	while i < len(pulse_sources):
-		if pulse_sources[i].w - game_time > 10:
+		if game_time - pulse_sources[i].w > 10:
 			dirty = true;
 			pulse_sources.remove_at(i);
 		else:
