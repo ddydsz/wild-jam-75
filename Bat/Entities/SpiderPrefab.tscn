@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dor6v5abghuoa"]
-
-[ext_resource type="PackedScene" uid="uid://c55hndpe1urix" path="res://Import/spider.glb" id="1_mvkjq"]
-
-[node name="spider" instance=ExtResource("1_mvkjq")]
