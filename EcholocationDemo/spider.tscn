@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://58kimrwoi6ok"]
+[gd_scene load_steps=3 format=3 uid="uid://58kimrwoi6ok"]
 
 [ext_resource type="PackedScene" uid="uid://dxmuqrtb00sgi" path="res://EcholocationDemo/Assets/spider.blend" id="1_hl0dj"]
 
-[node name="spider" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_w3ppr"]
+
+[node name="spider" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0.00545037, 0.375254, 0.530885)
+shape = SubResource("BoxShape3D_w3ppr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 
