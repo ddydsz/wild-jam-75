@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Wild Jam 75"
-run/main_scene="res://EcholocationDemo/Caves.tscn"
+run/main_scene="res://EcholocationDemo/CaveScene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-MusicPlayer="*res://EcholocationDemo/Scenes/MusicPlayer.tscn"
+MusicPlayer="*res://EcholocationDemo/Entities/MusicPlayer.tscn"
 
 [display]
 
