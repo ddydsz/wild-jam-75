@@ -68,7 +68,7 @@ transform = Transform3D(-0.912424, -0.408811, 0.0188544, 0.032158, -0.11755, -0.
 [node name="spider3" parent="." instance=ExtResource("6_r22hk")]
 transform = Transform3D(1, 0, 0, 0, 0.755853, -0.654741, 0, 0.654741, 0.755853, -16.8677, -0.310551, -5.10656)
 
-[node name="Control" type="Control" parent="."]
+[node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,7 +77,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+[node name="ControlsInfo" type="RichTextLabel" parent="UI"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
@@ -85,5 +85,7 @@ offset_right = 310.0
 offset_bottom = 102.0
 theme = SubResource("Theme_3g43t")
 text = "WASD: move
-F: toggle debug"
+F: toggle debug
+Space: Fly up
+Control: Fly down"
 fit_content = true

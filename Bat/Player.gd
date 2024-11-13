@@ -51,6 +51,10 @@ func _process(delta: float) -> void:
 		self.global_transform.origin += $CameraRod/MainCamera.global_transform.basis.x * speed
 	if Input.is_action_pressed("ui_left"):
 		self.global_transform.origin += - $CameraRod/MainCamera.global_transform.basis.x * speed
+	if Input.is_action_pressed("action_jump"):
+		self.global_transform.origin += $CameraRod/MainCamera.global_transform.basis.y * speed
+	if Input.is_action_pressed("action_down"):
+		self.global_transform.origin += - $CameraRod/MainCamera.global_transform.basis.y * speed
 	#self.transform.origin = lerp(self.transform.origin, player.transform.origin, 0.1)
 
 
