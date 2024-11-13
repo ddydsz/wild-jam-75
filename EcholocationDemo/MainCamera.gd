@@ -24,7 +24,9 @@ func set_camera_zoom(value): camera_zoom = clamp(value, camera_min_zoom_distance
 func set_is_cursor_visible(value): Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if value else Input.MOUSE_MODE_CAPTURED)
 func get_is_cursor_visible(): return Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE
 
-var speed = 0.005
+var speed = 0.010
+var SIN_WAVE_TIME_DIVISION = 100;
+var SIN_WAVE_AMPLITUDE_DIVISION = 50;
 
 
 #####################
@@ -37,6 +39,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	process_basic_input()
+	
+	
+	# bat waving in place
+	self.translate(Vector3(0, sin(Time.get_ticks_msec()/SIN_WAVE_TIME_DIVISION)/SIN_WAVE_AMPLITUDE_DIVISION, 0))
+	
 	
 	if Input.is_action_pressed("ui_up"):
 		self.global_transform.origin += - $CameraRod/MainCamera.global_transform.basis.z * speed

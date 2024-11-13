@@ -40,15 +40,15 @@ void fragment() {
     // smoothed pulse
 	float d = ilerp(pulse_length, pulse_fade_length, abs(pulse_distance - linear_depth));
 	float i = clamp(smoothstep(1.0, 0.0, d), 0.0, 1.0);
-	
+
 	// non-smoothed pulse
 	//float a = step(min_distance, linear_depth) * (1.0 - step(max_distance, linear_depth));
-	
+
 	// Fragments whose normals are perpendicular to player (close to or at edge of object, for example)
-	// have lower pulse intensity. This is maybe how sound would actually reflect off surfaces but it 
+	// have lower pulse intensity. This is maybe how sound would actually reflect off surfaces but it
 	// mostly just looks cool
 	float f = fresnel(fresnel_amount, NORMAL, VIEW);
-	
+
 	ALBEDO = (i - f) * pulse_color;
 }
 
