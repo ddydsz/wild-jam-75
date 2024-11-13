@@ -2,7 +2,8 @@
 
 [ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/echo_material.tres" id="1_yot01"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_w3ppr"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_vkud0"]
+radius = 1.413
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mnnwd"]
 resource_name = "Material.002"
@@ -266,8 +267,8 @@ shadow_mesh = SubResource("ArrayMesh_n6jgk")
 [node name="spider" type="CharacterBody3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0.00545037, 0.375254, 0.530885)
-shape = SubResource("BoxShape3D_w3ppr")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00545037, -0.494038, 0.530885)
+shape = SubResource("SphereShape3D_vkud0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 
