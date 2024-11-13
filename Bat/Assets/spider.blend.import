@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dxmuqrtb00sgi"
-path="res://.godot/imported/spider.blend-2a895c2941f5e42e52cdb1aae73ae9b0.scn"
+path="res://.godot/imported/spider.blend-55f4b8db20a5da78d55531398b838009.scn"
 
 [deps]
 
-source_file="res://EcholocationDemo/Assets/spider.blend"
-dest_files=["res://.godot/imported/spider.blend-2a895c2941f5e42e52cdb1aae73ae9b0.scn"]
+source_file="res://Bat/Assets/spider.blend"
+dest_files=["res://.godot/imported/spider.blend-55f4b8db20a5da78d55531398b838009.scn"]
 
 [params]
 

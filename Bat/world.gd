@@ -15,8 +15,8 @@ var debug_enabled = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	echo_material = load("res://EcholocationDemo/Materials/echo_material.tres")
-	debug_material = load("res://EcholocationDemo/Materials/debug_material.tres")
+	echo_material = load("res://Bat/Materials/echo_material.tres")
+	debug_material = load("res://Bat/Materials/debug_material.tres")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
