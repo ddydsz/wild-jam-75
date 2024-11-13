@@ -81,6 +81,7 @@ offset_bottom = 102.0
 theme = SubResource("Theme_3g43t")
 text = "WASD: move
 F: toggle debug
-Space: Fly up
-Control: Fly down"
+Space: fly up
+Control: fly down
+LMB: chirp"
 fit_content = true

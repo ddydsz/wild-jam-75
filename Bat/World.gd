@@ -31,7 +31,6 @@ func _process(delta):
 	pulse_min_distance += delta * pulse_speed;
 	if pulse_min_distance > pulse_max_range:
 		pulse_min_distance = 0
-		bat_audio_player.play()
 		
 	echo_material.set_shader_parameter("pulse_distance", pulse_min_distance)
 	
@@ -52,9 +51,6 @@ func _process(delta):
 	pulse_process(delta)
 
 func pulse_process(delta):
-	# TODO: instead of 2 pulses from the camera every 2 seconds,
-	# have something like space bar append a pulse position to pulse_sources
-	# and trigger the code after "pulse update logic"
 	game_time += delta;
 	echo_material.set_shader_parameter("pulse_elapsed", game_time);
 
@@ -67,20 +63,28 @@ func pulse_process(delta):
 		else:
 			i += 1;
 
-	if game_time > char_pulse_last + 5:
-		char_pulse_last = game_time;
+	if Input.is_action_just_pressed("action_chirp"):
 		var cam_pos = $Player/CameraRod/MainCamera.global_position;
 		pulse_sources.push_back(Vector4(cam_pos.x, cam_pos.y, cam_pos.z, game_time));
-		pulse_sources.push_back(Vector4(cam_pos.x, cam_pos.y, cam_pos.z, game_time + 0.5));
 		dirty = true;
+		bat_audio_player.play()
+		
+	# create pulses at player's position
+	#if game_time > char_pulse_last + 5:
+		#char_pulse_last = game_time;
+		#var cam_pos = $Player/CameraRod/MainCamera.global_position;
+		#pulse_sources.push_back(Vector4(cam_pos.x, cam_pos.y, cam_pos.z, game_time));
+		#pulse_sources.push_back(Vector4(cam_pos.x, cam_pos.y, cam_pos.z, game_time + 0.5));
+		#dirty = true;
 
-	if game_time > chirp_pulse_last + 8:
-		chirp_pulse_last = game_time;
-		pulse_sources.push_back(Vector4(-4.0, 0.0, -4.0, game_time));
-		pulse_sources.push_back(Vector4(-4.0, 0.0, -4.0, game_time + 0.2));
-		pulse_sources.push_back(Vector4(-4.0, 0.0, -4.0, game_time + 0.4));
-		pulse_sources.push_back(Vector4(-4.0, 0.0, -4.0, game_time + 0.6));
-		dirty = true;
+	# create pulses at static position
+	#if game_time > chirp_pulse_last + 8:
+		#chirp_pulse_last = game_time;
+		#pulse_sources.push_back(Vector4(-4.0, 0.0, -4.0, game_time));
+		#pulse_sources.push_back(Vector4(-4.0, 0.0, -4.0, game_time + 0.2));
+		#pulse_sources.push_back(Vector4(-4.0, 0.0, -4.0, game_time + 0.4));
+		#pulse_sources.push_back(Vector4(-4.0, 0.0, -4.0, game_time + 0.6));
+		#dirty = true;
 
 	if dirty:
 		# pulse update logic
