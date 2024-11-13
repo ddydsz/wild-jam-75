@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=11 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
@@ -16,6 +16,9 @@ height = 1.66
 
 [sub_resource type="BoxMesh" id="BoxMesh_qfrjk"]
 material = ExtResource("5_70f0e")
+
+[sub_resource type="Theme" id="Theme_3g43t"]
+default_font_size = 33
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_43sdk")
@@ -64,3 +67,23 @@ transform = Transform3D(-0.912424, -0.408811, 0.0188544, 0.032158, -0.11755, -0.
 
 [node name="spider3" parent="." instance=ExtResource("6_r22hk")]
 transform = Transform3D(1, 0, 0, 0, 0.755853, -0.654741, 0, 0.654741, 0.755853, -16.8677, -0.310551, -5.10656)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 310.0
+offset_bottom = 102.0
+theme = SubResource("Theme_3g43t")
+text = "WASD: move
+F: toggle debug"
+fit_content = true
