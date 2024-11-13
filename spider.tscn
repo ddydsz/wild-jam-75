@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://58kimrwoi6ok"]
+
+[ext_resource type="PackedScene" uid="uid://dxmuqrtb00sgi" path="res://EcholocationDemo/Assets/spider.blend" id="1_hl0dj"]
+
+[node name="spider" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="spider" parent="MeshInstance3D" instance=ExtResource("1_hl0dj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0165789, 0.292848, 0.559628)
