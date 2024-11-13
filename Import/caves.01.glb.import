@@ -40,7 +40,7 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://EcholocationDemo/Assets/ground.res"
+"save_to_file/path": "res://Bat/Assets/ground.res"
 },
 "caves_01_Sphere": {
 "generate/lightmap_uv": 0,
@@ -49,7 +49,7 @@ _subresources={
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://EcholocationDemo/Assets/caves.res"
+"save_to_file/path": "res://Bat/Assets/caves.res"
 }
 }
 }
