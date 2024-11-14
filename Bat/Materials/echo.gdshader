@@ -13,7 +13,7 @@ uniform float fresnel_amount = 1.0;
 // multipulse stuff
 uniform bool multipulse_enabled = false;
 uniform sampler2D pulse_sources;
-const float pulse_speed = 15.0;
+uniform float pulse_speed = 15.0;
 uniform float pulse_elapsed;
 
 uniform bool debug_enabled = false;
