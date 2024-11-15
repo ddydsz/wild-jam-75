@@ -1,0 +1,28 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bd2xi7s4db6u2"]
+
+[ext_resource type="Shader" path="res://Bat/Materials/echo.gdshader" id="1_bttax"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8cj4v"]
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_uwqug"]
+width = 300
+height = 300
+depth = 300
+seamless = true
+seamless_blend_skirt = 0.136
+noise = SubResource("FastNoiseLite_8cj4v")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_bttax")
+shader_parameter/pulse_distance = 1.0
+shader_parameter/pulse_color = Color(0.2312, 0.251147, 0.34, 1)
+shader_parameter/pulse_length = -1.86
+shader_parameter/pulse_fade_length = 6.15
+shader_parameter/fresnel_amount = 1.57
+shader_parameter/multipulse_enabled = true
+shader_parameter/pulse_speed = 33.88
+shader_parameter/pulse_elapsed = null
+shader_parameter/debug_enabled = false
+shader_parameter/ambient = 0.29
+shader_parameter/noise_texture = SubResource("NoiseTexture3D_uwqug")

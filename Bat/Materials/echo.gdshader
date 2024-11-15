@@ -2,8 +2,6 @@ shader_type spatial;
 
 render_mode unshaded;
 
-//uniform sampler2D depth_texture : hint_depth_texture;
-
 uniform float pulse_distance = 1.0;
 uniform vec3 pulse_color : source_color;
 uniform float pulse_length = 0.025;
@@ -18,6 +16,8 @@ uniform float pulse_elapsed;
 
 uniform bool debug_enabled = false;
 uniform float ambient = 0.0;
+
+uniform sampler3D noise_texture;
 
 // inverse lerp
 float ilerp(float from, float to, float value) {
@@ -57,7 +57,10 @@ void fragment() {
 		if (debug_enabled) {
 			a = 0.7;
 		}
-		ALBEDO = clamp(pulse - f + a, 0.0, 1.0) * pulse_color;
+		
+		float n = texture(noise_texture , frag_world.xyz).x;
+		ALBEDO = clamp(pulse + a + n - f , 0.0, 1.0) * pulse_color;
+		
 		//ALBEDO = pulse_color;
 	} else {
 		float depth = FRAGCOORD.z;

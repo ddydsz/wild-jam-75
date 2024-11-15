@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=14 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/echo_material.tres" id="5_70f0e"]
 [ext_resource type="PackedScene" uid="uid://58kimrwoi6ok" path="res://Bat/Entities/Spider.tscn" id="6_r22hk"]
 [ext_resource type="PackedScene" uid="uid://buitwqulmna1b" path="res://Bat/Entities/Moth.tscn" id="7_2n2hq"]
+[ext_resource type="PackedScene" uid="uid://b5nyq23o20w1g" path="res://Bat/Entities/Tree.tscn" id="8_6fihp"]
 
 [sub_resource type="Environment" id="Environment_hrfn1"]
 background_mode = 1
@@ -143,3 +144,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.9527, 19.9208, 39.3245)
 gravity_scale = 0.0
 base_speed = 6.0
 direction_change_interval = 0.6
+
+[node name="Tree" parent="." instance=ExtResource("8_6fihp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.3094, 18.7266, 40.4495)
