@@ -8,5 +8,5 @@
 [node name="cave" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_apeyw")
 
-[node name="ground" parent="." index="2"]
+[node name="ground" parent="." index="1"]
 surface_material_override/0 = ExtResource("2_apeyw")
