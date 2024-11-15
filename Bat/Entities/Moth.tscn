@@ -8,14 +8,18 @@ radius = 0.621
 [sub_resource type="SphereMesh" id="SphereMesh_jyfvy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckxjo"]
+shading_mode = 0
 albedo_color = Color(1, 0.26, 0.26, 1)
 
 [node name="Moth" type="RigidBody3D"]
 script = ExtResource("1_02boc")
+base_speed = 5.0
+direction_change_max_angle_degrees = 12.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_hn5gp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, 0, 0, 0)
 mesh = SubResource("SphereMesh_jyfvy")
 surface_material_override/0 = SubResource("StandardMaterial3D_ckxjo")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=13 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
@@ -18,7 +18,10 @@ radius = 0.55
 material = ExtResource("5_70f0e")
 
 [sub_resource type="Theme" id="Theme_3g43t"]
-default_font_size = 33
+default_font_size = 28
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8th5j"]
+size = Vector3(1, 6.22, 8.49)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_43sdk")
@@ -84,15 +87,59 @@ text = "WASD: move
 F: toggle debug
 Space: fly up
 Control: fly down
-LMB: chirp"
+LMB: chirp
+Alt-1: teleport to start
+Alt-2: teleport outside"
 fit_content = true
-
-[node name="Moth" parent="." instance=ExtResource("7_2n2hq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5472, 18.0755, 28.3226)
-gravity_scale = 0.0
 
 [node name="StartingPoint" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.15815, 0.643629, -0.189201)
 
 [node name="Outside" type="Marker3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -39.4671, 17.0423, 23.8333)
+
+[node name="TestingStaticBodies" type="Node3D" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TestingStaticBodies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.0276, 17.4919, 28.333)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestingStaticBodies/StaticBody3D"]
+shape = SubResource("BoxShape3D_8th5j")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="TestingStaticBodies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.263, 17.6802, 28.333)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestingStaticBodies/StaticBody3D2"]
+shape = SubResource("BoxShape3D_8th5j")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="TestingStaticBodies"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -39.3639, 18.0402, 32.1277)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestingStaticBodies/StaticBody3D3"]
+shape = SubResource("BoxShape3D_8th5j")
+
+[node name="TestMoths" type="Node3D" parent="."]
+
+[node name="Moth" parent="TestMoths" instance=ExtResource("7_2n2hq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5472, 18.0755, 28.3226)
+gravity_scale = 0.0
+base_speed = 6.0
+direction_change_interval = 0.6
+
+[node name="Moth2" parent="TestMoths" instance=ExtResource("7_2n2hq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.949, 19.5014, 35.0887)
+gravity_scale = 0.0
+base_speed = 6.0
+direction_change_interval = 0.6
+
+[node name="Moth3" parent="TestMoths" instance=ExtResource("7_2n2hq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.3469, 20.1305, 23.7653)
+gravity_scale = 0.0
+base_speed = 6.0
+direction_change_interval = 0.6
+
+[node name="Moth4" parent="TestMoths" instance=ExtResource("7_2n2hq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.9527, 19.9208, 39.3245)
+gravity_scale = 0.0
+base_speed = 6.0
+direction_change_interval = 0.6
