@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=12 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dysuexydysmyd" path="res://Bat/Entities/CavePrefab.tscn" id="4_otgmk"]
 [ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/echo_material.tres" id="5_70f0e"]
 [ext_resource type="PackedScene" uid="uid://58kimrwoi6ok" path="res://Bat/Entities/Spider.tscn" id="6_r22hk"]
+[ext_resource type="PackedScene" uid="uid://buitwqulmna1b" path="res://Bat/Entities/Moth.tscn" id="7_2n2hq"]
 
 [sub_resource type="Environment" id="Environment_hrfn1"]
 background_mode = 1
@@ -85,3 +86,13 @@ Space: fly up
 Control: fly down
 LMB: chirp"
 fit_content = true
+
+[node name="Moth" parent="." instance=ExtResource("7_2n2hq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5472, 18.0755, 28.3226)
+gravity_scale = 0.0
+
+[node name="StartingPoint" type="Marker3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.15815, 0.643629, -0.189201)
+
+[node name="Outside" type="Marker3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -39.4671, 17.0423, 23.8333)

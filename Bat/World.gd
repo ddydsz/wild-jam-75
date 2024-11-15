@@ -28,6 +28,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	if Input.is_action_just_pressed("teleport_starting_point"):
+		$Player.transform = $StartingPoint.transform
+	if Input.is_action_just_pressed("teleport_outside"):
+		$Player.transform = $Outside.transform
+	
+	
 	pulse_min_distance += delta * pulse_speed;
 	if pulse_min_distance > pulse_max_range:
 		pulse_min_distance = 0

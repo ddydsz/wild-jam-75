@@ -39,6 +39,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	process_basic_input()
+	
+	# bobbing up and down from wing flapping
 	camera.translate(Vector3(0, sin(Time.get_ticks_msec()/SIN_WAVE_TIME_DIVISION)/SIN_WAVE_AMPLITUDE_DIVISION, 0))
 
 func _physics_process(delta: float) -> void:
