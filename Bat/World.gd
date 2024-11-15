@@ -1,6 +1,7 @@
 extends Node3D
 
 var echo_material: ShaderMaterial
+var leaves_material: ShaderMaterial
 var debug_material: StandardMaterial3D
 
 @onready var bat_audio_player : AudioStreamPlayer = $Player/AudioStreamPlayer
@@ -23,6 +24,7 @@ var debug_enabled = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	echo_material = load("res://Bat/Materials/echo_material.tres")
+	leaves_material = load("res://Bat/Materials/leaves.tres")
 	debug_material = load("res://Bat/Materials/debug_material.tres")
 	echo_material.set_shader_parameter("pulse_sounces", make_pulse_sources([]))
 
@@ -59,6 +61,7 @@ func _process(delta):
 func pulse_process(delta):
 	game_time += delta;
 	echo_material.set_shader_parameter("pulse_elapsed", game_time);
+	leaves_material.set_shader_parameter("pulse_elapsed", game_time);
 
 	var dirty = false;
 	var i = 0;
@@ -95,6 +98,7 @@ func pulse_process(delta):
 	if dirty:
 		# pulse update logic
 		echo_material.set_shader_parameter("pulse_sources", make_pulse_sources(pulse_sources));
+		leaves_material.set_shader_parameter("pulse_sources", make_pulse_sources(pulse_sources));
 
 func make_pulse_sources(sources: Array[Vector4]):
 	var fmt = RDTextureFormat.new();

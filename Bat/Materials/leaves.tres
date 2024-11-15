@@ -25,4 +25,5 @@ shader_parameter/pulse_speed = 33.88
 shader_parameter/pulse_elapsed = null
 shader_parameter/debug_enabled = false
 shader_parameter/ambient = 0.29
+shader_parameter/noise_enabled = true
 shader_parameter/noise_texture = SubResource("NoiseTexture3D_uwqug")

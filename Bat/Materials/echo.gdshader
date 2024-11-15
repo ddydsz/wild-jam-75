@@ -17,6 +17,7 @@ uniform float pulse_elapsed;
 uniform bool debug_enabled = false;
 uniform float ambient = 0.0;
 
+uniform bool noise_enabled;
 uniform sampler3D noise_texture;
 
 // inverse lerp
@@ -58,8 +59,12 @@ void fragment() {
 			a = 0.7;
 		}
 		
-		float n = texture(noise_texture , frag_world.xyz).x;
-		ALBEDO = clamp(pulse + a + n - f , 0.0, 1.0) * pulse_color;
+		float n = 0.0;
+		if (noise_enabled) {
+			n = texture(noise_texture , frag_world.xyz).x;
+		}
+
+		ALBEDO = clamp(pulse + a - f - n, 0.0, 1.0) * pulse_color;
 		
 		//ALBEDO = pulse_color;
 	} else {
