@@ -15,6 +15,8 @@ albedo_color = Color(1, 0.26, 0.26, 1)
 script = ExtResource("1_02boc")
 base_speed = 5.0
 direction_change_max_angle_degrees = 12.0
+bobbing_frequency = 0.011
+bobbing_amplitude = 0.224
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_hn5gp")
