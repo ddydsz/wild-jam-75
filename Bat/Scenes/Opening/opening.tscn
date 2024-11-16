@@ -6,6 +6,9 @@
 [node name="Opening" instance=ExtResource("1_dvas3")]
 script = ExtResource("2_l3hh6")
 next_scene = "res://Bat/Scenes/MainMenu/main_menu_with_animations.tscn"
+fade_in_time = 0.4
+fade_out_time = 0.4
+visible_time = 6.0
 
 [node name="IntroText3" parent="ImagesContainer" index="2"]
 text = "Today you will experience..."
