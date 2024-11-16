@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=25 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
 [ext_resource type="AudioStream" uid="uid://dya0xeim1e2v1" path="res://Bat/Assets/chirp_01.wav" id="3_h0ab8"]
+[ext_resource type="AudioStream" uid="uid://bbrqewjg8whvj" path="res://Bat/Assets/damage_taken.wav" id="4_fecjd"]
 [ext_resource type="PackedScene" uid="uid://dysuexydysmyd" path="res://Bat/Entities/CavePrefab.tscn" id="4_otgmk"]
 [ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/terrain.tres" id="5_70f0e"]
 [ext_resource type="Script" path="res://Bat/UI.gd" id="6_5oxv2"]
@@ -55,10 +56,13 @@ friction = 0.985
 current = true
 near = 0.3
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player"]
+[node name="ChirpPlayer" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("3_h0ab8")
 volume_db = -23.066
 pitch_scale = 2.0
+
+[node name="DamageTakenPlayer" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("4_fecjd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00291681, 0.0225421, -0.334235)

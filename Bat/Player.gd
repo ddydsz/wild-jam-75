@@ -89,7 +89,7 @@ func _physics_process(delta: float) -> void:
 		self.velocity += - $CameraRod/MainCamera.global_transform.basis.y * d
 	if Input.is_action_just_pressed("action_chirp"):
 		chirp.emit(self.global_position)
-		$AudioStreamPlayer.play()
+		$ChirpPlayer.play()
 
 	self.move_and_slide()
 		
@@ -142,7 +142,7 @@ func process_mouse_input(event : InputEvent) -> void:
 	
 
 func take_damage():
-	print("took damage")
+	$DamageTakenPlayer.play()
 	hit.emit()
 
 func _on_area_3d_body_entered(body):
