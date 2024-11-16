@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5730mevyff1o"]
+[gd_scene load_steps=3 format=3 uid="uid://b5730mevyff1o"]
 
 [ext_resource type="ArrayMesh" uid="uid://lktapusxrf4m" path="res://Bat/Assets/rock2.res" id="1_vxs8n"]
+[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/echo_material.tres" id="2_201dv"]
 
 [node name="Rock2" type="Node3D"]
 
 [node name="Rock2" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_vxs8n")
+surface_material_override/0 = ExtResource("2_201dv")
