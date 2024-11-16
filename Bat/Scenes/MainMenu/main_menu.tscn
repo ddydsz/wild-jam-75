@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bky2nfat6hivl"]
+
+[ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_4kj32"]
+[ext_resource type="Script" path="res://Bat/Scenes/MainMenu/main_menu.gd" id="2_0sgah"]
+[ext_resource type="PackedScene" uid="uid://doe5ikqoxnnai" path="res://TemplateExampleScenes/scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_nuyem"]
+[ext_resource type="PackedScene" uid="uid://jvvrp48dfeff" path="res://TemplateExampleScenes/scenes/credits/credits.tscn" id="4_7h7li"]
+
+[node name="MainMenu" instance=ExtResource("1_4kj32")]
+script = ExtResource("2_0sgah")
+game_scene_path = "res://TemplateExampleScenes/scenes/game_scene/game_ui.tscn"
+options_packed_scene = ExtResource("3_nuyem")
+credits_packed_scene = ExtResource("4_7h7li")
+
+[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
+text = "What It Is Like to Be a Bat"
+
+[node name="SubTitleLabel" parent="MenuContainer/SubTitleMargin/SubTitleContainer" index="0"]
+text = "A very realistic Bat Simulator"

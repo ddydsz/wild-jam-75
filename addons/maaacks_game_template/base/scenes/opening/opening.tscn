@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://sikc02ddepyt"]
+
+[ext_resource type="Script" path="res://addons/maaacks_game_template/base/scenes/opening/opening.gd" id="1_fcjph"]
+
+[sub_resource type="Theme" id="Theme_8kctg"]
+default_font_size = 50
+
+[node name="Opening" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fcjph")
+next_scene = "res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn"
+fade_in_time = 0.3
+fade_out_time = 0.3
+visible_time = 5.085
+start_delay = 1.0
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+autoplay = true
+
+[node name="ImagesContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1083.5
+offset_top = -258.05
+offset_right = 1083.5
+offset_bottom = 132.95
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IntroText1" type="Label" parent="ImagesContainer"]
+layout_mode = 2
+theme = SubResource("Theme_8kctg")
+text = "In 1974 the philosopher Thomas Nagel published the essay \"What Is It Like to Be a Bat?\" 
+which questioned the ability of humans to understand the consciousness of other beings. "
+horizontal_alignment = 1
+
+[node name="IntroText2" type="Label" parent="ImagesContainer"]
+layout_mode = 2
+theme = SubResource("Theme_8kctg")
+text = "The essay has been called \"the most widely cited and influential
+thought experiment about consciousness.\""
+horizontal_alignment = 1
+
+[node name="IntroText3" type="Label" parent="ImagesContainer"]
+layout_mode = 2
+theme = SubResource("Theme_8kctg")
+text = "Today, we show you..."
+horizontal_alignment = 1
+
+[node name="IntroText4" type="Label" parent="ImagesContainer"]
+layout_mode = 2
+theme = SubResource("Theme_8kctg")
+text = "What It Is Like to Be a Bat"
+horizontal_alignment = 1

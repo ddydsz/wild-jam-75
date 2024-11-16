@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cppflyw3nkbo1"]
+
+[ext_resource type="PackedScene" uid="uid://b7usyllub8qgq" path="res://Bat/Scenes/Opening/opening.tscn" id="1_ll2sq"]
+[ext_resource type="Texture2D" uid="uid://rhssddnuo04g" path="res://TemplateExampleScenes/assets/images/logo_vertical_color_dark.png" id="2_pcrms"]
+
+[node name="Opening" instance=ExtResource("1_ll2sq")]
+images = Array[Texture2D]([ExtResource("2_pcrms")])
+fade_in_time = 0.2
+fade_out_time = 0.2
+visible_time = 1.6
+start_delay = 0.5
+
+[node name="ImagesContainer" parent="." index="1"]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="IntroText1" parent="ImagesContainer" index="0"]
+theme = null
+text = "First intro text
+"
+
+[node name="Label" type="Label" parent="ImagesContainer" index="1"]
+layout_mode = 2

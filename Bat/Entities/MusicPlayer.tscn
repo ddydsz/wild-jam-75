@@ -1,7 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://be3vuf7kfrsnv"]
 
-[ext_resource type="AudioStream" uid="uid://j0v6rmygpu2c" path="res://Bat/Assets/wario-land.mp3" id="1_ejvbc"]
+[ext_resource type="AudioStream" uid="uid://bsksywgk6s8ty" path="res://Bat/Assets/intro_music_synth.mp3" id="1_1d3mw"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_ejvbc")
+stream = ExtResource("1_1d3mw")
 volume_db = -6.07
+autoplay = true
