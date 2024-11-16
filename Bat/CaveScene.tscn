@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=14 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/echo_material.tres" id="5_70f0e"]
 [ext_resource type="PackedScene" uid="uid://58kimrwoi6ok" path="res://Bat/Entities/Spider.tscn" id="6_r22hk"]
 [ext_resource type="PackedScene" uid="uid://buitwqulmna1b" path="res://Bat/Entities/Moth.tscn" id="7_2n2hq"]
+[ext_resource type="PackedScene" uid="uid://rah6xn4jfbkt" path="res://Bat/Entities/mushroom_1.tscn" id="8_4ick3"]
 
 [sub_resource type="Environment" id="Environment_hrfn1"]
 background_mode = 1
@@ -143,3 +144,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.9527, 19.9208, 39.3245)
 gravity_scale = 0.0
 base_speed = 6.0
 direction_change_interval = 0.6
+
+[node name="mushroom_1_type" parent="." instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -11.5656, -2.15416, -0.135662)
+
+[node name="mushroom_1_type2" parent="." instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -11.7819, -2.32283, 0.257654)
+
+[node name="mushroom_1_type3" parent="." instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -20.3547, -1.94657, -4.25126)
+
+[node name="mushroom_1_type4" parent="." instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -20.5077, -1.77633, -3.70134)
+
+[node name="mushroom_1_type5" parent="." instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -21.2892, -0.681808, -8.00877)
+
+[node name="mushroom_1_type_big_daddy_chungus" parent="." instance=ExtResource("8_4ick3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.6679, 2.16719, 4.48743)
+
+[node name="mushroom_1_type6" parent="." instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -45.1558, 10.1027, 7.34414)
+
+[node name="mushroom_1_type8" parent="." instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -45.0758, 10.0274, 6.9768)
+
+[node name="mushroom_1_type7" parent="." instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -45.2189, 9.68905, 6.45228)
