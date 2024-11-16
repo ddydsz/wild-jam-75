@@ -1,14 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddx5q7f1lkqry"]
+[gd_scene load_steps=5 format=3 uid="uid://ddx5q7f1lkqry"]
 
 [ext_resource type="PackedScene" uid="uid://bpg6yp3540d7e" path="res://Import/grasshopper.glb" id="1_mor3d"]
+[ext_resource type="Script" path="res://Bat/Entities/grasshopper.gd" id="2_f6gye"]
+[ext_resource type="Material" uid="uid://c1n4qf0qhdkd7" path="res://Bat/Materials/creature.tres" id="3_483fg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qkgmx"]
 radius = 0.275783
 
 [node name="grasshopper" instance=ExtResource("1_mor3d")]
+script = ExtResource("2_f6gye")
+
+[node name="Cricket" parent="." index="0"]
+surface_material_override/0 = ExtResource("3_483fg")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133942, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="0"]
 shape = SubResource("SphereShape3D_qkgmx")
+
+[node name="Timer" type="Timer" parent="." index="2"]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

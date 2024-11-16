@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://b5nyq23o20w1g"]
 
-[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/echo_material.tres" id="1_c1d4k"]
+[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/terrain.tres" id="1_c1d4k"]
 [ext_resource type="Material" uid="uid://bd2xi7s4db6u2" path="res://Bat/Materials/leaves.tres" id="2_v8pf5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppshh"]

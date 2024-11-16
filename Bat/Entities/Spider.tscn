@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=4 uid="uid://58kimrwoi6ok"]
 
-[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/echo_material.tres" id="1_yot01"]
+[ext_resource type="Material" uid="uid://c1n4qf0qhdkd7" path="res://Bat/Materials/creature.tres" id="1_nvola"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_vkud0"]
 radius = 1.413
@@ -282,40 +282,40 @@ transform = Transform3D(0.769423, 0, 0, 0, 0.769423, 0, 0, 0, 0.769423, 0.20359,
 transform = Transform3D(0.333568, 0, 0, 0, 0.333568, 0, 0, 0, 0.333568, -0.0143681, 0, 0.464568)
 mesh = SubResource("ArrayMesh_mjpbp")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_yot01")
+surface_material_override/0 = ExtResource("1_nvola")
 
 [node name="Sphere_001" type="MeshInstance3D" parent="MeshInstance3D/Spider"]
 transform = Transform3D(0.217807, 0, 0, 0, 0.217807, 0, 0, 0, 0.217807, 0.00159645, 0, -0.0542796)
 mesh = SubResource("ArrayMesh_n0a6q")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_yot01")
+surface_material_override/0 = ExtResource("1_nvola")
 
 [node name="Sphere_002" type="MeshInstance3D" parent="MeshInstance3D/Spider"]
 transform = Transform3D(0.0542806, 0, 0, 0, 0.0542806, 0, 0, 0, 0.0542806, 0.00638581, 0, -0.279379)
 mesh = SubResource("ArrayMesh_o7ggg")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_yot01")
+surface_material_override/0 = ExtResource("1_nvola")
 
 [node name="Cylinder" type="MeshInstance3D" parent="MeshInstance3D/Spider"]
 transform = Transform3D(2.8084e-09, 0.0443285, 0.0159689, -0.0471171, 2.40423e-09, 1.61237e-09, 7.02099e-10, -0.0159689, 0.0443285, 0.192924, -0.10348, -0.0968736)
 mesh = SubResource("ArrayMesh_2wp7e")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_yot01")
+surface_material_override/0 = ExtResource("1_nvola")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="MeshInstance3D/Spider"]
 transform = Transform3D(0, 0.0468421, 0, -0.0468421, 0, 0, 0, 0, 0.0468421, 0.182408, -0.105579, 0.0399113)
 mesh = SubResource("ArrayMesh_4kjj8")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_yot01")
+surface_material_override/0 = ExtResource("1_nvola")
 
 [node name="Cylinder_002" type="MeshInstance3D" parent="MeshInstance3D/Spider"]
 transform = Transform3D(6.94048e-09, 0.0223712, 0.0317184, -0.038814, 5.89084e-09, 4.33826e-09, -2.31349e-09, -0.0317184, 0.0223712, 0.155654, 0, -0.215521)
 mesh = SubResource("ArrayMesh_kfbdw")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_yot01")
+surface_material_override/0 = ExtResource("1_nvola")
 
 [node name="Cylinder_003" type="MeshInstance3D" parent="MeshInstance3D/Spider"]
 transform = Transform3D(1.16245e-08, 0.0642442, -0.00994272, -0.0650091, 1.14878e-08, -1.7779e-09, 0, 0.00994272, 0.0642442, 0.113614, 0, 0.170554)
 mesh = SubResource("ArrayMesh_f4vle")
 skeleton = NodePath("")
-surface_material_override/0 = ExtResource("1_yot01")
+surface_material_override/0 = ExtResource("1_nvola")

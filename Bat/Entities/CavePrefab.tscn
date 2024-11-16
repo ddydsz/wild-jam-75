@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dysuexydysmyd"]
 
 [ext_resource type="PackedScene" uid="uid://dkh4sop1hhrtg" path="res://Import/caves.01.glb" id="1_os5rv"]
-[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/echo_material.tres" id="2_apeyw"]
+[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/terrain.tres" id="2_apeyw"]
 
 [node name="caves_01" instance=ExtResource("1_os5rv")]
 

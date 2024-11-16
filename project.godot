@@ -116,3 +116,18 @@ copy_path="res://TemplateExampleScenes"
 
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
 mesh_lod/lod_change/threshold_pixels=0.0
+
+[shader_globals]
+
+pulse_sources={
+"type": "sampler2D",
+"value": ""
+}
+debug_enabled={
+"type": "bool",
+"value": false
+}
+game_time={
+"type": "float",
+"value": 0.0
+}

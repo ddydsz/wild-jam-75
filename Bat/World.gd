@@ -1,32 +1,17 @@
 extends Node3D
 
-var echo_material: ShaderMaterial
-var leaves_material: ShaderMaterial
-var debug_material: StandardMaterial3D
-
 @onready var bat_audio_player : AudioStreamPlayer = $Player/AudioStreamPlayer
-
-var pulse_min_distance = 0.0;
-
-const pulse_width = 0.15;
-const pulse_max_range = 15.0;
-const pulse_speed = 15.0;
 
 var game_time = 0.0;
 var pulse_sources: Array[Vector4];
 var pulse_sources_tex: Texture2DRD = Texture2DRD.new();
-# TODO: some way of triggering pulses that isn't just time based?
-var char_pulse_last = 0.0;
-var chirp_pulse_last = 0.0;
 
 var debug_enabled = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	echo_material = load("res://Bat/Materials/echo_material.tres")
-	leaves_material = load("res://Bat/Materials/leaves.tres")
-	debug_material = load("res://Bat/Materials/debug_material.tres")
-	echo_material.set_shader_parameter("pulse_sounces", make_pulse_sources([]))
+	RenderingServer.global_shader_parameter_set("pulse_sources", make_pulse_sources([]))
+	#echo_material.set_shader_parameter("pulse_sources", make_pulse_sources([]))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -36,32 +21,16 @@ func _process(delta):
 	if Input.is_action_just_pressed("teleport_outside"):
 		$Player.transform = $Outside.transform
 	
-	pulse_min_distance += delta * pulse_speed;
-	if pulse_min_distance > pulse_max_range:
-		pulse_min_distance = 0
-		
-	echo_material.set_shader_parameter("pulse_distance", pulse_min_distance)
-	
 	if Input.is_action_just_pressed("debug_mode_toggle"):
 		debug_enabled = !debug_enabled
-		if echo_material.get_shader_parameter("multipulse_enabled"):
-			echo_material.set_shader_parameter("debug_enabled", debug_enabled)
-		else:
-			var cave_mi = $caves_02/cave as MeshInstance3D
-			var ground_mi = $caves_02/ground as MeshInstance3D
-			if debug_enabled:
-				cave_mi.set_surface_override_material(0, debug_material)
-				ground_mi.set_surface_override_material(0, debug_material)
-			else:
-				cave_mi.set_surface_override_material(0, echo_material)
-				ground_mi.set_surface_override_material(0, echo_material)
+		RenderingServer.global_shader_parameter_set("debug_enabled", debug_enabled)
+		
 
 	pulse_process(delta)
 
 func pulse_process(delta):
 	game_time += delta;
-	echo_material.set_shader_parameter("pulse_elapsed", game_time);
-	leaves_material.set_shader_parameter("pulse_elapsed", game_time);
+	RenderingServer.global_shader_parameter_set("game_time", game_time);
 
 	var dirty = false;
 	var i = 0;
@@ -77,14 +46,6 @@ func pulse_process(delta):
 		pulse_sources.push_back(Vector4(cam_pos.x, cam_pos.y, cam_pos.z, game_time));
 		dirty = true;
 		bat_audio_player.play()
-		
-	# create pulses at player's position
-	#if game_time > char_pulse_last + 5:
-		#char_pulse_last = game_time;
-		#var cam_pos = $Player/CameraRod/MainCamera.global_position;
-		#pulse_sources.push_back(Vector4(cam_pos.x, cam_pos.y, cam_pos.z, game_time));
-		#pulse_sources.push_back(Vector4(cam_pos.x, cam_pos.y, cam_pos.z, game_time + 0.5));
-		#dirty = true;
 
 	# create pulses at static position
 	#if game_time > chirp_pulse_last + 8:
@@ -97,8 +58,7 @@ func pulse_process(delta):
 
 	if dirty:
 		# pulse update logic
-		echo_material.set_shader_parameter("pulse_sources", make_pulse_sources(pulse_sources));
-		leaves_material.set_shader_parameter("pulse_sources", make_pulse_sources(pulse_sources));
+		RenderingServer.global_shader_parameter_set("pulse_sources", make_pulse_sources(pulse_sources));
 
 func make_pulse_sources(sources: Array[Vector4]):
 	var fmt = RDTextureFormat.new();
@@ -120,6 +80,9 @@ func make_pulse_sources(sources: Array[Vector4]):
 	pulse_sources_tex.texture_rd_rid = dev.texture_create(fmt, RDTextureView.new(), [data.to_byte_array()]);
 	return pulse_sources_tex
 
-
 func _on_player_hit():
 	$UI/HealthInfo.on_health_hit()
+
+func _on_grasshopper_chirp(pos: Vector3) -> void:
+	pulse_sources.push_back(Vector4(pos.x, pos.y, pos.z, game_time))
+	RenderingServer.global_shader_parameter_set("pulse_sources", make_pulse_sources(pulse_sources));

@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c1n4qf0qhdkd7"]
+
+[ext_resource type="Shader" path="res://Bat/Materials/echo.gdshader" id="1_frhxo"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_frhxo")
+shader_parameter/pulse_distance = 1.0
+shader_parameter/pulse_color = Color(0.562209, 0.591433, 0.713805, 1)
+shader_parameter/pulse_length = -1.86
+shader_parameter/pulse_fade_length = 6.15
+shader_parameter/fresnel_amount = 1.57
+shader_parameter/pulse_speed = 33.88
+shader_parameter/ambient = 0.29
+shader_parameter/noise_enabled = false

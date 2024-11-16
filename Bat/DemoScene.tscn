@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b4qqfca73ep8s"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_b53oc"]
-[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/echo_material.tres" id="2_hfjjq"]
+[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/terrain.tres" id="2_hfjjq"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="3_y4y47"]
 [ext_resource type="AudioStream" uid="uid://dya0xeim1e2v1" path="res://Bat/Assets/chirp_01.wav" id="4_ttgdo"]
 

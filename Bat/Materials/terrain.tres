@@ -1,0 +1,23 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cekxlpdi3spup"]
+
+[ext_resource type="Shader" path="res://Bat/Materials/echo.gdshader" id="1_hskf7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7pi28"]
+noise_type = 0
+frequency = 0.0386
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_abjfp"]
+width = 300
+height = 300
+depth = 300
+seamless = true
+seamless_blend_skirt = 0.32
+noise = SubResource("FastNoiseLite_7pi28")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_hskf7")
+shader_parameter/color = Color(0.150896, 0.165241, 0.231504, 1)
+shader_parameter/fresnel_amount = 0.5
+shader_parameter/noise = 0.3
+shader_parameter/noise_texture = SubResource("NoiseTexture3D_abjfp")
