@@ -264,7 +264,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_n6jgk")
 
-[node name="spider" type="CharacterBody3D"]
+[node name="spider" type="CharacterBody3D" groups=["spiders"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00545037, -0.494038, 0.530885)

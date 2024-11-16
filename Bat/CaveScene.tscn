@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=22 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/echo_material.tres" id="5_70f0e"]
 [ext_resource type="PackedScene" uid="uid://58kimrwoi6ok" path="res://Bat/Entities/Spider.tscn" id="6_r22hk"]
 [ext_resource type="PackedScene" uid="uid://buitwqulmna1b" path="res://Bat/Entities/Moth.tscn" id="7_2n2hq"]
+[ext_resource type="Script" path="res://Bat/health_info.gd" id="7_ksp3j"]
 [ext_resource type="PackedScene" uid="uid://rah6xn4jfbkt" path="res://Bat/Entities/mushroom_1.tscn" id="8_4ick3"]
 [ext_resource type="PackedScene" uid="uid://cqecn7x6fkpeu" path="res://Bat/Entities/Rock1.tscn" id="9_aftvl"]
 [ext_resource type="PackedScene" uid="uid://b5730mevyff1o" path="res://Bat/Entities/Rock2.tscn" id="10_llx2p"]
@@ -18,14 +19,20 @@
 [sub_resource type="Environment" id="Environment_hrfn1"]
 background_mode = 1
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_wojif"]
+radius = 0.463727
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_n3yu1"]
-radius = 0.55
+radius = 0.529372
 
 [sub_resource type="BoxMesh" id="BoxMesh_qfrjk"]
 material = ExtResource("5_70f0e")
 
 [sub_resource type="Theme" id="Theme_3g43t"]
 default_font_size = 28
+
+[sub_resource type="Theme" id="Theme_kfrs7"]
+default_font_size = 33
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_43sdk")
@@ -36,12 +43,10 @@ environment = SubResource("Environment_hrfn1")
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.00872656, 0, 0.999962, 0, 1, 0, -0.999962, 0, 0.00872656, 1.78527, 0.611678, -0.498643)
 script = ExtResource("2_ws7kp")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00291681, 0.0225421, -0.334235)
-shape = SubResource("SphereShape3D_n3yu1")
+push_back_force = 7.0
 
 [node name="CameraRod" type="Node3D" parent="Player"]
+visible = false
 
 [node name="MainCamera" type="Camera3D" parent="Player/CameraRod"]
 current = true
@@ -52,6 +57,16 @@ stream = ExtResource("3_h0ab8")
 volume_db = -23.066
 pitch_scale = 2.0
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00291681, 0.0225421, -0.334235)
+shape = SubResource("SphereShape3D_wojif")
+
+[node name="Area3D" type="Area3D" parent="Player"]
+
+[node name="HitBoxCollision3d" type="CollisionShape3D" parent="Player/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00291681, 0.0225421, -0.334235)
+shape = SubResource("SphereShape3D_n3yu1")
+
 [node name="caves_02" parent="." instance=ExtResource("4_otgmk")]
 transform = Transform3D(0.618363, 0, -5.63533, 0, 5.66916, 0, 5.63533, 0, 0.618363, 0, 0, 0)
 
@@ -61,15 +76,6 @@ mesh = SubResource("BoxMesh_qfrjk")
 
 [node name="DebugDirectionalLight" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.841067, 0.00932724, 0.54085, -0.54093, 0.0145025, 0.840942, 0, -0.999851, 0.017243, 0, 0, 0)
-
-[node name="spider" parent="." instance=ExtResource("6_r22hk")]
-transform = Transform3D(0.168417, 0.533827, -0.0162745, 0.0014719, -0.0175284, -0.559724, -0.534073, 0.168291, -0.00667466, -4.68849, 0.961597, -2.14009)
-
-[node name="spider2" parent="." instance=ExtResource("6_r22hk")]
-transform = Transform3D(0.229911, 0.968416, 0.096497, 0.0328573, 0.0913727, -0.995274, -0.972657, 0.231995, -0.0108121, -23.522, 2.128, -3.22135)
-
-[node name="spider3" parent="." instance=ExtResource("6_r22hk")]
-transform = Transform3D(0.678549, -0.307943, 0.0773098, 0.295604, 0.546174, -0.418983, 0.115861, 0.409999, 0.616207, -17.2589, 0.215157, -5.93831)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -95,6 +101,21 @@ LMB: chirp
 Alt-1: teleport to start
 Alt-2: teleport outside"
 fit_content = true
+
+[node name="HealthInfo" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.211
+anchor_right = 0.126
+anchor_bottom = 0.25
+offset_left = 13.0
+offset_top = -15.84
+offset_right = 0.440002
+theme = SubResource("Theme_kfrs7")
+theme_override_font_sizes/bold_italics_font_size = 18
+text = "Health: 10"
+fit_content = true
+script = ExtResource("7_ksp3j")
 
 [node name="StartingPoint" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.15815, 0.643629, -0.189201)
@@ -244,3 +265,17 @@ transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, -20.8025, -1.7812, -
 
 [node name="skull" parent="." instance=ExtResource("14_l35fv")]
 transform = Transform3D(0.165786, -0.132345, 0.212132, 0.187164, 0.234456, 0, -0.165786, 0.132345, 0.212132, -26.5656, 0.265548, -8.75527)
+
+[node name="spiders" type="Node3D" parent="."]
+
+[node name="spider" parent="spiders" instance=ExtResource("6_r22hk")]
+transform = Transform3D(0.168417, 0.533827, -0.0162745, 0.0014719, -0.0175284, -0.559724, -0.534073, 0.168291, -0.00667466, -4.68849, 0.961597, -2.14009)
+
+[node name="spider2" parent="spiders" instance=ExtResource("6_r22hk")]
+transform = Transform3D(0.229911, 0.968416, 0.096497, 0.0328573, 0.0913727, -0.995274, -0.972657, 0.231995, -0.0108121, -23.522, 2.128, -3.22135)
+
+[node name="spider3" parent="spiders" instance=ExtResource("6_r22hk")]
+transform = Transform3D(0.678549, -0.307943, 0.0773098, 0.295604, 0.546174, -0.418983, 0.115861, 0.409999, 0.616207, -17.2589, 0.215157, -5.93831)
+
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="body_entered" from="Player/Area3D" to="Player" method="_on_area_3d_body_entered"]

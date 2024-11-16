@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 class_name PlayerCamera
 
+signal hit 
+
 # Nodes
 @onready var camera_pivot : Node3D = self
 @onready var camera_rod : Node3D = get_node("CameraRod")
@@ -23,6 +25,7 @@ func set_camera_zoom(value): camera_zoom = clamp(value, camera_min_zoom_distance
 @onready var is_cursor_visible : get = get_is_cursor_visible, set = set_is_cursor_visible
 func set_is_cursor_visible(value): Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if value else Input.MOUSE_MODE_CAPTURED)
 func get_is_cursor_visible(): return Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE
+@export var push_back_force: float = 5.0;
 
 var speed = 6.0
 var SIN_WAVE_TIME_DIVISION = 100;
@@ -49,6 +52,8 @@ func _physics_process(delta: float) -> void:
 	self.velocity *= 0.97
 	
 	var d = delta * speed
+	
+	
 	if Input.is_action_pressed("ui_up"):
 		self.velocity += - $CameraRod/MainCamera.global_transform.basis.z * d
 	if Input.is_action_pressed("ui_down"):
@@ -118,3 +123,17 @@ func process_mouse_input(event : InputEvent) -> void:
 			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				self.camera_zoom += camera_zoom_step
 	
+
+func take_damage():
+	
+	hit.emit()
+	
+
+func _on_area_3d_body_entered(body):
+	if body.is_in_group("mushroom1") || body.is_in_group("spiders"):
+		print(self.global_position)
+		var force_direction: Vector3 = (self.global_position - body.global_position)
+		self.velocity += force_direction.normalized() * push_back_force
+		print(body.global_position)
+		print("====")
+		take_damage()
