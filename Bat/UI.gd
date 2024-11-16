@@ -13,4 +13,13 @@ func _process(delta: float) -> void:
 
 func _on_player_hit():
 	self.health -= 10
+	
+	# turn screen red for a moment
+	var tween = create_tween()
+	tween.tween_method(_set_damage_overlay_opacity, 0.0, 1.0, 0.5)
+	tween.tween_method(_set_damage_overlay_opacity, 1.0, 0.0, 0.5)
+	
 	$HealthBarMarginContainer/HealthBar.scale.x = health / 100.0
+
+func _set_damage_overlay_opacity(opacity: float):
+	$DamageTakenOverlay.material.set_shader_parameter("opacity", opacity)

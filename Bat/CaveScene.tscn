@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=27 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
@@ -13,6 +13,7 @@
 [ext_resource type="Theme" uid="uid://br3t0qltldhyd" path="res://Bat/Assets/UITheme.tres" id="7_vvbqq"]
 [ext_resource type="PackedScene" uid="uid://rah6xn4jfbkt" path="res://Bat/Entities/mushroom_1.tscn" id="8_4ick3"]
 [ext_resource type="PackedScene" uid="uid://cqecn7x6fkpeu" path="res://Bat/Entities/Rock1.tscn" id="9_aftvl"]
+[ext_resource type="Shader" path="res://Bat/Materials/damage.gdshader" id="9_ag3xf"]
 [ext_resource type="PackedScene" uid="uid://b5730mevyff1o" path="res://Bat/Entities/Rock2.tscn" id="10_llx2p"]
 [ext_resource type="PackedScene" uid="uid://sbpjo1phb1fo" path="res://Bat/Entities/Rock3.tscn" id="11_8ue56"]
 [ext_resource type="PackedScene" uid="uid://b5nyq23o20w1g" path="res://Bat/Entities/Tree.tscn" id="12_rupgw"]
@@ -33,6 +34,13 @@ material = ExtResource("5_70f0e")
 
 [sub_resource type="Theme" id="Theme_3g43t"]
 default_font_size = 28
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xl0rs"]
+shader = ExtResource("9_ag3xf")
+shader_parameter/opacity = 0.0
+shader_parameter/color = Color(0.999983, 0.124638, 0.0865449, 1)
+shader_parameter/max_opacity = 0.56
+shader_parameter/vignette_factor = 0.29
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rxig5"]
 size = Vector3(2.03, 5.305, 5.675)
@@ -63,6 +71,7 @@ pitch_scale = 2.0
 
 [node name="DamageTakenPlayer" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("4_fecjd")
+volume_db = 2.56
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00291681, 0.0225421, -0.334235)
@@ -154,6 +163,15 @@ polygon = PackedVector2Array(0, 0, 400, 0, 400, -10, 0, -10)
 position = Vector2(14.535, -4.75)
 scale = Vector2(4.715, 4.715)
 polygon = PackedVector2Array(-1, 1, -1, 3, 1, 3, 1, 1, 3, 1, 3, -1, 1, -1, 1, -3, -1, -3, -1, -1, -3, -1, -3, 1)
+
+[node name="DamageTakenOverlay" type="ColorRect" parent="UI"]
+material = SubResource("ShaderMaterial_xl0rs")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="StartingPoint" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.15815, 0.643629, -0.189201)
