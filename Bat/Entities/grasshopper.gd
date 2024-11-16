@@ -1,6 +1,6 @@
 extends Node3D
 
-signal chirp(Vector3);
+signal chirp(pos: Vector3);
 
 var scared = false;
 
