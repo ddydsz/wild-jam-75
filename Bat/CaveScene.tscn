@@ -1,14 +1,14 @@
-[gd_scene load_steps=24 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=23 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
 [ext_resource type="AudioStream" uid="uid://dya0xeim1e2v1" path="res://Bat/Assets/chirp_01.wav" id="3_h0ab8"]
 [ext_resource type="PackedScene" uid="uid://dysuexydysmyd" path="res://Bat/Entities/CavePrefab.tscn" id="4_otgmk"]
 [ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/terrain.tres" id="5_70f0e"]
+[ext_resource type="Script" path="res://Bat/UI.gd" id="6_5oxv2"]
 [ext_resource type="PackedScene" uid="uid://58kimrwoi6ok" path="res://Bat/Entities/Spider.tscn" id="6_r22hk"]
 [ext_resource type="PackedScene" uid="uid://buitwqulmna1b" path="res://Bat/Entities/Moth.tscn" id="7_2n2hq"]
 [ext_resource type="PackedScene" uid="uid://ddx5q7f1lkqry" path="res://Bat/Entities/grasshopper.tscn" id="7_8j24l"]
-[ext_resource type="Script" path="res://Bat/health_info.gd" id="7_ksp3j"]
 [ext_resource type="Theme" uid="uid://br3t0qltldhyd" path="res://Bat/Assets/UITheme.tres" id="7_vvbqq"]
 [ext_resource type="PackedScene" uid="uid://rah6xn4jfbkt" path="res://Bat/Entities/mushroom_1.tscn" id="8_4ick3"]
 [ext_resource type="PackedScene" uid="uid://cqecn7x6fkpeu" path="res://Bat/Entities/Rock1.tscn" id="9_aftvl"]
@@ -32,9 +32,6 @@ material = ExtResource("5_70f0e")
 
 [sub_resource type="Theme" id="Theme_3g43t"]
 default_font_size = 28
-
-[sub_resource type="Theme" id="Theme_kfrs7"]
-default_font_size = 33
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_43sdk")
@@ -89,6 +86,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("6_5oxv2")
 
 [node name="ControlsInfo" type="RichTextLabel" parent="UI"]
 layout_mode = 0
@@ -106,21 +104,6 @@ Alt-1: teleport to start
 Alt-2: teleport outside"
 fit_content = true
 
-[node name="HealthInfo" type="RichTextLabel" parent="UI"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.211
-anchor_right = 0.126
-anchor_bottom = 0.25
-offset_left = 13.0
-offset_top = -15.84
-offset_right = 0.440002
-theme = SubResource("Theme_kfrs7")
-theme_override_font_sizes/bold_italics_font_size = 18
-text = "Health: 10"
-fit_content = true
-script = ExtResource("7_ksp3j")
-
 [node name="Hints" type="MarginContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 5
@@ -137,6 +120,33 @@ modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme = ExtResource("7_vvbqq")
 horizontal_alignment = 1
+
+[node name="HealthBarMarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 84.68
+offset_top = -95.0649
+offset_right = 84.68
+offset_bottom = -95.0649
+grow_vertical = 0
+
+[node name="HealthBar" type="Polygon2D" parent="UI/HealthBarMarginContainer"]
+z_index = 1
+position = Vector2(40, 0)
+color = Color(0.4806, 0.89, 0.494247, 1)
+polygon = PackedVector2Array(0, 0, 400, 0, 400, -10, 0, -10)
+
+[node name="HealthBarBG" type="Polygon2D" parent="UI/HealthBarMarginContainer"]
+position = Vector2(40, 0)
+color = Color(0.629675, 0.629675, 0.629675, 1)
+polygon = PackedVector2Array(0, 0, 400, 0, 400, -10, 0, -10)
+
+[node name="HealthIcon" type="Polygon2D" parent="UI/HealthBarMarginContainer"]
+position = Vector2(14.535, -4.75)
+scale = Vector2(4.715, 4.715)
+polygon = PackedVector2Array(-1, 1, -1, 3, 1, 3, 1, 1, 3, 1, 3, -1, 1, -1, 1, -3, -1, -3, -1, -1, -3, -1, -3, 1)
 
 [node name="StartingPoint" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.15815, 0.643629, -0.189201)
@@ -320,6 +330,6 @@ transform = Transform3D(0.229911, 0.968416, 0.096497, 0.0328573, 0.0913727, -0.9
 transform = Transform3D(0.678549, -0.307943, 0.0773098, 0.295604, 0.546174, -0.418983, 0.115861, 0.409999, 0.616207, -17.2589, 0.215157, -5.93831)
 
 [connection signal="chirp" from="Player" to="." method="_on_chirp"]
-[connection signal="hit" from="Player" to="." method="_on_player_hit"]
+[connection signal="hit" from="Player" to="UI" method="_on_player_hit"]
 [connection signal="body_entered" from="Player/Area3D" to="Player" method="_on_area_3d_body_entered"]
 [connection signal="chirp" from="grasshopper" to="." method="_on_chirp"]

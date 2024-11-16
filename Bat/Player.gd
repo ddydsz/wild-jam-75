@@ -141,6 +141,7 @@ func process_mouse_input(event : InputEvent) -> void:
 	
 
 func take_damage():
+	print("took damage")
 	hit.emit()
 
 func _on_area_3d_body_entered(body):

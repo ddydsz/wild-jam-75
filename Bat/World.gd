@@ -91,8 +91,5 @@ func make_pulse_sources(sources: Array[Vector4]):
 	pulse_sources_tex.texture_rd_rid = dev.texture_create(fmt, RDTextureView.new(), [data.to_byte_array()]);
 	return pulse_sources_tex
 
-func _on_player_hit():
-	$UI/HealthInfo.on_health_hit()
-
 func _on_chirp(pos: Vector3) -> void:
 	add_pulse(pos, game_time)
