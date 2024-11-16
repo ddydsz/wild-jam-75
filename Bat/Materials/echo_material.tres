@@ -1,10 +1,10 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cekxlpdi3spup"]
 
-[ext_resource type="Shader" path="res://Bat/Materials/echo.gdshader" id="1_6gmuu"]
+[ext_resource type="Shader" path="res://Bat/Materials/echo.gdshader" id="1_v5676"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_6gmuu")
+shader = ExtResource("1_v5676")
 shader_parameter/pulse_distance = 1.0
 shader_parameter/pulse_color = Color(0.2312, 0.251147, 0.34, 1)
 shader_parameter/pulse_length = -1.86
@@ -15,3 +15,4 @@ shader_parameter/pulse_speed = 33.88
 shader_parameter/pulse_elapsed = null
 shader_parameter/debug_enabled = false
 shader_parameter/ambient = 0.29
+shader_parameter/noise_enabled = false
