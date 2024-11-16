@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqecn7x6fkpeu"]
+
+[ext_resource type="ArrayMesh" uid="uid://cnrk5a1kfhleq" path="res://Bat/Assets/rock1.res" id="1_78k80"]
+
+[node name="Rock1" type="Node3D"]
+
+[node name="Rock1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.290875, 0.180732, 0.531827)
+mesh = ExtResource("1_78k80")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5730mevyff1o"]
+
+[ext_resource type="ArrayMesh" uid="uid://lktapusxrf4m" path="res://Bat/Assets/rock2.res" id="1_vxs8n"]
+
+[node name="Rock2" type="Node3D"]
+
+[node name="Rock2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_vxs8n")
