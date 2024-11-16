@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=18 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cqecn7x6fkpeu" path="res://Bat/Entities/Rock1.tscn" id="9_aftvl"]
 [ext_resource type="PackedScene" uid="uid://b5730mevyff1o" path="res://Bat/Entities/Rock2.tscn" id="10_llx2p"]
 [ext_resource type="PackedScene" uid="uid://sbpjo1phb1fo" path="res://Bat/Entities/Rock3.tscn" id="11_8ue56"]
+[ext_resource type="PackedScene" uid="uid://b5nyq23o20w1g" path="res://Bat/Entities/Tree.tscn" id="12_rupgw"]
 
 [sub_resource type="Environment" id="Environment_hrfn1"]
 background_mode = 1
@@ -185,3 +186,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0733, 17.2776, 44.9344)
 
 [node name="Rock3" parent="Rocks" instance=ExtResource("11_8ue56")]
 transform = Transform3D(1.71504, 0, 0, 0, 1.71504, 0, 0, 0, 1.71504, -47.1126, 18.2984, 41.5094)
+
+[node name="Tree" parent="." instance=ExtResource("12_rupgw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.928, 18.0895, 37.4326)
