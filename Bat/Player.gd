@@ -14,6 +14,8 @@ signal hit
 @export var camera_min_vertical_rotation : float = -85.0
 @export var camera_max_vertical_rotation : float = 85.0
 
+var camera_target_direction : Vector2 = Vector2.ZERO
+
 # zooming
 @export var camera_zoom : float = 3.0 : set = set_camera_zoom
 func set_camera_zoom(value): camera_zoom = clamp(value, camera_min_zoom_distance, camera_max_zoom_distance)
@@ -31,14 +33,12 @@ var speed = 6.0
 var SIN_WAVE_TIME_DIVISION = 100;
 var SIN_WAVE_AMPLITUDE_DIVISION = 65;
 
-
 #####################
 #  Default methods  #
 #####################
 
 func _ready() -> void:
 	self.is_cursor_visible = false
-
 
 func _process(delta: float) -> void:
 	process_basic_input()
@@ -72,11 +72,9 @@ func _physics_process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	process_mouse_input(event)
 
-
 ####################
 #  Camera3D methods  #
 ####################
-
 
 func rotate_camera(camera_direction : Vector2) -> void:
 	self.rotation.y += -camera_direction.x
@@ -87,14 +85,10 @@ func rotate_camera(camera_direction : Vector2) -> void:
 	camera_rod.rotation_degrees.x = clamp(
 		camera_rod.rotation_degrees.x,
 		camera_min_vertical_rotation, camera_max_vertical_rotation
-	)
-	
-	
+	)	
 
 func toggle_cursor_visibility() -> void:
 	self.is_cursor_visible = !self.is_cursor_visible
-
-
 
 ###################
 #  Input methods  #
@@ -103,7 +97,6 @@ func toggle_cursor_visibility() -> void:
 func process_basic_input():
 	if Input.is_action_just_pressed("ui_cancel"):
 		toggle_cursor_visibility()
-
 
 func process_mouse_input(event : InputEvent) -> void:
 	# Cursor movement
