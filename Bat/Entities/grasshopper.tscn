@@ -13,8 +13,9 @@ script = ExtResource("2_f6gye")
 [node name="Cricket" parent="." index="0"]
 surface_material_override/0 = ExtResource("3_483fg")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." index="1"]
+[node name="RigidBody3D" type="RigidBody3D" parent="." index="1" groups=["grasshoppers"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133942, 0, 0)
+freeze = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="0"]
 shape = SubResource("SphereShape3D_qkgmx")

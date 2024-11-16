@@ -4,6 +4,7 @@ class_name PlayerCamera
 
 signal hit 
 signal chirp(pos: Vector3)
+signal hint_enemies
 
 # Nodes
 @onready var camera_pivot : Node3D = self
@@ -151,3 +152,8 @@ func _on_area_3d_body_entered(body):
 		take_damage()
 	elif body.is_in_group("grasshoppers"):
 		print("hit grasshopper")
+
+func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+	if area.is_in_group("hint_enemies"):
+		print("hit hint box")
+		hint_enemies.emit()	
