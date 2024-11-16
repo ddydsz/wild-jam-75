@@ -48,18 +48,19 @@ func _physics_process(delta: float) -> void:
 	# friction
 	self.velocity *= 0.97
 	
+	var d = delta * speed
 	if Input.is_action_pressed("ui_up"):
-		self.velocity += - $CameraRod/MainCamera.global_transform.basis.z * speed
+		self.velocity += - $CameraRod/MainCamera.global_transform.basis.z * d
 	if Input.is_action_pressed("ui_down"):
-		self.velocity += $CameraRod/MainCamera.global_transform.basis.z * speed
+		self.velocity += $CameraRod/MainCamera.global_transform.basis.z * d
 	if Input.is_action_pressed("ui_right"):
-		self.velocity += $CameraRod/MainCamera.global_transform.basis.x * speed
+		self.velocity += $CameraRod/MainCamera.global_transform.basis.x * d
 	if Input.is_action_pressed("ui_left"):
-		self.velocity += - $CameraRod/MainCamera.global_transform.basis.x * speed
+		self.velocity += - $CameraRod/MainCamera.global_transform.basis.x * d
 	if Input.is_action_pressed("action_jump"):
-		self.velocity += $CameraRod/MainCamera.global_transform.basis.y * speed
+		self.velocity += $CameraRod/MainCamera.global_transform.basis.y * d
 	if Input.is_action_pressed("action_down"):
-		self.velocity += - $CameraRod/MainCamera.global_transform.basis.y * speed
+		self.velocity += - $CameraRod/MainCamera.global_transform.basis.y * d
 			
 	self.move_and_slide()
 		

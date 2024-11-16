@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddx5q7f1lkqry"]
+
+[ext_resource type="PackedScene" uid="uid://bpg6yp3540d7e" path="res://Import/grasshopper.glb" id="1_mor3d"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qkgmx"]
+radius = 0.275783
+
+[node name="grasshopper" instance=ExtResource("1_mor3d")]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133942, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="0"]
+shape = SubResource("SphereShape3D_qkgmx")
