@@ -27,7 +27,16 @@ func _show_hint(text: String, delay: float = 0.0):
 	hint_tween.tween_property($UI/Hints/HintLabel, "modulate:a", 0.0, 0.5)
 	
 func _on_player_hint_enemies() -> void:
+	$HintCollisionShapes/EnemiesHint.process_mode = Node.PROCESS_MODE_DISABLED
 	_show_hint("Getting too close to mushrooms and spiders will hurt you")
+	
+func _on_player_hint_go_outside() -> void:
+	$HintCollisionShapes/GoOutsideHint.process_mode = Node.PROCESS_MODE_DISABLED
+	_show_hint("Find your way out of the cave")
+
+func _on_player_hint_outside() -> void:
+	$HintCollisionShapes/OutsideHint.process_mode = Node.PROCESS_MODE_DISABLED
+	_show_hint("Hunt some critters before sunrise")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

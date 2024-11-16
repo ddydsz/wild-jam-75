@@ -365,8 +365,24 @@ transform = Transform3D(0.993898, 0, -0.110307, 0, 1, 0, 0.110307, 0, 0.993898, 
 transform = Transform3D(0.977442, 0, -0.211205, 0, 1, 0, 0.211205, 0, 0.977442, -6.06003, 0.422516, -0.777555)
 shape = SubResource("BoxShape3D_rxig5")
 
+[node name="GoOutsideHint" type="Area3D" parent="HintCollisionShapes" groups=["hint_go_outside"]]
+transform = Transform3D(0.896076, 0, 0.4439, 0, 1, 0, -0.4439, 0, 0.896076, -27.8556, 5.93657, 4.1335)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HintCollisionShapes/GoOutsideHint" groups=["hint_go_outside"]]
+transform = Transform3D(0.977442, 0, -0.211205, 0, 1, 0, 0.211205, 0, 0.977442, 0, 0, 0)
+shape = SubResource("BoxShape3D_rxig5")
+
+[node name="OutsideHint" type="Area3D" parent="HintCollisionShapes" groups=["hint_outside"]]
+transform = Transform3D(-0.126372, 0, 0.991983, 0, 1, 0, -0.991983, 0, -0.126372, -38.7835, 16.0607, 21.5063)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HintCollisionShapes/OutsideHint" groups=["hint_outside"]]
+transform = Transform3D(0.977442, 0, -0.211205, 0, 1, 0, 0.211205, 0, 0.977442, 0, 0, 0)
+shape = SubResource("BoxShape3D_rxig5")
+
 [connection signal="chirp" from="Player" to="." method="_on_chirp"]
 [connection signal="hint_enemies" from="Player" to="." method="_on_player_hint_enemies"]
+[connection signal="hint_go_outside" from="Player" to="." method="_on_player_hint_go_outside"]
+[connection signal="hint_outside" from="Player" to="." method="_on_player_hint_outside"]
 [connection signal="hit" from="Player" to="UI" method="_on_player_hit"]
 [connection signal="area_shape_entered" from="Player/Area3D" to="Player" method="_on_area_3d_area_shape_entered"]
 [connection signal="body_entered" from="Player/Area3D" to="Player" method="_on_area_3d_body_entered"]
