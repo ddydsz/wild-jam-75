@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=17 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
@@ -24,9 +24,6 @@ material = ExtResource("5_70f0e")
 
 [sub_resource type="Theme" id="Theme_3g43t"]
 default_font_size = 28
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8th5j"]
-size = Vector3(1, 6.22, 8.49)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_43sdk")
@@ -103,26 +100,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1581
 [node name="Outside" type="Marker3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -39.4671, 17.0423, 23.8333)
 
-[node name="TestingStaticBodies" type="Node3D" parent="."]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="TestingStaticBodies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.0276, 17.4919, 28.333)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TestingStaticBodies/StaticBody3D"]
-shape = SubResource("BoxShape3D_8th5j")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="TestingStaticBodies"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.263, 17.6802, 28.333)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TestingStaticBodies/StaticBody3D2"]
-shape = SubResource("BoxShape3D_8th5j")
-
-[node name="StaticBody3D3" type="StaticBody3D" parent="TestingStaticBodies"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -39.3639, 18.0402, 32.1277)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TestingStaticBodies/StaticBody3D3"]
-shape = SubResource("BoxShape3D_8th5j")
-
 [node name="TestMoths" type="Node3D" parent="."]
 
 [node name="Moth" parent="TestMoths" instance=ExtResource("7_2n2hq")]
@@ -181,11 +158,25 @@ transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -45.2189, 9.68905, 6.45
 [node name="Rock1" parent="Rocks" instance=ExtResource("9_aftvl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.8109, 17.7831, 41.9091)
 
+[node name="Rock4" parent="Rocks" instance=ExtResource("9_aftvl")]
+transform = Transform3D(2.1101, 0, 0, 0, 2.1101, 0, 0, 0, 2.1101, -4.53452, 17.3536, 42.6901)
+
+[node name="Rock5" parent="Rocks" instance=ExtResource("9_aftvl")]
+transform = Transform3D(1.17051, -1.68113, 0.506172, -0.969617, -1.12616, -1.49804, 1.46364, 0.5984, -1.3972, -5.74525, 15.4666, 45.2791)
+
 [node name="Rock2" parent="Rocks" instance=ExtResource("10_llx2p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0733, 17.2776, 44.9344)
 
 [node name="Rock3" parent="Rocks" instance=ExtResource("11_8ue56")]
 transform = Transform3D(1.71504, 0, 0, 0, 1.71504, 0, 0, 0, 1.71504, -47.1126, 18.2984, 41.5094)
 
-[node name="Tree" parent="." instance=ExtResource("12_rupgw")]
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Tree" parent="Trees" instance=ExtResource("12_rupgw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.928, 18.0895, 37.4326)
+
+[node name="Tree2" parent="Trees" instance=ExtResource("12_rupgw")]
+transform = Transform3D(-0.162229, -3.92111e-08, -0.897047, 3.92111e-08, 0.911598, -4.69384e-08, 0.897047, -4.69384e-08, -0.162229, -14.7187, 15.5099, 37.8023)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("12_rupgw")]
+transform = Transform3D(-0.88023, -1.03629e-08, -0.237076, 1.03629e-08, 0.911598, -7.83233e-08, 0.237076, -7.83233e-08, -0.88023, -2.85453, 16.0055, 65.296)
