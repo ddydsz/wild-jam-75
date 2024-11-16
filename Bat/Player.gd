@@ -3,6 +3,7 @@ extends CharacterBody3D
 class_name PlayerCamera
 
 signal hit 
+signal chirp(pos: Vector3)
 
 # Nodes
 @onready var camera_pivot : Node3D = self
@@ -85,7 +86,10 @@ func _physics_process(delta: float) -> void:
 		self.velocity += $CameraRod/MainCamera.global_transform.basis.y * d
 	if Input.is_action_pressed("action_down"):
 		self.velocity += - $CameraRod/MainCamera.global_transform.basis.y * d
-			
+	if Input.is_action_just_pressed("action_chirp"):
+		chirp.emit(self.global_position)
+		$AudioStreamPlayer.play()
+
 	self.move_and_slide()
 		
 func _unhandled_input(event: InputEvent) -> void:

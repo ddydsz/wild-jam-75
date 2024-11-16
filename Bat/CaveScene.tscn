@@ -302,6 +302,7 @@ transform = Transform3D(0.229911, 0.968416, 0.096497, 0.0328573, 0.0913727, -0.9
 [node name="spider3" parent="spiders" instance=ExtResource("6_r22hk")]
 transform = Transform3D(0.678549, -0.307943, 0.0773098, 0.295604, 0.546174, -0.418983, 0.115861, 0.409999, 0.616207, -17.2589, 0.215157, -5.93831)
 
+[connection signal="chirp" from="Player" to="." method="_on_chirp"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="body_entered" from="Player/Area3D" to="Player" method="_on_area_3d_body_entered"]
-[connection signal="chirp" from="grasshopper" to="." method="_on_grasshopper_chirp"]
+[connection signal="chirp" from="grasshopper" to="." method="_on_chirp"]

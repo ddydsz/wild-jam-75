@@ -1,9 +1,8 @@
 extends Node3D
 
-@onready var bat_audio_player : AudioStreamPlayer = $Player/AudioStreamPlayer
-
 var game_time = 0.0;
 var pulse_sources: Array[Vector4];
+var pulse_sources_dirty = true;
 var pulse_sources_tex: Texture2DRD = Texture2DRD.new();
 
 var debug_enabled = false
@@ -30,21 +29,6 @@ func pulse_process(delta):
 	game_time += delta;
 	RenderingServer.global_shader_parameter_set("game_time", game_time);
 
-	var dirty = false;
-	var i = 0;
-	while i < len(pulse_sources):
-		if game_time - pulse_sources[i].w > 10:
-			dirty = true;
-			pulse_sources.remove_at(i);
-		else:
-			i += 1;
-
-	if Input.is_action_just_pressed("action_chirp"):
-		var cam_pos = $Player/CameraRod/MainCamera.global_position;
-		pulse_sources.push_back(Vector4(cam_pos.x, cam_pos.y, cam_pos.z, game_time));
-		dirty = true;
-		bat_audio_player.play()
-
 	# create pulses at static position
 	#if game_time > chirp_pulse_last + 8:
 		#chirp_pulse_last = game_time;
@@ -54,9 +38,23 @@ func pulse_process(delta):
 		#pulse_sources.push_back(Vector4(-4.0, 0.0, -4.0, game_time + 0.6));
 		#dirty = true;
 
-	if dirty:
+	if pulse_sources_dirty:
 		# pulse update logic
 		RenderingServer.global_shader_parameter_set("pulse_sources", make_pulse_sources(pulse_sources));
+		pulse_sources_dirty = false;
+
+func add_pulse(src: Vector3, start_time: float):
+	pulse_sources.push_back(Vector4(src.x, src.y, src.z, start_time));
+	pulse_sources_dirty = true;
+
+func rm_old_pulses():
+	var i = 0;
+	while i < len(pulse_sources):
+		if game_time - pulse_sources[i].w > 10:
+			pulse_sources_dirty = true;
+			pulse_sources.remove_at(i);
+		else:
+			i += 1;
 
 func make_pulse_sources(sources: Array[Vector4]):
 	var fmt = RDTextureFormat.new();
@@ -81,6 +79,5 @@ func make_pulse_sources(sources: Array[Vector4]):
 func _on_player_hit():
 	$UI/HealthInfo.on_health_hit()
 
-func _on_grasshopper_chirp(pos: Vector3) -> void:
-	pulse_sources.push_back(Vector4(pos.x, pos.y, pos.z, game_time))
-	RenderingServer.global_shader_parameter_set("pulse_sources", make_pulse_sources(pulse_sources));
+func _on_chirp(pos: Vector3) -> void:
+	add_pulse(pos, game_time)

@@ -15,8 +15,7 @@ func _on_timer_timeout():
 	
 func set_scared(s: bool):
 	if s:
-		scared = true;
-		$Timer.stop()
+		$Timer.stop();
 	else:
-		scared = true;
-		$Timer.start()
+		$Timer.start();
+	scared = s;
