@@ -11,6 +11,26 @@ var debug_enabled = false
 func _ready():
 	RenderingServer.global_shader_parameter_set("pulse_sources", make_pulse_sources([]))
 
+	echo_material = load("res://Bat/Materials/echo_material.tres")
+	leaves_material = load("res://Bat/Materials/leaves.tres")
+	debug_material = load("res://Bat/Materials/debug_material.tres")
+	echo_material.set_shader_parameter("pulse_sounces", make_pulse_sources([]))
+	
+	_show_hint("Left click to chirp and see your surroundings", 2.0)
+	_show_hint("Use WASD to fly around", 7.0)
+	_show_hint("Control and space to fly up and down", 12.0)
+	
+func _set_hint_label_text(text: String):
+	$UI/Hints/HintLabel.text = text
+
+func _show_hint(text: String, delay: float = 0.0):
+	var hint_tween = create_tween()
+	hint_tween.tween_interval(delay)
+	hint_tween.tween_callback(_set_hint_label_text.bind(text))
+	hint_tween.tween_property($UI/Hints/HintLabel, "modulate:a", 1.0, 0.5)
+	hint_tween.tween_interval(3.0)
+	hint_tween.tween_property($UI/Hints/HintLabel, "modulate:a", 0.0, 0.5)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	

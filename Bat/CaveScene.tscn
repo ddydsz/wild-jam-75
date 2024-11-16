@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://dya0xeim1e2v1" path="res://Bat/Assets/chirp_01.wav" id="3_h0ab8"]
 [ext_resource type="PackedScene" uid="uid://dysuexydysmyd" path="res://Bat/Entities/CavePrefab.tscn" id="4_otgmk"]
 [ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/terrain.tres" id="5_70f0e"]
+[ext_resource type="Theme" uid="uid://br3t0qltldhyd" path="res://Bat/Assets/UITheme.tres" id="6_in1wm"]
 [ext_resource type="PackedScene" uid="uid://58kimrwoi6ok" path="res://Bat/Entities/Spider.tscn" id="6_r22hk"]
 [ext_resource type="PackedScene" uid="uid://buitwqulmna1b" path="res://Bat/Entities/Moth.tscn" id="7_2n2hq"]
 [ext_resource type="PackedScene" uid="uid://ddx5q7f1lkqry" path="res://Bat/Entities/grasshopper.tscn" id="7_8j24l"]
@@ -28,9 +29,6 @@ radius = 0.529372
 
 [sub_resource type="BoxMesh" id="BoxMesh_qfrjk"]
 material = ExtResource("5_70f0e")
-
-[sub_resource type="Theme" id="Theme_3g43t"]
-default_font_size = 28
 
 [sub_resource type="Theme" id="Theme_kfrs7"]
 default_font_size = 33
@@ -96,7 +94,7 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 310.0
 offset_bottom = 102.0
-theme = SubResource("Theme_3g43t")
+theme = ExtResource("6_in1wm")
 text = "WASD: move
 F: toggle debug
 Space: fly up
@@ -120,6 +118,24 @@ theme_override_font_sizes/bold_italics_font_size = 18
 text = "Health: 10"
 fit_content = true
 script = ExtResource("7_ksp3j")
+
+[node name="Hints" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 220.83
+offset_right = 300.0
+offset_bottom = 260.83
+grow_horizontal = 2
+
+[node name="HintLabel" type="Label" parent="UI/Hints"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme = ExtResource("6_in1wm")
+text = "Left click to chirp and see your surroundings"
+horizontal_alignment = 1
 
 [node name="StartingPoint" type="Marker3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.15815, 0.643629, -0.189201)
