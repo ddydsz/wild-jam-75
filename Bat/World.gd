@@ -13,7 +13,7 @@ func _ready():
 	
 	_show_hint("Left click to chirp and see your surroundings", 2.0)
 	_show_hint("Use WASD to fly around", 7.0)
-	_show_hint("Control and space to fly up and down", 12.0)
+	_show_hint("Space and control to fly up and down", 12.0)
 	
 func _set_hint_label_text(text: String):
 	$UI/Hints/HintLabel.text = text

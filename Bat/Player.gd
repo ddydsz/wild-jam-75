@@ -18,7 +18,7 @@ signal chirp(pos: Vector3)
 # There are reasons why we can't use something like self.rotation that I'm not
 # prepared to explain right now.
 var camera_rotation : Vector2 = Vector2.ZERO
-var camera_target_rotation : Vector2 = Vector2.ZERO
+var camera_target_rotation : Vector2 = Vector2(0.0, PI / 2.0)
 
 @export var camera_rotation_smoothing_speed : float = 0.5
 

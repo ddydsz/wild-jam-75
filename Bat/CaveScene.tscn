@@ -50,7 +50,6 @@ push_back_force = 7.0
 friction = 0.985
 
 [node name="CameraRod" type="Node3D" parent="Player"]
-visible = false
 
 [node name="MainCamera" type="Camera3D" parent="Player/CameraRod"]
 current = true
