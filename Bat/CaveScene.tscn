@@ -1,22 +1,22 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=24 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
 [ext_resource type="AudioStream" uid="uid://dya0xeim1e2v1" path="res://Bat/Assets/chirp_01.wav" id="3_h0ab8"]
 [ext_resource type="PackedScene" uid="uid://dysuexydysmyd" path="res://Bat/Entities/CavePrefab.tscn" id="4_otgmk"]
 [ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/terrain.tres" id="5_70f0e"]
-[ext_resource type="Theme" uid="uid://br3t0qltldhyd" path="res://Bat/Assets/UITheme.tres" id="6_in1wm"]
 [ext_resource type="PackedScene" uid="uid://58kimrwoi6ok" path="res://Bat/Entities/Spider.tscn" id="6_r22hk"]
 [ext_resource type="PackedScene" uid="uid://buitwqulmna1b" path="res://Bat/Entities/Moth.tscn" id="7_2n2hq"]
 [ext_resource type="PackedScene" uid="uid://ddx5q7f1lkqry" path="res://Bat/Entities/grasshopper.tscn" id="7_8j24l"]
 [ext_resource type="Script" path="res://Bat/health_info.gd" id="7_ksp3j"]
+[ext_resource type="Theme" uid="uid://br3t0qltldhyd" path="res://Bat/Assets/UITheme.tres" id="7_vvbqq"]
 [ext_resource type="PackedScene" uid="uid://rah6xn4jfbkt" path="res://Bat/Entities/mushroom_1.tscn" id="8_4ick3"]
-[ext_resource type="PackedScene" path="res://Bat/Entities/Rock1.tscn" id="9_aftvl"]
-[ext_resource type="PackedScene" path="res://Bat/Entities/Rock2.tscn" id="10_llx2p"]
-[ext_resource type="PackedScene" path="res://Bat/Entities/Rock3.tscn" id="11_8ue56"]
+[ext_resource type="PackedScene" uid="uid://cqecn7x6fkpeu" path="res://Bat/Entities/Rock1.tscn" id="9_aftvl"]
+[ext_resource type="PackedScene" uid="uid://b5730mevyff1o" path="res://Bat/Entities/Rock2.tscn" id="10_llx2p"]
+[ext_resource type="PackedScene" uid="uid://sbpjo1phb1fo" path="res://Bat/Entities/Rock3.tscn" id="11_8ue56"]
 [ext_resource type="PackedScene" uid="uid://b5nyq23o20w1g" path="res://Bat/Entities/Tree.tscn" id="12_rupgw"]
-[ext_resource type="PackedScene" path="res://Bat/Entities/mushroom_2.tscn" id="13_kjr0f"]
-[ext_resource type="PackedScene" path="res://Bat/Entities/skull.tscn" id="14_l35fv"]
+[ext_resource type="PackedScene" uid="uid://ddkykkctvt1pm" path="res://Bat/Entities/mushroom_2.tscn" id="13_kjr0f"]
+[ext_resource type="PackedScene" uid="uid://cpcy7hms3j71d" path="res://Bat/Entities/skull.tscn" id="14_l35fv"]
 
 [sub_resource type="Environment" id="Environment_hrfn1"]
 background_mode = 1
@@ -29,6 +29,9 @@ radius = 0.529372
 
 [sub_resource type="BoxMesh" id="BoxMesh_qfrjk"]
 material = ExtResource("5_70f0e")
+
+[sub_resource type="Theme" id="Theme_3g43t"]
+default_font_size = 28
 
 [sub_resource type="Theme" id="Theme_kfrs7"]
 default_font_size = 33
@@ -94,7 +97,7 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 310.0
 offset_bottom = 102.0
-theme = ExtResource("6_in1wm")
+theme = SubResource("Theme_3g43t")
 text = "WASD: move
 F: toggle debug
 Space: fly up
@@ -124,17 +127,16 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -300.0
-offset_top = 220.83
-offset_right = 300.0
-offset_bottom = 260.83
+offset_left = -20.0
+offset_top = 220.0
+offset_right = 20.0
+offset_bottom = 260.0
 grow_horizontal = 2
 
 [node name="HintLabel" type="Label" parent="UI/Hints"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme = ExtResource("6_in1wm")
-text = "Left click to chirp and see your surroundings"
+theme = ExtResource("7_vvbqq")
 horizontal_alignment = 1
 
 [node name="StartingPoint" type="Marker3D" parent="."]

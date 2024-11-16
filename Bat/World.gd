@@ -10,11 +10,6 @@ var debug_enabled = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	RenderingServer.global_shader_parameter_set("pulse_sources", make_pulse_sources([]))
-
-	echo_material = load("res://Bat/Materials/echo_material.tres")
-	leaves_material = load("res://Bat/Materials/leaves.tres")
-	debug_material = load("res://Bat/Materials/debug_material.tres")
-	echo_material.set_shader_parameter("pulse_sounces", make_pulse_sources([]))
 	
 	_show_hint("Left click to chirp and see your surroundings", 2.0)
 	_show_hint("Use WASD to fly around", 7.0)
