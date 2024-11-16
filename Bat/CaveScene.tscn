@@ -43,7 +43,9 @@ environment = SubResource("Environment_hrfn1")
 [node name="Player" type="CharacterBody3D" parent="."]
 transform = Transform3D(0.00872656, 0, 0.999962, 0, 1, 0, -0.999962, 0, 0.00872656, 1.78527, 0.611678, -0.498643)
 script = ExtResource("2_ws7kp")
+camera_rotation_smoothing_speed = 1.23
 push_back_force = 7.0
+friction = 0.985
 
 [node name="CameraRod" type="Node3D" parent="Player"]
 visible = false

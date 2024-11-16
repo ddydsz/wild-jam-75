@@ -14,7 +14,12 @@ signal hit
 @export var camera_min_vertical_rotation : float = -85.0
 @export var camera_max_vertical_rotation : float = 85.0
 
-var camera_target_direction : Vector2 = Vector2.ZERO
+# There are reasons why we can't use something like self.rotation that I'm not
+# prepared to explain right now.
+var camera_rotation : Vector2 = Vector2.ZERO
+var camera_target_rotation : Vector2 = Vector2.ZERO
+
+@export var camera_rotation_smoothing_speed : float = 0.5
 
 # zooming
 @export var camera_zoom : float = 3.0 : set = set_camera_zoom
@@ -29,7 +34,9 @@ func set_is_cursor_visible(value): Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE
 func get_is_cursor_visible(): return Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE
 @export var push_back_force: float = 5.0;
 
-var speed = 6.0
+@export var speed = 6.0
+@export var friction = 0.97
+
 var SIN_WAVE_TIME_DIVISION = 100;
 var SIN_WAVE_AMPLITUDE_DIVISION = 65;
 
@@ -45,14 +52,26 @@ func _process(delta: float) -> void:
 	
 	# bobbing up and down from wing flapping
 	camera.translate(Vector3(0, sin(Time.get_ticks_msec()/SIN_WAVE_TIME_DIVISION)/SIN_WAVE_AMPLITUDE_DIVISION, 0))
+	
+	# gradually rotate camera towards target direction
+	self.camera_rotation.y = lerp(
+		self.camera_rotation.y, 
+		self.camera_target_rotation.y, 
+		self.camera_rotation_smoothing_speed * delta)
+	self.camera_rotation.x = lerp(
+		self.camera_rotation.x, 
+		self.camera_target_rotation.x, 
+		self.camera_rotation_smoothing_speed * delta)
+		
+	self.rotation.y = self.camera_rotation.y
+	camera_rod.rotation.x = self.camera_rotation.x
 
 func _physics_process(delta: float) -> void:
 	
 	# friction
-	self.velocity *= 0.97
+	self.velocity *= friction
 	
 	var d = delta * speed
-	
 	
 	if Input.is_action_pressed("ui_up"):
 		self.velocity += - $CameraRod/MainCamera.global_transform.basis.z * d
@@ -72,21 +91,6 @@ func _physics_process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	process_mouse_input(event)
 
-####################
-#  Camera3D methods  #
-####################
-
-func rotate_camera(camera_direction : Vector2) -> void:
-	self.rotation.y += -camera_direction.x
-	# Vertical rotation
-	camera_rod.rotate_x(-camera_direction.y)
-	
-	# Limit vertical rotation
-	camera_rod.rotation_degrees.x = clamp(
-		camera_rod.rotation_degrees.x,
-		camera_min_vertical_rotation, camera_max_vertical_rotation
-	)	
-
 func toggle_cursor_visibility() -> void:
 	self.is_cursor_visible = !self.is_cursor_visible
 
@@ -99,14 +103,29 @@ func process_basic_input():
 		toggle_cursor_visibility()
 
 func process_mouse_input(event : InputEvent) -> void:
+	
 	# Cursor movement
 	if event is InputEventMouseMotion:
-		var camera_direction = Vector2(
-			deg_to_rad(event.relative.x * mouse_sensitivity),
-			deg_to_rad(event.relative.y * mouse_sensitivity)
+		
+		var rot_y = deg_to_rad(event.relative.x * mouse_sensitivity)
+		var rot_x = deg_to_rad(event.relative.y * mouse_sensitivity)
+		
+		self.camera_target_rotation.x = self.camera_target_rotation.x - rot_x
+		self.camera_target_rotation.y = self.camera_target_rotation.y - rot_y
+		
+		#print("target_rotation_x: ", self.camera_target_rotation.x)
+		#print("target_rotation_y: ", self.camera_target_rotation.y)
+
+		# Horizontal rotation
+		#self.rotation.y += -rot_y
+		# Vertical rotation
+		#camera_rod.rotate_x(-rot_x)
+		
+		# Limit vertical rotation
+		camera_rod.rotation_degrees.x = clamp(
+			camera_rod.rotation_degrees.x,
+			camera_min_vertical_rotation, camera_max_vertical_rotation
 		)
-		if !self.is_cursor_visible:
-			rotate_camera(camera_direction)
 	
 	# Scrolling
 	elif event is InputEventMouseButton:
