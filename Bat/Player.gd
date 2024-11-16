@@ -24,7 +24,7 @@ func set_camera_zoom(value): camera_zoom = clamp(value, camera_min_zoom_distance
 func set_is_cursor_visible(value): Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if value else Input.MOUSE_MODE_CAPTURED)
 func get_is_cursor_visible(): return Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE
 
-var speed = 0.15
+var speed = 6.0
 var SIN_WAVE_TIME_DIVISION = 100;
 var SIN_WAVE_AMPLITUDE_DIVISION = 65;
 
