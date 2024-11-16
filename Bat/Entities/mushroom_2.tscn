@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddkykkctvt1pm"]
+
+[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/echo_material.tres" id="1_qjnuj"]
+[ext_resource type="ArrayMesh" uid="uid://ctoddtfhn2sjr" path="res://Bat/Assets/19382_Short_strange_mushroom_v1.obj" id="2_wrkkt"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_27wyg"]
+height = 2.12807
+radius = 0.218429
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_828hf"]
+height = 0.396895
+radius = 0.984757
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qyhq8"]
+radius = 0.416322
+
+[node name="mushroom_2" type="CharacterBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0)
+material_override = ExtResource("1_qjnuj")
+material_overlay = ExtResource("1_qjnuj")
+mesh = ExtResource("2_wrkkt")
+
+[node name="stem" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0242183, 1.09014, -0.0103047)
+shape = SubResource("CylinderShape3D_27wyg")
+
+[node name="cap" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0227022, 2.1408, -0.00971228)
+shape = SubResource("CylinderShape3D_828hf")
+
+[node name="cap2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000574574, 2.31122, -0.0238395)
+shape = SubResource("SphereShape3D_qyhq8")

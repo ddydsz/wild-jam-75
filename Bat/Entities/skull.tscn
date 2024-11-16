@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpcy7hms3j71d"]
+
+[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/echo_material.tres" id="1_37d7b"]
+[ext_resource type="ArrayMesh" uid="uid://j6g26m6etnui" path="res://Bat/Assets/skull.obj" id="1_y5ngs"]
+
+[node name="skull" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+material_override = ExtResource("1_37d7b")
+mesh = ExtResource("1_y5ngs")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=19 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://b5730mevyff1o" path="res://Bat/Entities/Rock2.tscn" id="10_llx2p"]
 [ext_resource type="PackedScene" uid="uid://sbpjo1phb1fo" path="res://Bat/Entities/Rock3.tscn" id="11_8ue56"]
 [ext_resource type="PackedScene" uid="uid://b5nyq23o20w1g" path="res://Bat/Entities/Tree.tscn" id="12_rupgw"]
+[ext_resource type="PackedScene" uid="uid://ddkykkctvt1pm" path="res://Bat/Entities/mushroom_2.tscn" id="13_kjr0f"]
+[ext_resource type="PackedScene" uid="uid://cpcy7hms3j71d" path="res://Bat/Entities/skull.tscn" id="14_l35fv"]
 
 [sub_resource type="Environment" id="Environment_hrfn1"]
 background_mode = 1
@@ -126,33 +128,6 @@ gravity_scale = 0.0
 base_speed = 6.0
 direction_change_interval = 0.6
 
-[node name="mushroom_1_type" parent="." instance=ExtResource("8_4ick3")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -11.5656, -2.15416, -0.135662)
-
-[node name="mushroom_1_type2" parent="." instance=ExtResource("8_4ick3")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -11.7819, -2.32283, 0.257654)
-
-[node name="mushroom_1_type3" parent="." instance=ExtResource("8_4ick3")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -20.3547, -1.94657, -4.25126)
-
-[node name="mushroom_1_type4" parent="." instance=ExtResource("8_4ick3")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -20.5077, -1.77633, -3.70134)
-
-[node name="mushroom_1_type5" parent="." instance=ExtResource("8_4ick3")]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -21.2892, -0.681808, -8.00877)
-
-[node name="mushroom_1_type_big_daddy_chungus" parent="." instance=ExtResource("8_4ick3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.6679, 2.16719, 4.48743)
-
-[node name="mushroom_1_type6" parent="." instance=ExtResource("8_4ick3")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -45.1558, 10.1027, 7.34414)
-
-[node name="mushroom_1_type8" parent="." instance=ExtResource("8_4ick3")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -45.0758, 10.0274, 6.9768)
-
-[node name="mushroom_1_type7" parent="." instance=ExtResource("8_4ick3")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -45.2189, 9.68905, 6.45228)
-
 [node name="Rocks" type="Node3D" parent="."]
 
 [node name="Rock1" parent="Rocks" instance=ExtResource("9_aftvl")]
@@ -228,3 +203,44 @@ transform = Transform3D(-1.19882, -1.41136e-08, -0.322882, 1.41136e-08, 1.24154,
 
 [node name="Tree5" parent="Trees" instance=ExtResource("12_rupgw")]
 transform = Transform3D(-0.283949, 5.28309e-08, 1.20863, -5.28309e-08, 1.24154, -6.66812e-08, -1.20863, -6.66812e-08, -0.283949, -29.3695, 18.3376, 57.5745)
+
+[node name="mushrooms" type="Node3D" parent="."]
+
+[node name="mushroom_1_type" parent="mushrooms" instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -11.5656, -2.15416, -0.135662)
+
+[node name="mushroom_1_type2" parent="mushrooms" instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -11.7819, -2.32283, 0.257654)
+
+[node name="mushroom_1_type3" parent="mushrooms" instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -20.3547, -1.94657, -4.25126)
+
+[node name="mushroom_1_type4" parent="mushrooms" instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -20.5077, -1.77633, -3.70134)
+
+[node name="mushroom_1_type5" parent="mushrooms" instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, -21.2892, -0.681808, -8.00877)
+
+[node name="mushroom_1_type_big_daddy_chungus" parent="mushrooms" instance=ExtResource("8_4ick3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.6679, 2.16719, 4.48743)
+
+[node name="mushroom_1_type6" parent="mushrooms" instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -45.1558, 10.1027, 7.34414)
+
+[node name="mushroom_1_type8" parent="mushrooms" instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -45.0758, 10.0274, 6.9768)
+
+[node name="mushroom_1_type7" parent="mushrooms" instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -45.2189, 9.68905, 6.45228)
+
+[node name="mushroom_2" parent="mushrooms" instance=ExtResource("13_kjr0f")]
+transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, -20.5068, -2.18402, -2.37745)
+
+[node name="mushroom_3" parent="mushrooms" instance=ExtResource("13_kjr0f")]
+transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, -20.1489, -2.22114, -3.18836)
+
+[node name="mushroom_1_type9" parent="mushrooms" instance=ExtResource("8_4ick3")]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, -20.8025, -1.7812, -1.43127)
+
+[node name="skull" parent="." instance=ExtResource("14_l35fv")]
+transform = Transform3D(0.165786, -0.132345, 0.212132, 0.187164, 0.234456, 0, -0.165786, 0.132345, 0.212132, -26.5656, 0.265548, -8.75527)
