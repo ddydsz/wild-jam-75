@@ -137,12 +137,12 @@ func process_mouse_input(event : InputEvent) -> void:
 	
 
 func take_damage():
-	
 	hit.emit()
-	
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("mushroom1") || body.is_in_group("spiders"):
 		var force_direction: Vector3 = (self.global_position - body.global_position)
 		self.velocity += force_direction.normalized() * push_back_force
 		take_damage()
+	elif body.is_in_group("grasshoppers"):
+		print("hit grasshopper")

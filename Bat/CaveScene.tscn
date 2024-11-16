@@ -81,9 +81,6 @@ mesh = SubResource("BoxMesh_qfrjk")
 transform = Transform3D(8.52035, 0, 0.560122, 0, 0.95, 0, -0.548746, 0, 8.69698, -36.2498, 2.40326, 4.27339)
 mesh = SubResource("BoxMesh_qfrjk")
 
-[node name="DebugDirectionalLight" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.841067, 0.00932724, 0.54085, -0.54093, 0.0145025, 0.840942, 0, -0.999851, 0.017243, 0, 0, 0)
-
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -130,8 +127,8 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1581
 [node name="Outside" type="Marker3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -39.4671, 17.0423, 23.8333)
 
-[node name="grasshopper" parent="." instance=ExtResource("7_8j24l")]
-transform = Transform3D(0.780638, 0.624984, 0, -0.434464, 0.542668, -0.718855, -0.449273, 0.561165, 0.69516, -3.10463, -1.40014, -4.32659)
+[node name="grasshopper" parent="." groups=["grasshoppers"] instance=ExtResource("7_8j24l")]
+transform = Transform3D(0.780638, 0.624984, 0, -0.434464, 0.542668, -0.718855, -0.449273, 0.561165, 0.69516, -3.02536, -3.55691, -3.55001)
 
 [node name="TestMoths" type="Node3D" parent="."]
 

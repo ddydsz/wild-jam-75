@@ -11,7 +11,6 @@ var debug_enabled = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	RenderingServer.global_shader_parameter_set("pulse_sources", make_pulse_sources([]))
-	#echo_material.set_shader_parameter("pulse_sources", make_pulse_sources([]))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -24,7 +23,6 @@ func _process(delta):
 	if Input.is_action_just_pressed("debug_mode_toggle"):
 		debug_enabled = !debug_enabled
 		RenderingServer.global_shader_parameter_set("debug_enabled", debug_enabled)
-		
 
 	pulse_process(delta)
 
