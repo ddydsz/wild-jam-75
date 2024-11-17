@@ -228,27 +228,27 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -39.46
 [node name="grasshopper" parent="." groups=["grasshoppers"] instance=ExtResource("7_8j24l")]
 transform = Transform3D(0.973702, 0.227824, 0, -0.177734, 0.75962, -0.62561, -0.142529, 0.609158, 0.780136, -3.80858, -3.68033, -3.60025)
 
-[node name="TestMoths" type="Node3D" parent="."]
+[node name="Moths" type="Node3D" parent="."]
 
-[node name="Moth" parent="TestMoths" instance=ExtResource("7_2n2hq")]
+[node name="Moth" parent="Moths" instance=ExtResource("7_2n2hq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5472, 18.0755, 28.3226)
 gravity_scale = 0.0
 base_speed = 3.0
 direction_change_interval = 0.6
 
-[node name="Moth2" parent="TestMoths" instance=ExtResource("7_2n2hq")]
+[node name="Moth2" parent="Moths" instance=ExtResource("7_2n2hq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.949, 19.5014, 35.0887)
 gravity_scale = 0.0
 base_speed = 3.0
 direction_change_interval = 0.6
 
-[node name="Moth3" parent="TestMoths" instance=ExtResource("7_2n2hq")]
+[node name="Moth3" parent="Moths" instance=ExtResource("7_2n2hq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.3469, 20.1305, 23.7653)
 gravity_scale = 0.0
 base_speed = 3.0
 direction_change_interval = 0.6
 
-[node name="Moth4" parent="TestMoths" instance=ExtResource("7_2n2hq")]
+[node name="Moth4" parent="Moths" instance=ExtResource("7_2n2hq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.9527, 19.9208, 39.3245)
 gravity_scale = 0.0
 base_speed = 3.0
