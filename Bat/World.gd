@@ -72,6 +72,8 @@ func _on_player_hint_outside() -> void:
 	is_outside = true
 	if $DaylightTimer.is_stopped():
 		$DaylightTimer.start(30)
+	if daylightcon == 1 or daylightcon == 2:
+		_game_won_screen()
 	
 func _game_over_screen(what: String = "sunlight"):
 	var tween = create_tween()
