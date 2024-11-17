@@ -26,10 +26,10 @@
 background_mode = 1
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wojif"]
-radius = 0.463727
+radius = 0.519
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_n3yu1"]
-radius = 0.529372
+radius = 0.588
 
 [sub_resource type="BoxMesh" id="BoxMesh_qfrjk"]
 material = ExtResource("5_70f0e")
@@ -435,7 +435,7 @@ transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, -20.5068, -2.18402, 
 transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, -20.1489, -2.22114, -3.18836)
 
 [node name="mushroom_1_type9" parent="mushrooms" instance=ExtResource("8_4ick3")]
-transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, -20.8025, -1.7812, -1.43127)
+transform = Transform3D(1.02625, 0, 0, 0, 1.02625, 0, 0, 0, 1.02625, -20.8025, -1.94576, -1.43127)
 
 [node name="skull" parent="." instance=ExtResource("14_l35fv")]
 transform = Transform3D(0.165786, -0.132345, 0.212132, 0.187164, 0.234456, 0, -0.165786, 0.132345, 0.212132, -26.5656, 0.265548, -8.75527)
@@ -453,7 +453,7 @@ transform = Transform3D(0.678549, -0.307943, 0.0773098, 0.295604, 0.546174, -0.4
 
 [node name="HintCollisionShapes" type="Node3D" parent="."]
 
-[node name="EnemiesHint" type="Area3D" parent="HintCollisionShapes"]
+[node name="EnemiesHint" type="Area3D" parent="HintCollisionShapes" groups=["hint_enemies"]]
 transform = Transform3D(0.993898, 0, -0.110307, 0, 1, 0, 0.110307, 0, 0.993898, -7.10341, -0.72533, 0.591466)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HintCollisionShapes/EnemiesHint" groups=["hint_enemies"]]

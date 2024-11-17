@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://sbpjo1phb1fo"]
+[gd_scene load_steps=4 format=3 uid="uid://sbpjo1phb1fo"]
 
 [ext_resource type="ArrayMesh" uid="uid://cnv2talr8pcrk" path="res://Bat/Assets/rock3.res" id="1_wkci2"]
-[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/echo_material.tres" id="2_fftvt"]
+[ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/terrain.tres" id="2_fftvt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ig8xl"]
+radius = 0.82
+height = 2.741
 
 [node name="Rock3" type="Node3D"]
 
 [node name="Rock3" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_wkci2")
 surface_material_override/0 = ExtResource("2_fftvt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(0.963648, -0.265934, -0.025737, 0.00326976, 0.108061, -0.994139, 0.267156, 0.957916, 0.105002, -0.14587, -0.110612, 0.288914)
+shape = SubResource("CapsuleShape3D_ig8xl")
