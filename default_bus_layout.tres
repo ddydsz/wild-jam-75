@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://3pcqqkom5hcp"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://bl3y0y4j7cl5d"]
 
 [sub_resource type="AudioEffectDelay" id="AudioEffectDelay_q46nf"]
 resource_name = "Delay"
@@ -6,6 +6,7 @@ tap1_level_db = -14.13
 tap2_level_db = -17.5
 
 [resource]
+bus/0/send = &"Music"
 bus/1/name = &"Echo"
 bus/1/solo = false
 bus/1/mute = false
@@ -14,3 +15,15 @@ bus/1/volume_db = 0.0
 bus/1/send = &"Master"
 bus/1/effect/0/effect = SubResource("AudioEffectDelay_q46nf")
 bus/1/effect/0/enabled = true
+bus/2/name = &"Music"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/3/name = &"SFX"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
