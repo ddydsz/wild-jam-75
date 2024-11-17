@@ -27,4 +27,13 @@ func _set_damage_overlay_opacity(opacity: float):
 
 func _on_player_got_food(amount: float) -> void:
 	self.food += amount
+	
+	# flash screen for a moment
+	var tween = create_tween()
+	tween.tween_method(_set_food_overlay_opacity, 0.0, 1.0, 0.3)
+	tween.tween_method(_set_food_overlay_opacity, 1.0, 0.0, 0.3)
+	
 	$StatusBarMarginContainer/FoodBar.scale.x = food / 100.0
+
+func _set_food_overlay_opacity(opacity: float):
+	$FoodEatenOverlay.material.set_shader_parameter("opacity", opacity)

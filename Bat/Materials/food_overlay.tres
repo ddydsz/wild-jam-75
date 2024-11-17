@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ck8ub6hy4tym5"]
+
+[ext_resource type="Shader" path="res://Bat/Materials/damage.gdshader" id="1_to25x"]
+
+[resource]
+shader = ExtResource("1_to25x")
+shader_parameter/opacity = 0.0
+shader_parameter/color = Color(0.741667, 1, 0.69, 1)
+shader_parameter/max_opacity = 0.125
+shader_parameter/vignette_factor = 0.915

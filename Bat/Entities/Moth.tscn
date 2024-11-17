@@ -4,11 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://cq5jn8ac7x76t" path="res://Bat/Entities/MothMesh.tscn" id="2_0wvvd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hn5gp"]
-radius = 0.621
+radius = 0.785
 
-[node name="Moth" type="RigidBody3D"]
+[node name="Moth" type="RigidBody3D" groups=["moths"]]
 script = ExtResource("1_02boc")
-base_speed = 5.0
 direction_change_max_angle_degrees = 12.0
 bobbing_frequency = 0.011
 bobbing_amplitude = 0.224

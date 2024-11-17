@@ -3,7 +3,7 @@ extends RigidBody3D
 var velocity : Vector3
 var direction_change_timer = 0.0
 
-@export var base_speed : float = 8.0
+@export var base_speed : float = 5.0
 @export var direction_change_interval = 0.2
 @export var direction_change_max_angle_degrees = 3.0
 @export var bobbing_frequency = 1.0
@@ -49,3 +49,6 @@ func random_direction() -> Vector3:
 		0,
 		randf() * 2 - 1
 	).normalized()
+	
+func unalive():
+	self.queue_free()
