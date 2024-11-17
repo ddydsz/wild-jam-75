@@ -43,6 +43,9 @@ size = Vector3(2.03, 5.305, 5.675)
 [node name="World" type="Node3D"]
 script = ExtResource("1_43sdk")
 
+[node name="DaylightTimer" type="Timer" parent="."]
+wait_time = 30.0
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hrfn1")
 
@@ -441,7 +444,7 @@ transform = Transform3D(0.678549, -0.307943, 0.0773098, 0.295604, 0.546174, -0.4
 
 [node name="HintCollisionShapes" type="Node3D" parent="."]
 
-[node name="EnemiesHint" type="Area3D" parent="HintCollisionShapes" groups=["hint_enemies"]]
+[node name="EnemiesHint" type="Area3D" parent="HintCollisionShapes"]
 transform = Transform3D(0.993898, 0, -0.110307, 0, 1, 0, 0.110307, 0, 0.993898, -7.10341, -0.72533, 0.591466)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HintCollisionShapes/EnemiesHint" groups=["hint_enemies"]]
@@ -462,6 +465,7 @@ transform = Transform3D(-0.126372, 0, 0.991983, 0, 1, 0, -0.991983, 0, -0.126372
 transform = Transform3D(0.977442, 0, -0.211205, 0, 1, 0, 0.211205, 0, 0.977442, 0, 0, 0)
 shape = SubResource("BoxShape3D_rxig5")
 
+[connection signal="timeout" from="DaylightTimer" to="." method="_on_daylight_timer_timeout"]
 [connection signal="chirp" from="Player" to="." method="_on_chirp"]
 [connection signal="got_food" from="Player" to="UI" method="_on_player_got_food"]
 [connection signal="hint_enemies" from="Player" to="." method="_on_player_hint_enemies"]
