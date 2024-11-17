@@ -43,13 +43,13 @@ func _on_daylight_timer_timeout() -> void:
 			_game_won_screen()
 	if daylightcon == 1:
 		daylightcon = 2
-		$DaylightTimer.start(10)
+		$DaylightTimer.start(50)
 		_show_hint("Sunrise is coming soon... Better head back.")
 	if daylightcon == 0:
 		daylightcon = 1
 		#wentoutside = 1
 		$HintCollisionShapes/GoOutsideHint.process_mode = Node.PROCESS_MODE_INHERIT
-		$DaylightTimer.start(10)
+		$DaylightTimer.start(50)
 		_show_hint("It's starting to get brighter out...")
 
 

@@ -6,6 +6,8 @@ var scared = false;
 var alive = true;
 var sleep_contact_point: Vector3;
 
+@export var chirps : bool = true
+
 # change material when grasshopper is unalived
 var unalive_material = load("res://Bat/Materials/water.tres")
 
@@ -24,7 +26,8 @@ func _on_timer_timeout():
 		self.apply_impulse(jump_dir * 5.0)
 	$Timer.wait_time = randf_range(3.0, 7.0)
 	$Timer.start()
-	chirp.emit(self.position)
+	if chirps:
+		chirp.emit(self.position)
 
 func unalive():
 	self.sleeping = false;

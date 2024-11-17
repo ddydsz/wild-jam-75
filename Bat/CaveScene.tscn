@@ -45,7 +45,7 @@ script = ExtResource("1_43sdk")
 main_menu_scene = "res://Bat/Scenes/MainMenu/main_menu_with_animations.tscn"
 
 [node name="DaylightTimer" type="Timer" parent="."]
-wait_time = 30.0
+wait_time = 50.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hrfn1")
@@ -505,30 +505,38 @@ transform = Transform3D(0.978005, 0.0454274, 0.203576, -0.202614, 0.438731, 0.87
 
 [node name="grasshopper2" parent="grasshoppers" instance=ExtResource("7_8j24l")]
 transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -18.6936, 15.7184, 23.39)
+chirps = false
 
 [node name="grasshopper3" parent="grasshoppers" instance=ExtResource("7_8j24l")]
 transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -35.3606, 16.1362, 40.4567)
+chirps = false
 
 [node name="grasshopper4" parent="grasshoppers" instance=ExtResource("7_8j24l")]
 transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -49.3523, 18.8375, 41.1515)
+chirps = false
 
 [node name="grasshopper5" parent="grasshoppers" instance=ExtResource("7_8j24l")]
 transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -78.4141, 20.2247, 54.8497)
 
 [node name="grasshopper6" parent="grasshoppers" instance=ExtResource("7_8j24l")]
 transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -61.3365, 12.5155, 82.1239)
+chirps = false
 
 [node name="grasshopper7" parent="grasshoppers" instance=ExtResource("7_8j24l")]
 transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -38.755, 13.116, 102.469)
+chirps = false
 
 [node name="grasshopper8" parent="grasshoppers" instance=ExtResource("7_8j24l")]
 transform = Transform3D(-0.894515, 0.0948847, 0.436852, 0.0709227, 0.99496, -0.0708823, -0.441376, -0.0324227, -0.896737, -16.6736, 14.2181, 90.1543)
+chirps = false
 
 [node name="grasshopper9" parent="grasshoppers" instance=ExtResource("7_8j24l")]
 transform = Transform3D(-0.894515, 0.0948847, 0.436852, 0.0709227, 0.99496, -0.0708823, -0.441376, -0.0324227, -0.896737, -3.36693, 14.2181, 49.3589)
+chirps = false
 
 [node name="grasshopper10" parent="grasshoppers" instance=ExtResource("7_8j24l")]
 transform = Transform3D(-0.894515, 0.0948847, 0.436852, 0.0709227, 0.99496, -0.0708823, -0.441376, -0.0324227, -0.896737, -39.065, 16.9935, -6.11421)
+chirps = false
 
 [node name="grasshopper11" parent="grasshoppers" instance=ExtResource("7_8j24l")]
 transform = Transform3D(-0.894515, 0.0948847, 0.436852, 0.0709227, 0.99496, -0.0708823, -0.441376, -0.0324227, -0.896737, -63.5983, 17.8291, -5.24848)
