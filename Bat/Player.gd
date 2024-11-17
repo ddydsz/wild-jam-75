@@ -159,6 +159,9 @@ func _on_area_3d_body_entered(body: Node3D):
 	elif body.is_in_group("grasshoppers") && body.alive:
 		body.unalive()
 		got_food.emit(10.0)
+	elif body.is_in_group("moths"):
+		body.unalive()
+		got_food.emit(10.0)
 
 func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
 	if area.is_in_group("hint_enemies"):

@@ -6,9 +6,8 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_hn5gp"]
 radius = 0.621
 
-[node name="Moth" type="RigidBody3D"]
+[node name="Moth" type="RigidBody3D" groups=["moths"]]
 script = ExtResource("1_02boc")
-base_speed = 5.0
 direction_change_max_angle_degrees = 12.0
 bobbing_frequency = 0.011
 bobbing_amplitude = 0.224
