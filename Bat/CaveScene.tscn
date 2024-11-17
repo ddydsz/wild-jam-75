@@ -45,7 +45,7 @@ script = ExtResource("1_43sdk")
 main_menu_scene = "res://Bat/Scenes/MainMenu/main_menu_with_animations.tscn"
 
 [node name="DaylightTimer" type="Timer" parent="."]
-wait_time = 50.0
+wait_time = 80.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hrfn1")

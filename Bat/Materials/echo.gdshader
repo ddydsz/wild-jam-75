@@ -61,7 +61,7 @@ void fragment() {
 	float f = fresnel(fresnel_amount, NORMAL, VIEW);
 	float n = noise * texture(noise_texture, frag_world.xyz).r;
 	//float a = ambient * FRAGCOORD.z * FRAGCOORD.z;
-	float a = ambient;
+	float a = ambient / (-frag_view.z);
 
 	// want to be able to see something in the material view
 	if (debug_enabled) {
