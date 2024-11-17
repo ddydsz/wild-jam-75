@@ -38,7 +38,8 @@ float pulse_intensity(vec3 src, float start_time, vec3 frag) {
 	float d = ilerp(pulse_length, pulse_fade_length, abs(radius - dist));
 	float i = clamp(smoothstep(1.0, 0.0, d), 0.0, 1.0);
 	// intensity decreases as the pulse radius grows
-	float falloff = clamp(10.0 / radius, 0.0, 1.0);
+	float falloff_rad = 20.0;
+	float falloff = clamp(falloff_rad / clamp(radius-falloff_rad, 0.0, radius), 0.0, 1.0);
 	return i * falloff;
 }
 
@@ -62,7 +63,13 @@ void fragment() {
 	float a = ambient * FRAGCOORD.z * FRAGCOORD.z;
 
 	// want to be able to see something in the material view
-	if (debug_enabled || game_time <= 0.0) { a = 1.0; }
+	if (debug_enabled) {
+		a = 1.0;
+	} else if (game_time <= 0.0) {
+		// editor/material view
+		a = 0.5;
+		pulse = 0.5 * pulse_intensity(CAMERA_POSITION_WORLD, game_time - mod(TIME, 3.0), frag_world.xyz);
+	}
 
 	ALBEDO = clamp(pulse + a - f - n, 0.0, 1.0) * color;
 	//ALBEDO = pulse_color;
