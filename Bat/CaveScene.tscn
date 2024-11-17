@@ -271,6 +271,33 @@ transform = Transform3D(2.1101, 0, 0, 0, 2.1101, 0, 0, 0, 2.1101, -2.86081, 13.9
 [node name="Rock5" parent="Rocks" instance=ExtResource("9_aftvl")]
 transform = Transform3D(1.17051, -1.68113, 0.506172, -0.969617, -1.12616, -1.49804, 1.46364, 0.5984, -1.3972, -5.47595, 14.4501, 45.5822)
 
+[node name="Rock31" parent="Rocks" instance=ExtResource("9_aftvl")]
+transform = Transform3D(1.68805, 1.19489, 0.41861, 1.24316, -1.69644, -0.170737, 0.23986, 0.38321, -2.0611, 2.47491, 17.7562, 94.9459)
+
+[node name="Rock32" parent="Rocks" instance=ExtResource("9_aftvl")]
+transform = Transform3D(-1.33425, 0.631683, 1.50773, -0.532978, -2.00795, 0.369597, 1.54538, -0.147124, 1.42921, -95.6874, 16.9684, 38.7804)
+
+[node name="Rock33" parent="Rocks" instance=ExtResource("9_aftvl")]
+transform = Transform3D(0.856086, 0.561781, 0.555179, -0.220611, 0.956233, -0.627416, -0.758384, 0.355987, 0.809214, -90.0016, 15.9803, 32.63)
+
+[node name="Rock25" parent="Rocks" instance=ExtResource("9_aftvl")]
+transform = Transform3D(-1.5346, -1.492, 2.20459, 1.99765, -2.32737, -0.184538, 1.75946, 1.34113, 2.13237, 15.8362, 14.9855, 73.9612)
+
+[node name="Rock26" parent="Rocks" instance=ExtResource("9_aftvl")]
+transform = Transform3D(-1.5346, -1.492, 2.20459, 1.99765, -2.32737, -0.184538, 1.75946, 1.34113, 2.13237, -89.4155, 16.1633, 85.5403)
+
+[node name="Rock27" parent="Rocks" instance=ExtResource("9_aftvl")]
+transform = Transform3D(-1.96025, 1.98953, 1.28082, -0.488958, 1.28676, -2.74709, -2.31509, -1.95636, -0.50431, -62.0459, 17.1783, -0.377495)
+
+[node name="Rock28" parent="Rocks" instance=ExtResource("9_aftvl")]
+transform = Transform3D(1.94661, -0.356545, 0.20839, 0.3305, 1.94706, 0.24408, -0.24763, -0.204152, 1.96388, -64.6619, 17.6776, 2.11321)
+
+[node name="Rock29" parent="Rocks" instance=ExtResource("9_aftvl")]
+transform = Transform3D(1.36124, -0.571827, -1.33412, 1.00721, 1.68913, 0.303705, 1.04517, -0.883018, 1.4449, -10.8005, 16.1755, 7.29182)
+
+[node name="Rock30" parent="Rocks" instance=ExtResource("9_aftvl")]
+transform = Transform3D(-0.53094, -0.441129, -0.117353, 0.323727, -0.236979, -0.573851, 0.321816, -0.489399, 0.383649, -26.4332, 14.7048, 6.37787)
+
 [node name="Rock2" parent="Rocks" instance=ExtResource("10_llx2p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.0733, 17.2776, 44.9344)
 
@@ -333,11 +360,23 @@ transform = Transform3D(0.612923, -0.222687, 0.0966553, 0.265245, 0.555229, -0.1
 [node name="Tree" parent="Trees" instance=ExtResource("12_rupgw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.928, 18.0895, 37.4326)
 
+[node name="Tree7" parent="Trees" instance=ExtResource("12_rupgw")]
+transform = Transform3D(0.69894, -3.12615e-08, -0.715181, 3.12615e-08, 1, -1.31598e-08, 0.715181, -1.31598e-08, 0.69894, -78.2994, 16.7703, 22.1122)
+
+[node name="Tree8" parent="Trees" instance=ExtResource("12_rupgw")]
+transform = Transform3D(0.177423, -5.34552e-08, -1.22291, 5.34552e-08, 1.23572, -4.62595e-08, 1.22291, -4.62595e-08, 0.177423, -82.0371, 18.4958, 56.1338)
+
+[node name="Tree9" parent="Trees" instance=ExtResource("12_rupgw")]
+transform = Transform3D(0.177423, -5.34552e-08, -1.22291, 5.34552e-08, 1.23572, -4.62595e-08, 1.22291, -4.62595e-08, 0.177423, -36.0142, 15.7753, -10.0363)
+
 [node name="Tree2" parent="Trees" instance=ExtResource("12_rupgw")]
 transform = Transform3D(-0.162229, -3.92111e-08, -0.897047, 3.92111e-08, 0.911598, -4.69384e-08, 0.897047, -4.69384e-08, -0.162229, -14.7187, 14.9217, 37.8023)
 
 [node name="Tree3" parent="Trees" instance=ExtResource("12_rupgw")]
 transform = Transform3D(-0.88023, -1.03629e-08, -0.237076, 1.03629e-08, 0.911598, -7.83233e-08, 0.237076, -7.83233e-08, -0.88023, -4.10347, 12.727, 65.4412)
+
+[node name="Tree10" parent="Trees" instance=ExtResource("12_rupgw")]
+transform = Transform3D(-0.507316, 7.08411e-08, 0.75739, 1.03629e-08, 0.911598, -7.83233e-08, -0.75739, -3.4978e-08, -0.507316, 7.86086, 15.3426, 20.7564)
 
 [node name="Tree4" parent="Trees" instance=ExtResource("12_rupgw")]
 transform = Transform3D(-1.19882, -1.41136e-08, -0.322882, 1.41136e-08, 1.24154, -1.06671e-07, 0.322882, -1.06671e-07, -1.19882, -56.5578, 11.7149, 77.4491)
