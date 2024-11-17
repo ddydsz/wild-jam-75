@@ -138,7 +138,7 @@ layout_mode = 2
 theme = ExtResource("7_vvbqq")
 horizontal_alignment = 1
 
-[node name="HealthBarMarginContainer" type="MarginContainer" parent="UI"]
+[node name="StatusBarMarginContainer" type="MarginContainer" parent="UI"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -149,21 +149,54 @@ offset_right = 84.68
 offset_bottom = -95.0649
 grow_vertical = 0
 
-[node name="HealthBar" type="Polygon2D" parent="UI/HealthBarMarginContainer"]
+[node name="HealthBar" type="Polygon2D" parent="UI/StatusBarMarginContainer"]
 z_index = 1
 position = Vector2(40, 0)
 color = Color(0.4806, 0.89, 0.494247, 1)
 polygon = PackedVector2Array(0, 0, 400, 0, 400, -10, 0, -10)
 
-[node name="HealthBarBG" type="Polygon2D" parent="UI/HealthBarMarginContainer"]
+[node name="HealthBarBG" type="Polygon2D" parent="UI/StatusBarMarginContainer"]
 position = Vector2(40, 0)
 color = Color(0.629675, 0.629675, 0.629675, 1)
 polygon = PackedVector2Array(0, 0, 400, 0, 400, -10, 0, -10)
 
-[node name="HealthIcon" type="Polygon2D" parent="UI/HealthBarMarginContainer"]
+[node name="FoodBar" type="Polygon2D" parent="UI/StatusBarMarginContainer"]
+z_index = 1
+position = Vector2(40, -38)
+scale = Vector2(1e-05, 1)
+color = Color(0.77, 0.572367, 0.1771, 1)
+polygon = PackedVector2Array(0, 0, 400, 0, 400, -10, 0, -10)
+
+[node name="FoodBarBG" type="Polygon2D" parent="UI/StatusBarMarginContainer"]
+position = Vector2(40, -38)
+color = Color(0.2484, 0.2484, 0.2484, 1)
+polygon = PackedVector2Array(0, 0, 400, 0, 400, -10, 0, -10)
+
+[node name="HealthIcon" type="Polygon2D" parent="UI/StatusBarMarginContainer"]
 position = Vector2(14.535, -4.75)
 scale = Vector2(4.715, 4.715)
 polygon = PackedVector2Array(-1, 1, -1, 3, 1, 3, 1, 1, 3, 1, 3, -1, 1, -1, 1, -3, -1, -3, -1, -1, -3, -1, -3, 1)
+
+[node name="FoodIcon" type="MarginContainer" parent="UI/StatusBarMarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="UI/StatusBarMarginContainer/FoodIcon"]
+layout_mode = 2
+
+[node name="Fork" type="Polygon2D" parent="UI/StatusBarMarginContainer/FoodIcon/Control"]
+position = Vector2(-30.512, -78.448)
+scale = Vector2(0.036, 0.04)
+polygon = PackedVector2Array(1089, 1324, 1015, 1288, 1051, 734, 965, 604, 964, 194, 1001, 188.07, 1023, 572, 1041, 567.379, 1081, 188.07, 1099, 193, 1121, 567.379, 1161, 567.379, 1161, 188.07, 1198, 195, 1217, 597, 1133, 734, 1161, 1287)
+
+[node name="Knife" type="Polygon2D" parent="UI/StatusBarMarginContainer/FoodIcon/Control"]
+position = Vector2(-30.091, -78.005)
+scale = Vector2(0.036, 0.04)
+polygon = PackedVector2Array(1355, 1277, 1425, 1317, 1488, 1278, 1430, 755, 1498, 703, 1516, 614, 1487, 262, 1454, 205, 1369, 199, 1363, 761)
+
+[node name="FoodBarMarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="DamageTakenOverlay" type="ColorRect" parent="UI"]
 material = SubResource("ShaderMaterial_xl0rs")
@@ -380,6 +413,7 @@ transform = Transform3D(0.977442, 0, -0.211205, 0, 1, 0, 0.211205, 0, 0.977442, 
 shape = SubResource("BoxShape3D_rxig5")
 
 [connection signal="chirp" from="Player" to="." method="_on_chirp"]
+[connection signal="got_food" from="Player" to="UI" method="_on_player_got_food"]
 [connection signal="hint_enemies" from="Player" to="." method="_on_player_hint_enemies"]
 [connection signal="hint_go_outside" from="Player" to="." method="_on_player_hint_go_outside"]
 [connection signal="hint_outside" from="Player" to="." method="_on_player_hint_outside"]

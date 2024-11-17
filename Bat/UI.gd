@@ -1,6 +1,7 @@
 extends Control
 
 var health : float = 100
+var food : float = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -19,7 +20,11 @@ func _on_player_hit():
 	tween.tween_method(_set_damage_overlay_opacity, 0.0, 1.0, 0.5)
 	tween.tween_method(_set_damage_overlay_opacity, 1.0, 0.0, 0.5)
 	
-	$HealthBarMarginContainer/HealthBar.scale.x = health / 100.0
+	$StatusBarMarginContainer/HealthBar.scale.x = health / 100.0
 
 func _set_damage_overlay_opacity(opacity: float):
 	$DamageTakenOverlay.material.set_shader_parameter("opacity", opacity)
+
+func _on_player_got_food(amount: float) -> void:
+	self.food += amount
+	$StatusBarMarginContainer/FoodBar.scale.x = food / 100.0

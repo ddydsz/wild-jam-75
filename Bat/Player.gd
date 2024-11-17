@@ -2,7 +2,8 @@ extends CharacterBody3D
 
 class_name PlayerCamera
 
-signal hit 
+signal hit
+signal got_food(amount: float)
 signal chirp(pos: Vector3)
 signal hint_enemies
 signal hint_go_outside
@@ -43,6 +44,9 @@ func get_is_cursor_visible(): return Input.get_mouse_mode() == Input.MOUSE_MODE_
 
 var SIN_WAVE_TIME_DIVISION = 100;
 var SIN_WAVE_AMPLITUDE_DIVISION = 65;
+
+var food_amount : float = 0.0;
+var max_food_amount : float = 100.0;
 
 #####################
 #  Default methods  #
@@ -153,7 +157,7 @@ func _on_area_3d_body_entered(body):
 		self.velocity += force_direction.normalized() * push_back_force
 		take_damage()
 	elif body.is_in_group("grasshoppers"):
-		print("hit grasshopper")
+		got_food.emit(10.0)
 
 func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
 	if area.is_in_group("hint_enemies"):
