@@ -214,8 +214,17 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1581
 [node name="Outside" type="Marker3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -39.4671, 17.0423, 23.8333)
 
-[node name="grasshopper" parent="." groups=["grasshoppers"] instance=ExtResource("7_8j24l")]
-transform = Transform3D(0.973702, 0.227824, 0, -0.177734, 0.75962, -0.62561, -0.142529, 0.609158, 0.780136, -3.80858, -3.68033, -3.60025)
+[node name="grasshopper" parent="." instance=ExtResource("7_8j24l")]
+transform = Transform3D(0.978005, 0.0454274, 0.203576, -0.202614, 0.438731, 0.875479, -0.0495446, -0.89747, 0.438285, -5.53326, -2.92457, 1.79322)
+
+[node name="grasshopper2" parent="." instance=ExtResource("7_8j24l")]
+transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -18.6936, 15.7184, 23.39)
+
+[node name="grasshopper3" parent="." instance=ExtResource("7_8j24l")]
+transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -35.3606, 16.1362, 40.4567)
+
+[node name="grasshopper4" parent="." instance=ExtResource("7_8j24l")]
+transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -49.3523, 18.8375, 41.1515)
 
 [node name="TestMoths" type="Node3D" parent="."]
 
@@ -420,3 +429,7 @@ shape = SubResource("BoxShape3D_rxig5")
 [connection signal="hit" from="Player" to="UI" method="_on_player_hit"]
 [connection signal="area_shape_entered" from="Player/Area3D" to="Player" method="_on_area_3d_area_shape_entered"]
 [connection signal="body_entered" from="Player/Area3D" to="Player" method="_on_area_3d_body_entered"]
+[connection signal="chirp" from="grasshopper" to="." method="_on_chirp"]
+[connection signal="chirp" from="grasshopper2" to="." method="_on_chirp"]
+[connection signal="chirp" from="grasshopper3" to="." method="_on_chirp"]
+[connection signal="chirp" from="grasshopper4" to="." method="_on_chirp"]
