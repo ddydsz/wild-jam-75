@@ -72,6 +72,7 @@ bus = &"Echo"
 
 [node name="MunchPlayer" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("5_au8ar")
+volume_db = -7.091
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00291681, 0.0225421, -0.334235)
