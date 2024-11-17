@@ -10,19 +10,38 @@ attribution_file_path = "res://TemplateExampleScenes/ATTRIBUTION.md"
 [node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
 text = "[center][font_size=48]Collaborators[/font_size]
 
-[font_size=32]Role[/font_size]
-Person 1  
-Person 2  
-[url=]Person w/ Link[/url]  
-
+[font_size=48]shuall[/font_size]
+[font_size=48]noodle[/font_size]
+[font_size=48]lydonious[/font_size]
+[font_size=48]dszak[/font_size]
 
 [font_size=48]Sourced / Unaffiliated[/font_size]
-[font_size=32]Asset Type[/font_size]
-[font_size=24]Use Case[/font_size]
-Author: [url=]Name[/url]  
-Source: [url=]Domain : webpage.html[/url]  
-License: [url=]License[/url]
+[font_size=32]Sounds[/font_size]
+[font_size=24]Bats Hunting For Insects 8X Slower.wav (Bat Chirp)[/font_size]
+Author: digifishmusic
+Source: [url=https://freesound.org/s/43823/]freesound.org[/url]  
+License: Attribution 4.0
 
+[font_size=24]Electro Ambient Music: Suspension – Pulsating and Futuristic (music)[/font_size]
+Author: kjartan_abel
+Source: [url=https://freesound.org/s/531854/]freesound.org[/url]  
+License: Attribution 4.0
+
+[font_size=24]coup grave et sourd.aif (Taking Damage)[/font_size]
+Author: nicolasdrweski
+Source: [url=https://freesound.org/s/179969/]freesound.org[/url]  
+License: Attribution 4.0
+
+[font_size=24]apple.wav (Bat Munch)[/font_size]
+Author: Gorky173
+Source: [url=https://freesound.org/s/169188/]freesound.org[/url]  
+License: Creative Commons 0
+
+[font_size=32]Images[/font_size]
+[font_size=24]American Grasshopper (Grasshopper Texture)[/font_size]
+Author: digifishmusic
+Source: [url=http://birdphotos.com]birdphotos.com[/url]  
+License: Creative Commons [Attribution 3.0 Unported]
 
 [font_size=48]Tools[/font_size]
 [font_size=24]Godot[/font_size]

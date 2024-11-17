@@ -1,25 +1,31 @@
 [gd_scene load_steps=6 format=3 uid="uid://doe5ikqoxnnai"]
 
-[ext_resource type="PackedScene" path="res://TemplateExampleScenes/scenes/menus/options_menu/master_options_menu.tscn" id="1_ips3h"]
-[ext_resource type="PackedScene" path="res://TemplateExampleScenes/scenes/menus/options_menu/input/input_options_menu_with_mouse_sensitivity.tscn" id="2_v4rxc"]
-[ext_resource type="PackedScene" path="res://TemplateExampleScenes/scenes/menus/options_menu/audio/audio_options_menu.tscn" id="3_v2hwh"]
-[ext_resource type="PackedScene" path="res://TemplateExampleScenes/scenes/menus/options_menu/video/video_options_menu_with_extras.tscn" id="4_j7ypu"]
-[ext_resource type="PackedScene" path="res://TemplateExampleScenes/scenes/menus/options_menu/game/game_options_menu.tscn" id="5_pf618"]
+[ext_resource type="PackedScene" uid="uid://bwgu8wa5s3773" path="res://TemplateExampleScenes/scenes/menus/options_menu/master_options_menu.tscn" id="1_ips3h"]
+[ext_resource type="PackedScene" uid="uid://b13eolbkqbik5" path="res://TemplateExampleScenes/scenes/menus/options_menu/input/input_options_menu_with_mouse_sensitivity.tscn" id="2_v4rxc"]
+[ext_resource type="PackedScene" uid="uid://jxkf0j4amy" path="res://TemplateExampleScenes/scenes/menus/options_menu/audio/audio_options_menu.tscn" id="3_v2hwh"]
+[ext_resource type="PackedScene" uid="uid://d02qwf2omboh4" path="res://TemplateExampleScenes/scenes/menus/options_menu/video/video_options_menu_with_extras.tscn" id="4_j7ypu"]
+[ext_resource type="PackedScene" uid="uid://dfqfd02krtl2s" path="res://TemplateExampleScenes/scenes/menus/options_menu/game/game_options_menu.tscn" id="5_pf618"]
 
 [node name="MasterOptionsMenu" instance=ExtResource("1_ips3h")]
 
+[node name="TabContainer" parent="." index="0"]
+current_tab = 0
+
 [node name="Controls" parent="TabContainer" index="1" instance=ExtResource("2_v4rxc")]
 layout_mode = 2
-show_all_actions = true
+metadata/_tab_index = 0
 
 [node name="Audio" parent="TabContainer" index="2" instance=ExtResource("3_v2hwh")]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="Video" parent="TabContainer" index="3" instance=ExtResource("4_j7ypu")]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 2
 
 [node name="Game" parent="TabContainer" index="4" instance=ExtResource("5_pf618")]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 3
