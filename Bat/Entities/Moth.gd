@@ -13,10 +13,12 @@ var direction_change_timer = 0.0
 func _ready() -> void:
 	self.velocity = random_direction() * base_speed
 
+func _update_rotation():
+	self.look_at(self.position + self.velocity.normalized(), Vector3.UP)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	$MeshInstance3D.position = Vector3(
+	$Mesh.position = Vector3(
 		0.0, 
 		sin(Time.get_ticks_msec() * bobbing_frequency) * bobbing_amplitude, 
 		0.0)
@@ -26,6 +28,7 @@ func _process(delta: float) -> void:
 		direction_change_timer = 0.0
 		self.velocity = self.velocity.rotated(
 			Vector3.UP, randf() * deg_to_rad(direction_change_max_angle_degrees))
+		_update_rotation()
 
 func _physics_process(delta: float) -> void:	
 	var collision = self.move_and_collide(self.velocity * delta)
@@ -38,6 +41,7 @@ func _physics_process(delta: float) -> void:
 			if not self.move_and_collide(new_velocity, true): # not scaling by delta
 				still_colliding = false 
 		self.velocity = new_velocity
+		_update_rotation()
 		
 func random_direction() -> Vector3:
 	return Vector3(

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq5jn8ac7x76t"]
+
+[ext_resource type="PackedScene" uid="uid://b1fnx6wapclwm" path="res://Import/moth.glb" id="1_psw8h"]
+[ext_resource type="Material" uid="uid://c1n4qf0qhdkd7" path="res://Bat/Materials/creature.tres" id="2_clmsr"]
+
+[node name="moth" instance=ExtResource("1_psw8h")]
+
+[node name="Sphere" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_clmsr")
+
+[node name="Sphere_001" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_clmsr")
+
+[node name="Plane" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_clmsr")
+
+[node name="Cylinder" parent="." index="3"]
+surface_material_override/0 = ExtResource("2_clmsr")

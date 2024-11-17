@@ -1,15 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://buitwqulmna1b"]
+[gd_scene load_steps=4 format=3 uid="uid://buitwqulmna1b"]
 
 [ext_resource type="Script" path="res://Bat/Entities/Moth.gd" id="1_02boc"]
+[ext_resource type="PackedScene" uid="uid://cq5jn8ac7x76t" path="res://Bat/Entities/MothMesh.tscn" id="2_0wvvd"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hn5gp"]
 radius = 0.621
-
-[sub_resource type="SphereMesh" id="SphereMesh_jyfvy"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckxjo"]
-shading_mode = 0
-albedo_color = Color(1, 0.26, 0.26, 1)
 
 [node name="Moth" type="RigidBody3D"]
 script = ExtResource("1_02boc")
@@ -21,7 +16,5 @@ bobbing_amplitude = 0.224
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_hn5gp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.34, 0, 0, 0, 0.34, 0, 0, 0, 0.34, 0, 0, 0)
-mesh = SubResource("SphereMesh_jyfvy")
-surface_material_override/0 = SubResource("StandardMaterial3D_ckxjo")
+[node name="Mesh" parent="." instance=ExtResource("2_0wvvd")]
+transform = Transform3D(-0.19, 0, 1.66103e-08, 0, 0.19, 0, -1.66103e-08, 0, -0.19, 0, 0, 0)
