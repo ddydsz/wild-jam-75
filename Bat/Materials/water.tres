@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://clcn78oihaywg"]
+
+[ext_resource type="Shader" path="res://Bat/Materials/echo.gdshader" id="1_442wc"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_442wc")
+shader_parameter/color = Color(0.150896, 0.165241, 0.231504, 1)
+shader_parameter/fresnel_amount = 0.5
+shader_parameter/noise = 0.3
