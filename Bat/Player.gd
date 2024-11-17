@@ -42,8 +42,8 @@ func get_is_cursor_visible(): return Input.get_mouse_mode() == Input.MOUSE_MODE_
 @export var speed = 6.0
 @export var friction = 0.97
 
-var SIN_WAVE_TIME_DIVISION = 100;
-var SIN_WAVE_AMPLITUDE_DIVISION = 65;
+var SIN_WAVE_TIME_DIVISION: float = 100;
+var SIN_WAVE_AMPLITUDE_DIVISION: float = 65;
 
 var food_amount : float = 0.0;
 var max_food_amount : float = 100.0;
@@ -59,7 +59,7 @@ func _process(delta: float) -> void:
 	process_basic_input()
 	
 	# bobbing up and down from wing flapping
-	camera.translate(Vector3(0, sin(Time.get_ticks_msec()/SIN_WAVE_TIME_DIVISION)/SIN_WAVE_AMPLITUDE_DIVISION, 0))
+	camera.translate(Vector3(0, sin(float(Time.get_ticks_msec())/SIN_WAVE_TIME_DIVISION)/SIN_WAVE_AMPLITUDE_DIVISION, 0))
 	
 	# gradually rotate camera towards target direction
 	self.camera_rotation.y = lerp(
@@ -145,18 +145,19 @@ func process_mouse_input(event : InputEvent) -> void:
 				self.camera_zoom -= camera_zoom_step
 			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				self.camera_zoom += camera_zoom_step
-	
+
 
 func take_damage():
 	$DamageTakenPlayer.play()
 	hit.emit()
 
-func _on_area_3d_body_entered(body):
+func _on_area_3d_body_entered(body: Node3D):
 	if body.is_in_group("mushroom1") || body.is_in_group("spiders"):
 		var force_direction: Vector3 = (self.global_position - body.global_position)
 		self.velocity += force_direction.normalized() * push_back_force
 		take_damage()
-	elif body.is_in_group("grasshoppers"):
+	elif body.is_in_group("grasshoppers") && body.alive:
+		body.unalive()
 		got_food.emit(10.0)
 
 func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:

@@ -9,16 +9,16 @@
 [ext_resource type="Script" path="res://Bat/UI.gd" id="6_5oxv2"]
 [ext_resource type="PackedScene" uid="uid://58kimrwoi6ok" path="res://Bat/Entities/Spider.tscn" id="6_r22hk"]
 [ext_resource type="PackedScene" uid="uid://buitwqulmna1b" path="res://Bat/Entities/Moth.tscn" id="7_2n2hq"]
-[ext_resource type="PackedScene" uid="uid://ddx5q7f1lkqry" path="res://Bat/Entities/grasshopper.tscn" id="7_8j24l"]
+[ext_resource type="PackedScene" uid="uid://cvgaub064diwk" path="res://Bat/Entities/grasshopper.tscn" id="7_8j24l"]
 [ext_resource type="Theme" uid="uid://br3t0qltldhyd" path="res://Bat/Assets/UITheme.tres" id="7_vvbqq"]
 [ext_resource type="PackedScene" uid="uid://rah6xn4jfbkt" path="res://Bat/Entities/mushroom_1.tscn" id="8_4ick3"]
-[ext_resource type="PackedScene" uid="uid://cqecn7x6fkpeu" path="res://Bat/Entities/Rock1.tscn" id="9_aftvl"]
+[ext_resource type="PackedScene" path="res://Bat/Entities/Rock1.tscn" id="9_aftvl"]
 [ext_resource type="Shader" path="res://Bat/Materials/damage.gdshader" id="9_ag3xf"]
-[ext_resource type="PackedScene" uid="uid://b5730mevyff1o" path="res://Bat/Entities/Rock2.tscn" id="10_llx2p"]
-[ext_resource type="PackedScene" uid="uid://sbpjo1phb1fo" path="res://Bat/Entities/Rock3.tscn" id="11_8ue56"]
+[ext_resource type="PackedScene" path="res://Bat/Entities/Rock2.tscn" id="10_llx2p"]
+[ext_resource type="PackedScene" path="res://Bat/Entities/Rock3.tscn" id="11_8ue56"]
 [ext_resource type="PackedScene" uid="uid://b5nyq23o20w1g" path="res://Bat/Entities/Tree.tscn" id="12_rupgw"]
-[ext_resource type="PackedScene" uid="uid://ddkykkctvt1pm" path="res://Bat/Entities/mushroom_2.tscn" id="13_kjr0f"]
-[ext_resource type="PackedScene" uid="uid://cpcy7hms3j71d" path="res://Bat/Entities/skull.tscn" id="14_l35fv"]
+[ext_resource type="PackedScene" path="res://Bat/Entities/mushroom_2.tscn" id="13_kjr0f"]
+[ext_resource type="PackedScene" path="res://Bat/Entities/skull.tscn" id="14_l35fv"]
 
 [sub_resource type="Environment" id="Environment_hrfn1"]
 background_mode = 1
@@ -215,7 +215,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1581
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -39.4671, 17.0423, 23.8333)
 
 [node name="grasshopper" parent="." groups=["grasshoppers"] instance=ExtResource("7_8j24l")]
-transform = Transform3D(0.780638, 0.624984, 0, -0.434464, 0.542668, -0.718855, -0.449273, 0.561165, 0.69516, -3.02536, -3.55691, -3.55001)
+transform = Transform3D(0.973702, 0.227824, 0, -0.177734, 0.75962, -0.62561, -0.142529, 0.609158, 0.780136, -3.80858, -3.68033, -3.60025)
 
 [node name="TestMoths" type="Node3D" parent="."]
 
@@ -420,4 +420,3 @@ shape = SubResource("BoxShape3D_rxig5")
 [connection signal="hit" from="Player" to="UI" method="_on_player_hit"]
 [connection signal="area_shape_entered" from="Player/Area3D" to="Player" method="_on_area_3d_area_shape_entered"]
 [connection signal="body_entered" from="Player/Area3D" to="Player" method="_on_area_3d_body_entered"]
-[connection signal="chirp" from="grasshopper" to="." method="_on_chirp"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddx5q7f1lkqry"]
+
+[ext_resource type="PackedScene" uid="uid://bpg6yp3540d7e" path="res://Import/grasshopper.glb" id="1_mor3d"]
+[ext_resource type="Material" uid="uid://c1n4qf0qhdkd7" path="res://Bat/Materials/creature.tres" id="3_483fg"]
+
+[node name="grasshopper_mesh" instance=ExtResource("1_mor3d")]
+
+[node name="Cricket" parent="." index="0"]
+surface_material_override/0 = ExtResource("3_483fg")
