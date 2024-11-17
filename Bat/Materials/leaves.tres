@@ -3,11 +3,12 @@
 [ext_resource type="Shader" path="res://Bat/Materials/echo.gdshader" id="1_bttax"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8cj4v"]
+frequency = 0.1
 
 [sub_resource type="NoiseTexture3D" id="NoiseTexture3D_uwqug"]
-width = 300
-height = 300
-depth = 300
+width = 30
+height = 30
+depth = 30
 seamless = true
 seamless_blend_skirt = 0.136
 noise = SubResource("FastNoiseLite_8cj4v")
