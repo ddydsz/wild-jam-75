@@ -6,5 +6,11 @@ tap1_level_db = -14.13
 tap2_level_db = -17.5
 
 [resource]
-bus/0/effect/0/effect = SubResource("AudioEffectDelay_q46nf")
-bus/0/effect/0/enabled = true
+bus/1/name = &"Echo"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectDelay_q46nf")
+bus/1/effect/0/enabled = true

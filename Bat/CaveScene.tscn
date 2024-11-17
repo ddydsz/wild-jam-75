@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dlgyuiju8rxrt"]
+[gd_scene load_steps=28 format=3 uid="uid://dlgyuiju8rxrt"]
 
 [ext_resource type="Script" path="res://Bat/World.gd" id="1_43sdk"]
 [ext_resource type="Script" path="res://Bat/Player.gd" id="2_ws7kp"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bbrqewjg8whvj" path="res://Bat/Assets/damage_taken.wav" id="4_fecjd"]
 [ext_resource type="PackedScene" uid="uid://dysuexydysmyd" path="res://Bat/Entities/CavePrefab.tscn" id="4_otgmk"]
 [ext_resource type="Material" uid="uid://cekxlpdi3spup" path="res://Bat/Materials/terrain.tres" id="5_70f0e"]
+[ext_resource type="AudioStream" uid="uid://dhy3i3g1wtaxn" path="res://Bat/Assets/munch.wav" id="5_au8ar"]
 [ext_resource type="Script" path="res://Bat/UI.gd" id="6_5oxv2"]
 [ext_resource type="PackedScene" uid="uid://58kimrwoi6ok" path="res://Bat/Entities/Spider.tscn" id="6_r22hk"]
 [ext_resource type="PackedScene" uid="uid://buitwqulmna1b" path="res://Bat/Entities/Moth.tscn" id="7_2n2hq"]
@@ -62,10 +63,15 @@ near = 0.3
 stream = ExtResource("3_h0ab8")
 volume_db = -23.066
 pitch_scale = 2.0
+bus = &"Echo"
 
 [node name="DamageTakenPlayer" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("4_fecjd")
 volume_db = -10.44
+bus = &"Echo"
+
+[node name="MunchPlayer" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("5_au8ar")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00291681, 0.0225421, -0.334235)

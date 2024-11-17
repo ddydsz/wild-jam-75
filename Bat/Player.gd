@@ -151,6 +151,9 @@ func take_damage():
 	$DamageTakenPlayer.play()
 	hit.emit()
 
+func get_food():
+	$MunchPlayer.play()
+
 func _on_area_3d_body_entered(body: Node3D):
 	if body.is_in_group("mushroom1") || body.is_in_group("spiders"):
 		var force_direction: Vector3 = (self.global_position - body.global_position)
@@ -158,9 +161,11 @@ func _on_area_3d_body_entered(body: Node3D):
 		take_damage()
 	elif body.is_in_group("grasshoppers") && body.alive:
 		body.unalive()
+		get_food()
 		got_food.emit(10.0)
 	elif body.is_in_group("moths"):
 		body.unalive()
+		get_food()
 		got_food.emit(10.0)
 
 func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
