@@ -75,11 +75,11 @@ func _on_player_hint_outside() -> void:
 	if $DaylightTimer.is_stopped():
 		$DaylightTimer.start(30)
 	
-func _game_over_screen():
+func _game_over_screen(what: String = "sunlight"):
 	var tween = create_tween()
 	tween.tween_callback($UI.fade_to_black)
 	tween.tween_interval(1.0)
-	tween.tween_callback(_show_hint.bind("You died. The sunlight killed you."))
+	tween.tween_callback(_show_hint.bind("You died. The "+what+" killed you."))
 	tween.tween_interval(4.0)
 	tween.tween_callback(_show_hint.bind("This is what it is like to be a bat."))
 	tween.tween_interval(4.0)
@@ -163,3 +163,7 @@ func make_pulse_sources(sources: Array[Vector4]):
 
 func _on_chirp(pos: Vector3) -> void:
 	add_pulse(pos, game_time)
+
+
+func _on_ui_unalived() -> void:
+	_game_over_screen("bad critters")

@@ -519,6 +519,7 @@ shape = SubResource("BoxShape3D_rxig5")
 [connection signal="hit" from="Player" to="UI" method="_on_player_hit"]
 [connection signal="area_shape_entered" from="Player/Area3D" to="Player" method="_on_area_3d_area_shape_entered"]
 [connection signal="body_entered" from="Player/Area3D" to="Player" method="_on_area_3d_body_entered"]
+[connection signal="unalived" from="UI" to="." method="_on_ui_unalived"]
 [connection signal="chirp" from="grasshoppers/grasshopper" to="." method="_on_chirp"]
 [connection signal="chirp" from="grasshoppers/grasshopper2" to="." method="_on_chirp"]
 [connection signal="chirp" from="grasshoppers/grasshopper3" to="." method="_on_chirp"]

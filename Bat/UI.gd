@@ -1,5 +1,7 @@
 extends Control
 
+signal unalived
+
 var health : float = 100
 var food : float = 0
 
@@ -14,6 +16,8 @@ func _process(delta: float) -> void:
 
 func _on_player_hit():
 	self.health -= 10
+	if self.health < 1.0:
+		unalived.emit()
 	
 	# turn screen red for a moment
 	var tween = create_tween()
