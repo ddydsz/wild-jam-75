@@ -1,5 +1,7 @@
 extends Node3D
 
+@export_file("*.tscn") var main_menu_scene : String
+
 var game_time = 0.0;
 var pulse_sources: Array[Vector4];
 var pulse_sources_dirty = true;
@@ -31,22 +33,23 @@ func _show_hint(text: String, delay: float = 0.0):
 func _on_daylight_timer_timeout() -> void:
 	if daylightcon == 2:
 		$DaylightTimer.stop()
-		_show_hint("You died. The sunlight killed you.")
+		_game_over_screen()
 	if daylightcon == 1:
 		daylightcon = 2
-		$DaylightTimer.start(30)
+		$DaylightTimer.start(10)
 		_show_hint("Sunrise is coming soon... Better head back.")
 	if daylightcon == 0:
 		daylightcon = 1
 		wentoutside = 1
 		$HintCollisionShapes/GoOutsideHint.process_mode = Node.PROCESS_MODE_INHERIT
-		$DaylightTimer.start(30)
+		$DaylightTimer.start(10)
 		_show_hint("It's starting to get brighter out...")
 
 	
 func _on_player_hint_enemies() -> void:
 	$HintCollisionShapes/EnemiesHint.process_mode = Node.PROCESS_MODE_DISABLED
 	_show_hint("Getting too close to mushrooms and spiders will hurt you")
+
 	
 func _on_player_hint_go_outside() -> void:
 	$HintCollisionShapes/GoOutsideHint.process_mode = Node.PROCESS_MODE_DISABLED
@@ -60,6 +63,16 @@ func _on_player_hint_outside() -> void:
 	$HintCollisionShapes/OutsideHint.process_mode = Node.PROCESS_MODE_DISABLED
 	_show_hint("Hunt some critters before sunrise")
 	$DaylightTimer.start(30)
+	
+func _game_over_screen():
+	var tween = create_tween()
+	tween.tween_callback($UI.fade_to_black)
+	tween.tween_interval(1.0)
+	tween.tween_callback(_show_hint.bind("You died. The sunlight killed you."))
+	tween.tween_interval(4.0)
+	tween.tween_callback(_show_hint.bind("This is what it is like to be a bat."))
+	tween.tween_interval(4.0)
+	tween.tween_callback(SceneLoader.load_scene.bind(main_menu_scene))
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

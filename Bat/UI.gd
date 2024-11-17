@@ -37,3 +37,7 @@ func _on_player_got_food(amount: float) -> void:
 
 func _set_food_overlay_opacity(opacity: float):
 	$FoodEatenOverlay.material.set_shader_parameter("opacity", opacity)
+	
+func fade_to_black():
+	var tween = create_tween()
+	tween.tween_property($GameEndOverlay, "modulate:a", 1.0, 0.5)
