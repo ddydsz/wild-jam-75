@@ -51,4 +51,4 @@ func random_direction() -> Vector3:
 	).normalized()
 	
 func unalive():
-	self.queue_free()
+	self.hide()

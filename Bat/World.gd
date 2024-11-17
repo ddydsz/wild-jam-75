@@ -7,7 +7,9 @@ var pulse_sources: Array[Vector4];
 var pulse_sources_dirty = true;
 var pulse_sources_tex: Texture2DRD = Texture2DRD.new();
 var daylightcon = 0
-var wentoutside = 0
+var is_outside = 0
+
+var hints_shown: Array[String] = []
 
 var debug_enabled = false
 
@@ -23,44 +25,55 @@ func _set_hint_label_text(text: String):
 	$UI/Hints/HintLabel.text = text
 
 func _show_hint(text: String, delay: float = 0.0):
-	var hint_tween = create_tween()
-	hint_tween.tween_interval(delay)
-	hint_tween.tween_callback(_set_hint_label_text.bind(text))
-	hint_tween.tween_property($UI/Hints/HintLabel, "modulate:a", 1.0, 0.5)
-	hint_tween.tween_interval(3.0)
-	hint_tween.tween_property($UI/Hints/HintLabel, "modulate:a", 0.0, 0.5)
+	if !hints_shown.has(text):
+		hints_shown.append(text)
+		var hint_tween = create_tween()
+		hint_tween.tween_interval(delay)
+		hint_tween.tween_callback(_set_hint_label_text.bind(text))
+		hint_tween.tween_property($UI/Hints/HintLabel, "modulate:a", 1.0, 0.5)
+		hint_tween.tween_interval(3.0)
+		hint_tween.tween_property($UI/Hints/HintLabel, "modulate:a", 0.0, 0.5)
 	
 func _on_daylight_timer_timeout() -> void:
 	if daylightcon == 2:
 		$DaylightTimer.stop()
-		_game_over_screen()
+		if is_outside:
+			_game_over_screen()
+		else:
+			_game_won_screen()
 	if daylightcon == 1:
 		daylightcon = 2
 		$DaylightTimer.start(10)
 		_show_hint("Sunrise is coming soon... Better head back.")
 	if daylightcon == 0:
 		daylightcon = 1
-		wentoutside = 1
+		#wentoutside = 1
 		$HintCollisionShapes/GoOutsideHint.process_mode = Node.PROCESS_MODE_INHERIT
 		$DaylightTimer.start(10)
 		_show_hint("It's starting to get brighter out...")
-	
+
+
 func _on_player_hint_enemies() -> void:
-	$HintCollisionShapes/EnemiesHint.process_mode = Node.PROCESS_MODE_DISABLED
+	#$HintCollisionShapes/EnemiesHint.process_mode = Node.PROCESS_MODE_DISABLED
 	_show_hint("Getting too close to mushrooms and spiders will hurt you")
-	
+
 func _on_player_hint_go_outside() -> void:
-	$HintCollisionShapes/GoOutsideHint.process_mode = Node.PROCESS_MODE_DISABLED
-	if wentoutside == 1:
+	#$HintCollisionShapes/GoOutsideHint.process_mode = Node.PROCESS_MODE_DISABLED
+	if !$DaylightTimer.is_stopped():
 		$DaylightTimer.stop()
 		_game_won_screen()
 	else:
 		_show_hint("Find your way out of the cave")
 
+func _on_player_hint_inside() -> void:
+	is_outside = false
+
 func _on_player_hint_outside() -> void:
-	$HintCollisionShapes/OutsideHint.process_mode = Node.PROCESS_MODE_DISABLED
+	#$HintCollisionShapes/OutsideHint.process_mode = Node.PROCESS_MODE_DISABLED
 	_show_hint("Hunt some critters before sunrise")
-	$DaylightTimer.start(30)
+	is_outside = true
+	if $DaylightTimer.is_stopped():
+		$DaylightTimer.start(30)
 	
 func _game_over_screen():
 	var tween = create_tween()
@@ -81,7 +94,8 @@ func _game_won_screen():
 	tween.tween_callback(_show_hint.bind("This is what it is like to be a bat."))
 	tween.tween_interval(4.0)
 	tween.tween_callback(SceneLoader.load_scene.bind(main_menu_scene))
-	
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	

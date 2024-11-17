@@ -1,4 +1,9 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://bl3y0y4j7cl5d"]
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://bl3y0y4j7cl5d"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_sefb7"]
+resource_name = "Reverb"
+room_size = 0.5
+dry = 0.5
 
 [sub_resource type="AudioEffectDelay" id="AudioEffectDelay_q46nf"]
 resource_name = "Delay"
@@ -6,7 +11,8 @@ tap1_level_db = -14.13
 tap2_level_db = -17.5
 
 [resource]
-bus/0/send = &"Music"
+bus/0/effect/0/effect = SubResource("AudioEffectReverb_sefb7")
+bus/0/effect/0/enabled = true
 bus/1/name = &"Echo"
 bus/1/solo = false
 bus/1/mute = false

@@ -121,22 +121,15 @@ func process_mouse_input(event : InputEvent) -> void:
 		var rot_y = deg_to_rad(event.relative.x * mouse_sensitivity)
 		var rot_x = deg_to_rad(event.relative.y * mouse_sensitivity)
 		
-		self.camera_target_rotation.x = self.camera_target_rotation.x - rot_x
+		# Limit vertical rotation
+		self.camera_target_rotation.x = clamp(
+			self.camera_target_rotation.x - rot_x,
+			deg_to_rad(camera_min_vertical_rotation),
+			deg_to_rad(camera_max_vertical_rotation))
 		self.camera_target_rotation.y = self.camera_target_rotation.y - rot_y
 		
 		#print("target_rotation_x: ", self.camera_target_rotation.x)
 		#print("target_rotation_y: ", self.camera_target_rotation.y)
-
-		# Horizontal rotation
-		#self.rotation.y += -rot_y
-		# Vertical rotation
-		#camera_rod.rotate_x(-rot_x)
-		
-		# Limit vertical rotation
-		camera_rod.rotation_degrees.x = clamp(
-			camera_rod.rotation_degrees.x,
-			camera_min_vertical_rotation, camera_max_vertical_rotation
-		)
 	
 	# Scrolling
 	elif event is InputEventMouseButton:
@@ -174,4 +167,13 @@ func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_inde
 	elif area.is_in_group("hint_go_outside"):
 		hint_go_outside.emit()
 	elif area.is_in_group("hint_outside"):
+		var reverb: AudioEffectReverb = AudioServer.get_bus_effect(0, 0)
+		reverb.room_size = 1.0
+		reverb.dry = 1.0
+		reverb.wet = 0.0
 		hint_outside.emit()
+	elif area.is_in_group("hint_inside"):
+		var reverb: AudioEffectReverb = AudioServer.get_bus_effect(0, 0)
+		reverb.room_size = 0.5
+		reverb.dry = 0.6
+		reverb.wet = 0.4

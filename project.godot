@@ -131,3 +131,7 @@ game_time={
 "type": "float",
 "value": 0.0
 }
+ambient={
+"type": "float",
+"value": 0.2
+}

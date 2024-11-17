@@ -13,14 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://cvgaub064diwk" path="res://Bat/Entities/grasshopper.tscn" id="7_8j24l"]
 [ext_resource type="Theme" uid="uid://br3t0qltldhyd" path="res://Bat/Assets/UITheme.tres" id="7_vvbqq"]
 [ext_resource type="PackedScene" uid="uid://rah6xn4jfbkt" path="res://Bat/Entities/mushroom_1.tscn" id="8_4ick3"]
-[ext_resource type="Material" uid="uid://catavoj4bjhtv" path="res://Bat/Materials/damage_overlay.tres" id="9_5nbbv"]
+[ext_resource type="Material" path="res://Bat/Materials/damage_overlay.tres" id="9_5nbbv"]
 [ext_resource type="PackedScene" uid="uid://cqecn7x6fkpeu" path="res://Bat/Entities/Rock1.tscn" id="9_aftvl"]
 [ext_resource type="Material" uid="uid://ck8ub6hy4tym5" path="res://Bat/Materials/food_overlay.tres" id="10_8f6ex"]
 [ext_resource type="PackedScene" uid="uid://b5730mevyff1o" path="res://Bat/Entities/Rock2.tscn" id="10_llx2p"]
 [ext_resource type="PackedScene" uid="uid://sbpjo1phb1fo" path="res://Bat/Entities/Rock3.tscn" id="11_8ue56"]
 [ext_resource type="PackedScene" uid="uid://b5nyq23o20w1g" path="res://Bat/Entities/Tree.tscn" id="12_rupgw"]
-[ext_resource type="PackedScene" uid="uid://ddkykkctvt1pm" path="res://Bat/Entities/mushroom_2.tscn" id="13_kjr0f"]
-[ext_resource type="PackedScene" uid="uid://cpcy7hms3j71d" path="res://Bat/Entities/skull.tscn" id="14_l35fv"]
+[ext_resource type="PackedScene" path="res://Bat/Entities/mushroom_2.tscn" id="13_kjr0f"]
+[ext_resource type="PackedScene" path="res://Bat/Entities/skull.tscn" id="14_l35fv"]
 
 [sub_resource type="Environment" id="Environment_hrfn1"]
 background_mode = 1
@@ -38,7 +38,7 @@ material = ExtResource("7_0lu15")
 default_font_size = 28
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rxig5"]
-size = Vector3(2.03, 5.305, 5.675)
+size = Vector3(4.667, 3.67, 1.878)
 
 [node name="World" type="Node3D"]
 script = ExtResource("1_43sdk")
@@ -95,7 +95,6 @@ transform = Transform3D(0.618363, 0, -5.63533, 0, 5.66916, 0, 5.63533, 0, 0.6183
 transform = Transform3D(8.538, 0, 0, 0, 0.95, 0, 0, 0, 8.715, 0, -5.471, 0)
 
 [node name="Water1" type="MeshInstance3D" parent="WaterShapes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_qfrjk")
 skeleton = NodePath("../..")
 
@@ -248,24 +247,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.1581
 [node name="Outside" type="Marker3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -39.4671, 17.0423, 23.8333)
 
-[node name="grasshopper" parent="." instance=ExtResource("7_8j24l")]
-transform = Transform3D(0.978005, 0.0454274, 0.203576, -0.202614, 0.438731, 0.875479, -0.0495446, -0.89747, 0.438285, -5.53326, -2.92457, 1.79322)
-
-[node name="grasshopper2" parent="." instance=ExtResource("7_8j24l")]
-transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -18.6936, 15.7184, 23.39)
-
-[node name="grasshopper3" parent="." instance=ExtResource("7_8j24l")]
-transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -35.3606, 16.1362, 40.4567)
-
-[node name="grasshopper4" parent="." instance=ExtResource("7_8j24l")]
-transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -49.3523, 18.8375, 41.1515)
-
 [node name="Moths" type="Node3D" parent="."]
 
-[node name="Moth" parent="Moths" instance=ExtResource("7_2n2hq")]
+[node name="LazyMoth" parent="Moths" instance=ExtResource("7_2n2hq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.5472, 18.0755, 28.3226)
 gravity_scale = 0.0
-base_speed = 3.0
+base_speed = 0.1
 direction_change_interval = 0.6
 
 [node name="Moth2" parent="Moths" instance=ExtResource("7_2n2hq")]
@@ -469,6 +456,20 @@ transform = Transform3D(1.02625, 0, 0, 0, 1.02625, 0, 0, 0, 1.02625, -20.8025, -
 [node name="skull" parent="." instance=ExtResource("14_l35fv")]
 transform = Transform3D(0.165786, -0.132345, 0.212132, 0.187164, 0.234456, 0, -0.165786, 0.132345, 0.212132, -26.5656, 0.265548, -8.75527)
 
+[node name="grasshoppers" type="Node3D" parent="."]
+
+[node name="grasshopper" parent="grasshoppers" instance=ExtResource("7_8j24l")]
+transform = Transform3D(0.978005, 0.0454274, 0.203576, -0.202614, 0.438731, 0.875479, -0.0495446, -0.89747, 0.438285, -9.57511, -1.9309, 1.68573)
+
+[node name="grasshopper2" parent="grasshoppers" instance=ExtResource("7_8j24l")]
+transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -18.6936, 15.7184, 23.39)
+
+[node name="grasshopper3" parent="grasshoppers" instance=ExtResource("7_8j24l")]
+transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -35.3606, 16.1362, 40.4567)
+
+[node name="grasshopper4" parent="grasshoppers" instance=ExtResource("7_8j24l")]
+transform = Transform3D(0.997007, -0.0685171, 0.0358141, 0.0709227, 0.99496, -0.0708823, -0.0307769, 0.0732103, 0.996842, -49.3523, 18.8375, 41.1515)
+
 [node name="spiders" type="Node3D" parent="."]
 
 [node name="spider" parent="spiders" instance=ExtResource("6_r22hk")]
@@ -486,24 +487,27 @@ transform = Transform3D(0.678549, -0.307943, 0.0773098, 0.295604, 0.546174, -0.4
 [node name="HintCollisionShapes" type="Node3D" parent="."]
 
 [node name="EnemiesHint" type="Area3D" parent="HintCollisionShapes" groups=["hint_enemies"]]
-transform = Transform3D(0.993898, 0, -0.110307, 0, 1, 0, 0.110307, 0, 0.993898, -7.10341, -0.72533, 0.591466)
+transform = Transform3D(0.203898, 0, 0.978992, 0, 1, 0, -0.978992, 0, 0.203898, -12.7452, -0.306508, -0.583575)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HintCollisionShapes/EnemiesHint" groups=["hint_enemies"]]
-transform = Transform3D(0.977442, 0, -0.211205, 0, 1, 0, 0.211205, 0, 0.977442, -6.06003, 0.422516, -0.777555)
 shape = SubResource("BoxShape3D_rxig5")
 
 [node name="GoOutsideHint" type="Area3D" parent="HintCollisionShapes" groups=["hint_go_outside"]]
-transform = Transform3D(0.896076, 0, 0.4439, 0, 1, 0, -0.4439, 0, 0.896076, -27.8556, 5.93657, 4.1335)
+transform = Transform3D(-0.409629, 0.556165, 0.723107, 0.100106, 0.815279, -0.570349, -0.906743, -0.161244, -0.389638, -27.1751, 5.3998, 3.7668)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HintCollisionShapes/GoOutsideHint" groups=["hint_go_outside"]]
-transform = Transform3D(0.977442, 0, -0.211205, 0, 1, 0, 0.211205, 0, 0.977442, 0, 0, 0)
 shape = SubResource("BoxShape3D_rxig5")
 
 [node name="OutsideHint" type="Area3D" parent="HintCollisionShapes" groups=["hint_outside"]]
-transform = Transform3D(-0.126372, 0, 0.991983, 0, 1, 0, -0.991983, 0, -0.126372, -38.7835, 16.0607, 21.5063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.7835, 16.0607, 21.5063)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HintCollisionShapes/OutsideHint" groups=["hint_outside"]]
-transform = Transform3D(0.977442, 0, -0.211205, 0, 1, 0, 0.211205, 0, 0.977442, 0, 0, 0)
+shape = SubResource("BoxShape3D_rxig5")
+
+[node name="InsideHint" type="Area3D" parent="HintCollisionShapes" groups=["hint_inside"]]
+transform = Transform3D(1, 0, 0, 0, 0.899725, 0.436456, 0, -0.436456, 0.899725, -37.2315, 13.5411, 15.6397)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HintCollisionShapes/InsideHint" groups=["hint_inside"]]
 shape = SubResource("BoxShape3D_rxig5")
 
 [connection signal="timeout" from="DaylightTimer" to="." method="_on_daylight_timer_timeout"]
@@ -515,7 +519,7 @@ shape = SubResource("BoxShape3D_rxig5")
 [connection signal="hit" from="Player" to="UI" method="_on_player_hit"]
 [connection signal="area_shape_entered" from="Player/Area3D" to="Player" method="_on_area_3d_area_shape_entered"]
 [connection signal="body_entered" from="Player/Area3D" to="Player" method="_on_area_3d_body_entered"]
-[connection signal="chirp" from="grasshopper" to="." method="_on_chirp"]
-[connection signal="chirp" from="grasshopper2" to="." method="_on_chirp"]
-[connection signal="chirp" from="grasshopper3" to="." method="_on_chirp"]
-[connection signal="chirp" from="grasshopper4" to="." method="_on_chirp"]
+[connection signal="chirp" from="grasshoppers/grasshopper" to="." method="_on_chirp"]
+[connection signal="chirp" from="grasshoppers/grasshopper2" to="." method="_on_chirp"]
+[connection signal="chirp" from="grasshoppers/grasshopper3" to="." method="_on_chirp"]
+[connection signal="chirp" from="grasshoppers/grasshopper4" to="." method="_on_chirp"]

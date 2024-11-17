@@ -10,6 +10,7 @@ var sleep_contact_point: Vector3;
 var unalive_material = load("res://Bat/Materials/water.tres")
 
 func _ready() -> void:
+	$Timer.wait_time = randf_range(3.0, 7.0)
 	$Timer.start()
 
 func _process(_delta: float) -> void:
@@ -21,6 +22,7 @@ func _on_timer_timeout():
 		if sleep_contact_point != null:
 			jump_dir = (self.global_position - sleep_contact_point).normalized()
 		self.apply_impulse(jump_dir * 5.0)
+	$Timer.wait_time = randf_range(3.0, 7.0)
 	$Timer.start()
 	chirp.emit(self.position)
 
@@ -36,6 +38,7 @@ func set_scared(s: bool):
 	else:
 		$Timer.start();
 	scared = s;
+
 
 func _on_body_entered(body: Node) -> void:
 	if self.alive && body is StaticBody3D:

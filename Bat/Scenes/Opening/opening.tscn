@@ -10,13 +10,15 @@ fade_in_time = 0.4
 fade_out_time = 0.4
 visible_time = 6.0
 
-[node name="IntroText1" parent="ImagesContainer" index="0"]
-text = "In 1974 the philosopher Thomas Nagel published the essay \"What Is It Like to Be a Bat?\" 
-which questioned the ability of humans to understand the consciousness of other beings. "
+[node name="ImagesContainer" parent="." index="1"]
+offset_top = -70.5
+offset_bottom = 70.5
 
-[node name="IntroText2" parent="ImagesContainer" index="1"]
-text = "The essay has been called \"the most widely cited and influential
-thought experiment about consciousness.\""
+[node name="IntroText1" parent="ImagesContainer" index="0"]
+text = "In 1974 the philosopher Thomas Nagel published the essay 
+\"What Is It Like to Be a Bat?\" 
+which questioned the ability of humans to understand
+the consciousness of other beings. "
 
 [node name="IntroText3" parent="ImagesContainer" index="2"]
 text = "Today you will experience..."
