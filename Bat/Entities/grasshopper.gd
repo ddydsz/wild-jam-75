@@ -6,6 +6,9 @@ var scared = false;
 var alive = true;
 var sleep_contact_point: Vector3;
 
+# change material when grasshopper is unalived
+var unalive_material = load("res://Bat/Materials/water.tres")
+
 func _ready() -> void:
 	$Timer.start()
 
@@ -24,6 +27,7 @@ func _on_timer_timeout():
 func unalive():
 	self.sleeping = false;
 	self.alive = false
+	$grasshopper_mesh/Cricket.set_surface_override_material(0, unalive_material)
 	$Timer.stop()
 	
 func set_scared(s: bool):
