@@ -6,17 +6,20 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_yi4aw"]
 radius = 0.275783
 
-[node name="grasshopper" type="Node3D"]
-
-[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["grasshoppers"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133942, 0, 0)
-freeze = true
+[node name="grasshopper" type="RigidBody3D" groups=["grasshoppers"]]
+contact_monitor = true
+max_contacts_reported = 2
 script = ExtResource("2_f6gye")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133942, 0, 0)
 shape = SubResource("SphereShape3D_yi4aw")
 
-[node name="grasshopper_mesh" parent="RigidBody3D" instance=ExtResource("1_rask1")]
+[node name="grasshopper_mesh" parent="." instance=ExtResource("1_rask1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133942, 0, 0)
 
-[node name="Timer" type="Timer" parent="RigidBody3D"]
+[node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

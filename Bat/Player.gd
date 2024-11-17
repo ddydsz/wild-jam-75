@@ -174,4 +174,4 @@ func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_inde
 	elif area.is_in_group("hint_go_outside"):
 		hint_go_outside.emit()
 	elif area.is_in_group("hint_outside"):
-		hint_outside.emit()	
+		hint_outside.emit()
