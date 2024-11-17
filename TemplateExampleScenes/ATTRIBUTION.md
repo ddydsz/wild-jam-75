@@ -1,19 +1,38 @@
 # Attribution
 ## Collaborators
 
-### Role
-Person 1  
-Person 2  
-[Person w/ Link]()  
-
+## shuall
+## noodle
+## lydonious
+## dszak
 
 ## Sourced / Unaffiliated
-### Asset Type
-#### Use Case
-Author: [Name]()  
-Source: [Domain : webpage.html]()  
-License: [License]()
+### Sounds
+#### Bats Hunting For Insects 8X Slower.wav (Bat Chirp)
+Author: digifishmusic
+Source: [freesound.org](https://freesound.org/s/43823/)  
+License: Attribution 4.0
 
+#### Electro Ambient Music: Suspension – Pulsating and Futuristic (music)
+Author: kjartan_abel
+Source: [freesound.org](https://freesound.org/s/531854/)  
+License: Attribution 4.0
+
+#### coup grave et sourd.aif (Taking Damage)
+Author: nicolasdrweski
+Source: [freesound.org](https://freesound.org/s/179969/)  
+License: Attribution 4.0
+
+#### apple.wav (Bat Munch)
+Author: Gorky173
+Source: [freesound.org](https://freesound.org/s/169188/)  
+License: Creative Commons 0
+
+### Images
+#### American Grasshopper (Grasshopper Texture)
+Author: digifishmusic
+Source: [birdphotos.com](http://birdphotos.com)  
+License: Creative Commons [Attribution 3.0 Unported]
 
 ## Tools
 #### Godot
