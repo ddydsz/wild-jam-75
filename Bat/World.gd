@@ -44,18 +44,16 @@ func _on_daylight_timer_timeout() -> void:
 		$HintCollisionShapes/GoOutsideHint.process_mode = Node.PROCESS_MODE_INHERIT
 		$DaylightTimer.start(10)
 		_show_hint("It's starting to get brighter out...")
-
 	
 func _on_player_hint_enemies() -> void:
 	$HintCollisionShapes/EnemiesHint.process_mode = Node.PROCESS_MODE_DISABLED
 	_show_hint("Getting too close to mushrooms and spiders will hurt you")
-
 	
 func _on_player_hint_go_outside() -> void:
 	$HintCollisionShapes/GoOutsideHint.process_mode = Node.PROCESS_MODE_DISABLED
 	if wentoutside == 1:
 		$DaylightTimer.stop()
-		_show_hint("You made it back before daytime. Good job.")
+		_game_won_screen()
 	else:
 		_show_hint("Find your way out of the cave")
 
@@ -69,6 +67,16 @@ func _game_over_screen():
 	tween.tween_callback($UI.fade_to_black)
 	tween.tween_interval(1.0)
 	tween.tween_callback(_show_hint.bind("You died. The sunlight killed you."))
+	tween.tween_interval(4.0)
+	tween.tween_callback(_show_hint.bind("This is what it is like to be a bat."))
+	tween.tween_interval(4.0)
+	tween.tween_callback(SceneLoader.load_scene.bind(main_menu_scene))
+	
+func _game_won_screen():
+	var tween = create_tween()
+	tween.tween_callback($UI.fade_to_black)
+	tween.tween_interval(1.0)
+	tween.tween_callback(_show_hint.bind("You made it back to your cave. Good job."))
 	tween.tween_interval(4.0)
 	tween.tween_callback(_show_hint.bind("This is what it is like to be a bat."))
 	tween.tween_interval(4.0)
