@@ -5,7 +5,7 @@ extends Node3D
 var game_time = 0.0;
 var pulse_sources: Array[Vector4];
 var pulse_sources_dirty = true;
-var pulse_sources_tex: Texture2DRD = Texture2DRD.new();
+var pulse_sources_tex: ImageTexture = ImageTexture.new()
 var daylightcon = 0
 var is_outside = 0
 
@@ -15,8 +15,6 @@ var debug_enabled = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	RenderingServer.global_shader_parameter_set("pulse_sources", make_pulse_sources([]))
-	
 	_show_hint("Left click to chirp and see your surroundings", 2.0)
 	_show_hint("Use WASD to fly around", 7.0)
 	_show_hint("Space and control to fly up and down", 12.0)
@@ -142,23 +140,15 @@ func rm_old_pulses():
 			i += 1;
 
 func make_pulse_sources(sources: Array[Vector4]):
-	var fmt = RDTextureFormat.new();
-	fmt.height = 1;
 	# we have to have at least one pixel or godot errors at dev.texture_create
-	fmt.width = len(sources) + 1;
-	fmt.usage_bits |= RenderingDevice.TEXTURE_USAGE_SAMPLING_BIT;
-	fmt.format = RenderingDevice.DATA_FORMAT_R32G32B32A32_SFLOAT;
-	var dev = RenderingServer.get_rendering_device();
 	var data = PackedFloat32Array([0.0, 0.0, 0.0, 0.0]);
 	for source in sources:
 		data.push_back(source.x);
 		data.push_back(source.y);
 		data.push_back(source.z);
 		data.push_back(source.w);
-	#godot gives an error, so I guess we don't need to manually free this?
-	#if (pulse_sources_tex.texture_rd_rid.is_valid()):
-		#RenderingServer.get_rendering_device().free_rid(pulse_sources_tex.texture_rd_rid);
-	pulse_sources_tex.texture_rd_rid = dev.texture_create(fmt, RDTextureView.new(), [data.to_byte_array()]);
+	var img = Image.create_from_data(sources.size()+1, 1, false, Image.FORMAT_RGBAF, data.to_byte_array())
+	pulse_sources_tex.set_image(img)
 	return pulse_sources_tex
 
 func _on_chirp(pos: Vector3) -> void:
