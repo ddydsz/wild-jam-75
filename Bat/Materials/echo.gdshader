@@ -73,10 +73,6 @@ void fragment() {
 	}
 
 	ALBEDO = clamp(pulse + a - f - n, 0.0, 1.0) * color;
-	//ALBEDO = pulse_color;
-	//ALBEDO = frag_world.xyz;
-	//ALBEDO = FRAGCOORD.zzz;
-	//ALBEDO = vec3(SCREEN_UV, 0.0);
 }
 
 

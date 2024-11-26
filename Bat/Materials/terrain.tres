@@ -17,7 +17,7 @@ noise = SubResource("FastNoiseLite_7pi28")
 [resource]
 render_priority = 0
 shader = ExtResource("1_hskf7")
-shader_parameter/color = Color(0.150896, 0.165241, 0.231504, 1)
+shader_parameter/color = Color(0.1568, 0.179387, 0.28, 1)
 shader_parameter/fresnel_amount = 0.5
 shader_parameter/noise = 0.3
 shader_parameter/noise_texture = SubResource("NoiseTexture3D_abjfp")
