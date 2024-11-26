@@ -44,7 +44,7 @@ float pulse_intensity(vec3 src, float start_time, vec3 frag) {
 }
 
 void fragment() {
-	vec4 ndc = vec4((SCREEN_UV * 2.0) - 1.0, FRAGCOORD.z, 1.0);
+	vec4 ndc = vec4(SCREEN_UV * 2.0 - 1.0, FRAGCOORD.z * 2.0 - 1.0, 1.0);
 	vec4 frag_view = INV_PROJECTION_MATRIX * ndc;
 	frag_view /= frag_view.w;
 	vec4 frag_world = INV_VIEW_MATRIX * frag_view;
@@ -74,6 +74,9 @@ void fragment() {
 
 	ALBEDO = clamp(pulse + a - f - n, 0.0, 1.0) * color;
 	//ALBEDO = pulse_color;
+	//ALBEDO = frag_world.xyz;
+	//ALBEDO = FRAGCOORD.zzz;
+	//ALBEDO = vec3(SCREEN_UV, 0.0);
 }
 
 

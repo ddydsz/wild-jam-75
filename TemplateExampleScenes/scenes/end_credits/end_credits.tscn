@@ -34,59 +34,6 @@ stretch_mode = 5
 [node name="ScrollContainer" parent="." index="3"]
 scroll_vertical = 0
 
-[node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
-text = "[center][font_size=48]Collaborators[/font_size]
-
-[font_size=48]shuall[/font_size]
-[font_size=48]noodle[/font_size]
-[font_size=48]lydonious[/font_size]
-[font_size=48]dszak[/font_size]
-
-[font_size=48]Sourced / Unaffiliated[/font_size]
-[font_size=32]Sounds[/font_size]
-[font_size=24]Bats Hunting For Insects 8X Slower.wav (Bat Chirp)[/font_size]
-Author: digifishmusic
-Source: [url=https://freesound.org/s/43823/]freesound.org[/url]  
-License: Attribution 4.0
-
-[font_size=24]Electro Ambient Music: Suspension – Pulsating and Futuristic (music)[/font_size]
-Author: kjartan_abel
-Source: [url=https://freesound.org/s/531854/]freesound.org[/url]  
-License: Attribution 4.0
-
-[font_size=24]coup grave et sourd.aif (Taking Damage)[/font_size]
-Author: nicolasdrweski
-Source: [url=https://freesound.org/s/179969/]freesound.org[/url]  
-License: Attribution 4.0
-
-[font_size=24]apple.wav (Bat Munch)[/font_size]
-Author: Gorky173
-Source: [url=https://freesound.org/s/169188/]freesound.org[/url]  
-License: Creative Commons 0
-
-[font_size=32]Images[/font_size]
-[font_size=24]American Grasshopper (Grasshopper Texture)[/font_size]
-Author: digifishmusic
-Source: [url=http://birdphotos.com]birdphotos.com[/url]  
-License: Creative Commons [Attribution 3.0 Unported]
-
-[font_size=48]Tools[/font_size]
-[font_size=24]Godot[/font_size]
-Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
-Source: [url=https://godotengine.org/]godotengine.org[/url]  
-License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
-
-[font_size=24]Git[/font_size]
-Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
-Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
-License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
-
-[font_size=24]Godot Game Template[/font_size]
-Author: [url=https://github.com/Maaack/Godot-Game-Template/graphs/contributors]Marek Belski and contributors[/url]  
-Source: [url=https://github.com/Maaack/Godot-Game-Template]github: Godot-Game-Template[/url]  
-License: [url=LICENSE.txt]MIT License[/url]  
-[/center]"
-
 [node name="CenterContainer" type="CenterContainer" parent="." index="4"]
 layout_mode = 0
 anchor_right = 1.0
